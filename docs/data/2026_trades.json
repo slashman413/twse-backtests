@@ -1,6 +1,50 @@
 {
   "trades": [
     {
+      "ticker": "2464",
+      "buy_date": "2026-04-17",
+      "buy_price": 79.0,
+      "sell_date": "2026-04-20",
+      "sell_price": 86.9,
+      "shares": 632,
+      "pl": 4992.8,
+      "pl_pct": 10.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2338",
+      "buy_date": "2026-04-17",
+      "buy_price": 50.9,
+      "sell_date": "2026-04-20",
+      "sell_price": 49.9,
+      "shares": 982,
+      "pl": -982.0,
+      "pl_pct": -1.96,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6861",
+      "buy_date": "2026-04-17",
+      "buy_price": 161.5,
+      "sell_date": "2026-04-20",
+      "sell_price": 177.5,
+      "shares": 309,
+      "pl": 4944.0,
+      "pl_pct": 9.91,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2363",
+      "buy_date": "2026-04-17",
+      "buy_price": 54.4,
+      "sell_date": "2026-04-20",
+      "sell_price": 55.6,
+      "shares": 919,
+      "pl": 1102.8,
+      "pl_pct": 2.21,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "6108",
       "buy_date": "2026-04-17",
       "buy_price": 17.9,
@@ -20,6 +64,28 @@
       "shares": 899,
       "pl": 1438.4,
       "pl_pct": 2.88,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2436",
+      "buy_date": "2026-04-20",
+      "buy_price": 68.3,
+      "sell_date": "2026-04-21",
+      "sell_price": 75.1,
+      "shares": 732,
+      "pl": 4977.6,
+      "pl_pct": 9.96,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "9136",
+      "buy_date": "2026-04-20",
+      "buy_price": 10.7,
+      "sell_date": "2026-04-21",
+      "sell_price": 11.05,
+      "shares": 4672,
+      "pl": 1635.2,
+      "pl_pct": 3.27,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -45,25 +111,36 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "4755",
-      "buy_date": "2026-04-20",
-      "buy_price": 166.5,
-      "sell_date": "2026-04-21",
-      "sell_price": 166.0,
-      "shares": 300,
-      "pl": -150.0,
-      "pl_pct": -0.3,
+      "ticker": "2451",
+      "buy_date": "2026-04-21",
+      "buy_price": 265.5,
+      "sell_date": "2026-04-22",
+      "sell_price": 269.0,
+      "shares": 188,
+      "pl": 658.0,
+      "pl_pct": 1.32,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6753",
-      "buy_date": "2026-04-20",
-      "buy_price": 144.0,
-      "sell_date": "2026-04-21",
-      "sell_price": 142.0,
-      "shares": 347,
-      "pl": -694.0,
-      "pl_pct": -1.39,
+      "ticker": "044401",
+      "buy_date": "2026-04-21",
+      "buy_price": 0.88,
+      "sell_date": "2026-04-22",
+      "sell_price": 0.88,
+      "shares": 56818,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4934",
+      "buy_date": "2026-04-21",
+      "buy_price": 17.75,
+      "sell_date": "2026-04-22",
+      "sell_price": 17.4,
+      "shares": 2816,
+      "pl": -985.6,
+      "pl_pct": -1.97,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -78,25 +155,47 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "8261",
+      "ticker": "1471",
       "buy_date": "2026-04-21",
-      "buy_price": 128.0,
+      "buy_price": 13.05,
       "sell_date": "2026-04-22",
-      "sell_price": 128.0,
-      "shares": 390,
-      "pl": 0.0,
-      "pl_pct": 0.0,
+      "sell_price": 12.5,
+      "shares": 3831,
+      "pl": -2107.05,
+      "pl_pct": -4.21,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2444",
-      "buy_date": "2026-04-21",
-      "buy_price": 14.05,
-      "sell_date": "2026-04-22",
-      "sell_price": 14.15,
-      "shares": 3558,
-      "pl": 355.8,
-      "pl_pct": 0.71,
+      "ticker": "4967",
+      "buy_date": "2026-04-22",
+      "buy_price": 262.0,
+      "sell_date": "2026-04-23",
+      "sell_price": 250.0,
+      "shares": 190,
+      "pl": -2280.0,
+      "pl_pct": -4.58,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "048339",
+      "buy_date": "2026-04-22",
+      "buy_price": 0.83,
+      "sell_date": "2026-04-23",
+      "sell_price": 0.8,
+      "shares": 60240,
+      "pl": -1807.2,
+      "pl_pct": -3.61,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2338",
+      "buy_date": "2026-04-22",
+      "buy_price": 51.8,
+      "sell_date": "2026-04-23",
+      "sell_price": 48.6,
+      "shares": 965,
+      "pl": -3088.0,
+      "pl_pct": -6.18,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -111,25 +210,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "9105",
+      "ticker": "040866",
       "buy_date": "2026-04-22",
-      "buy_price": 6.06,
+      "buy_price": 1.6,
       "sell_date": "2026-04-23",
-      "sell_price": 5.73,
-      "shares": 8250,
-      "pl": -2722.5,
-      "pl_pct": -5.45,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 1.41,
+      "shares": 31249,
+      "pl": -5937.31,
+      "pl_pct": -11.88,
+      "sell_reason": "止損-11.9%"
     },
     {
-      "ticker": "2444",
-      "buy_date": "2026-04-22",
-      "buy_price": 14.15,
-      "sell_date": "2026-04-23",
-      "sell_price": 13.9,
-      "shares": 3533,
-      "pl": -883.25,
-      "pl_pct": -1.77,
+      "ticker": "3010",
+      "buy_date": "2026-04-23",
+      "buy_price": 141.0,
+      "sell_date": "2026-04-24",
+      "sell_price": 136.0,
+      "shares": 354,
+      "pl": -1770.0,
+      "pl_pct": -3.55,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -152,6 +251,17 @@
       "shares": 1785,
       "pl": -178.5,
       "pl_pct": -0.36,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "0056",
+      "buy_date": "2026-04-23",
+      "buy_price": 40.65,
+      "sell_date": "2026-04-24",
+      "sell_price": 40.95,
+      "shares": 1230,
+      "pl": 369.0,
+      "pl_pct": 0.74,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -199,6 +309,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "2243",
+      "buy_date": "2026-04-24",
+      "buy_price": 24.25,
+      "sell_date": "2026-04-27",
+      "sell_price": 24.95,
+      "shares": 2061,
+      "pl": 1442.7,
+      "pl_pct": 2.89,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "7788",
       "buy_date": "2026-04-24",
       "buy_price": 170.0,
@@ -243,25 +364,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "051439",
+      "ticker": "1708",
       "buy_date": "2026-04-27",
-      "buy_price": 1.31,
+      "buy_price": 40.44,
       "sell_date": "2026-04-28",
-      "sell_price": 1.23,
-      "shares": 38167,
-      "pl": -3053.36,
-      "pl_pct": -6.11,
+      "sell_price": 40.11,
+      "shares": 1236,
+      "pl": -410.66,
+      "pl_pct": -0.82,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6165",
+      "ticker": "3033",
       "buy_date": "2026-04-27",
-      "buy_price": 52.0,
+      "buy_price": 35.65,
       "sell_date": "2026-04-28",
-      "sell_price": 50.5,
-      "shares": 961,
-      "pl": -1441.5,
-      "pl_pct": -2.88,
+      "sell_price": 36.2,
+      "shares": 1402,
+      "pl": 771.1,
+      "pl_pct": 1.54,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -276,25 +397,212 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "3135",
+      "ticker": "3033",
       "buy_date": "2026-04-28",
-      "buy_price": 140.0,
+      "buy_price": 36.2,
       "sell_date": "2026-04-29",
-      "sell_price": 144.5,
-      "shares": 357,
-      "pl": 1606.5,
-      "pl_pct": 3.21,
+      "sell_price": 35.85,
+      "shares": 1381,
+      "pl": -483.35,
+      "pl_pct": -0.97,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "3090",
+      "ticker": "3006",
+      "buy_date": "2026-04-28",
+      "buy_price": 184.5,
+      "sell_date": "2026-04-29",
+      "sell_price": 175.0,
+      "shares": 271,
+      "pl": -2574.5,
+      "pl_pct": -5.15,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2408",
+      "buy_date": "2026-04-28",
+      "buy_price": 237.5,
+      "sell_date": "2026-04-29",
+      "sell_price": 235.0,
+      "shares": 210,
+      "pl": -525.0,
+      "pl_pct": -1.05,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "043891",
+      "buy_date": "2026-04-28",
+      "buy_price": 4.9,
+      "sell_date": "2026-04-29",
+      "sell_price": 5.15,
+      "shares": 10204,
+      "pl": 2551.0,
+      "pl_pct": 5.1,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2027",
+      "buy_date": "2026-04-29",
+      "buy_price": 38.45,
+      "sell_date": "2026-04-30",
+      "sell_price": 37.7,
+      "shares": 1300,
+      "pl": -975.0,
+      "pl_pct": -1.95,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2032",
+      "buy_date": "2026-04-29",
+      "buy_price": 16.55,
+      "sell_date": "2026-04-30",
+      "sell_price": 16.0,
+      "shares": 3021,
+      "pl": -1661.55,
+      "pl_pct": -3.32,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3550",
+      "buy_date": "2026-04-30",
+      "buy_price": 21.3,
+      "sell_date": "2026-05-04",
+      "sell_price": 21.4,
+      "shares": 2347,
+      "pl": 234.7,
+      "pl_pct": 0.47,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4766",
+      "buy_date": "2026-04-30",
+      "buy_price": 358.5,
+      "sell_date": "2026-05-04",
+      "sell_price": 374.5,
+      "shares": 139,
+      "pl": 2224.0,
+      "pl_pct": 4.46,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6215",
+      "buy_date": "2026-04-30",
+      "buy_price": 111.0,
+      "sell_date": "2026-05-04",
+      "sell_price": 115.0,
+      "shares": 450,
+      "pl": 1800.0,
+      "pl_pct": 3.6,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6505",
+      "buy_date": "2026-04-30",
+      "buy_price": 56.4,
+      "sell_date": "2026-05-04",
+      "sell_price": 54.0,
+      "shares": 886,
+      "pl": -2126.4,
+      "pl_pct": -4.26,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1309",
+      "buy_date": "2026-04-30",
+      "buy_price": 20.8,
+      "sell_date": "2026-05-04",
+      "sell_price": 19.2,
+      "shares": 2403,
+      "pl": -3844.8,
+      "pl_pct": -7.69,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3312",
       "buy_date": "2026-05-11",
-      "buy_price": 116.5,
+      "buy_price": 44.5,
       "sell_date": "2026-05-12",
-      "sell_price": 120.5,
-      "shares": 429,
-      "pl": 1716.0,
-      "pl_pct": 3.43,
+      "sell_price": 45.6,
+      "shares": 1123,
+      "pl": 1235.3,
+      "pl_pct": 2.47,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2481",
+      "buy_date": "2026-05-11",
+      "buy_price": 109.0,
+      "sell_date": "2026-05-12",
+      "sell_price": 115.5,
+      "shares": 458,
+      "pl": 2977.0,
+      "pl_pct": 5.96,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2409",
+      "buy_date": "2026-05-11",
+      "buy_price": 18.85,
+      "sell_date": "2026-05-12",
+      "sell_price": 20.7,
+      "shares": 2652,
+      "pl": 4906.2,
+      "pl_pct": 9.81,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4952",
+      "buy_date": "2026-05-11",
+      "buy_price": 51.6,
+      "sell_date": "2026-05-12",
+      "sell_price": 51.0,
+      "shares": 968,
+      "pl": -580.8,
+      "pl_pct": -1.16,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4916",
+      "buy_date": "2026-05-11",
+      "buy_price": 67.0,
+      "sell_date": "2026-05-12",
+      "sell_price": 68.4,
+      "shares": 746,
+      "pl": 1044.4,
+      "pl_pct": 2.09,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2483",
+      "buy_date": "2026-05-12",
+      "buy_price": 24.6,
+      "sell_date": "2026-05-13",
+      "sell_price": 23.2,
+      "shares": 2032,
+      "pl": -2844.8,
+      "pl_pct": -5.69,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3010",
+      "buy_date": "2026-05-12",
+      "buy_price": 141.0,
+      "sell_date": "2026-05-13",
+      "sell_price": 132.0,
+      "shares": 354,
+      "pl": -3186.0,
+      "pl_pct": -6.38,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3014",
+      "buy_date": "2026-05-12",
+      "buy_price": 140.0,
+      "sell_date": "2026-05-13",
+      "sell_price": 137.5,
+      "shares": 357,
+      "pl": -892.5,
+      "pl_pct": -1.79,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -309,58 +617,124 @@
       "sell_reason": "止損-14.6%"
     },
     {
-      "ticker": "052030",
+      "ticker": "1714",
       "buy_date": "2026-05-12",
-      "buy_price": 1.4,
+      "buy_price": 10.25,
       "sell_date": "2026-05-13",
-      "sell_price": 1.29,
-      "shares": 35714,
-      "pl": -3928.54,
-      "pl_pct": -7.86,
+      "sell_price": 9.89,
+      "shares": 4878,
+      "pl": -1756.08,
+      "pl_pct": -3.51,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "051781",
-      "buy_date": "2026-05-12",
-      "buy_price": 1.72,
-      "sell_date": "2026-05-13",
-      "sell_price": 1.25,
-      "shares": 29069,
-      "pl": -13662.43,
-      "pl_pct": -27.33,
-      "sell_reason": "止損-27.3%"
-    },
-    {
-      "ticker": "053524",
-      "buy_date": "2026-05-12",
-      "buy_price": 0.87,
-      "sell_date": "2026-05-13",
-      "sell_price": 0.78,
-      "shares": 57471,
-      "pl": -5172.39,
-      "pl_pct": -10.34,
-      "sell_reason": "止損-10.3%"
-    },
-    {
-      "ticker": "051376",
-      "buy_date": "2026-05-14",
-      "buy_price": 2.43,
-      "sell_date": "2026-05-15",
-      "sell_price": 3.29,
-      "shares": 20576,
-      "pl": 17695.36,
-      "pl_pct": 35.39,
+      "ticker": "2324",
+      "buy_date": "2026-05-13",
+      "buy_price": 31.3,
+      "sell_date": "2026-05-14",
+      "sell_price": 30.25,
+      "shares": 1597,
+      "pl": -1676.85,
+      "pl_pct": -3.35,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "4739",
+      "ticker": "3673",
+      "buy_date": "2026-05-13",
+      "buy_price": 66.6,
+      "sell_date": "2026-05-14",
+      "sell_price": 64.3,
+      "shares": 750,
+      "pl": -1725.0,
+      "pl_pct": -3.45,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "00678",
+      "buy_date": "2026-05-13",
+      "buy_price": 36.43,
+      "sell_date": "2026-05-14",
+      "sell_price": 36.33,
+      "shares": 1372,
+      "pl": -137.2,
+      "pl_pct": -0.27,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3645",
+      "buy_date": "2026-05-13",
+      "buy_price": 108.5,
+      "sell_date": "2026-05-14",
+      "sell_price": 112.0,
+      "shares": 460,
+      "pl": 1610.0,
+      "pl_pct": 3.23,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2355",
       "buy_date": "2026-05-14",
-      "buy_price": 101.5,
+      "buy_price": 53.9,
       "sell_date": "2026-05-15",
-      "sell_price": 96.3,
-      "shares": 492,
-      "pl": -2558.4,
-      "pl_pct": -5.12,
+      "sell_price": 52.5,
+      "shares": 927,
+      "pl": -1297.8,
+      "pl_pct": -2.6,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4952",
+      "buy_date": "2026-05-14",
+      "buy_price": 52.0,
+      "sell_date": "2026-05-15",
+      "sell_price": 50.3,
+      "shares": 961,
+      "pl": -1633.7,
+      "pl_pct": -3.27,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "8039",
+      "buy_date": "2026-05-14",
+      "buy_price": 149.5,
+      "sell_date": "2026-05-15",
+      "sell_price": 144.0,
+      "shares": 334,
+      "pl": -1837.0,
+      "pl_pct": -3.68,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "8261",
+      "buy_date": "2026-05-14",
+      "buy_price": 136.0,
+      "sell_date": "2026-05-15",
+      "sell_price": 134.5,
+      "shares": 367,
+      "pl": -550.5,
+      "pl_pct": -1.1,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "5515",
+      "buy_date": "2026-05-14",
+      "buy_price": 40.95,
+      "sell_date": "2026-05-15",
+      "sell_price": 40.35,
+      "shares": 1221,
+      "pl": -732.6,
+      "pl_pct": -1.47,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "050702",
+      "buy_date": "2026-05-15",
+      "buy_price": 5.3,
+      "sell_date": "2026-05-18",
+      "sell_price": 5.5,
+      "shares": 9433,
+      "pl": 1886.6,
+      "pl_pct": 3.77,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -375,14 +749,58 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "055137",
+      "ticker": "6491",
       "buy_date": "2026-05-15",
-      "buy_price": 1.7,
+      "buy_price": 294.5,
       "sell_date": "2026-05-18",
-      "sell_price": 1.76,
-      "shares": 29411,
-      "pl": 1764.66,
-      "pl_pct": 3.53,
+      "sell_price": 293.0,
+      "shares": 169,
+      "pl": -253.5,
+      "pl_pct": -0.51,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1582",
+      "buy_date": "2026-05-15",
+      "buy_price": 99.4,
+      "sell_date": "2026-05-18",
+      "sell_price": 106.5,
+      "shares": 503,
+      "pl": 3571.3,
+      "pl_pct": 7.14,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "5484",
+      "buy_date": "2026-05-15",
+      "buy_price": 40.6,
+      "sell_date": "2026-05-18",
+      "sell_price": 41.4,
+      "shares": 1231,
+      "pl": 984.8,
+      "pl_pct": 1.97,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1582",
+      "buy_date": "2026-05-18",
+      "buy_price": 106.5,
+      "sell_date": "2026-05-19",
+      "sell_price": 117.0,
+      "shares": 469,
+      "pl": 4924.5,
+      "pl_pct": 9.86,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3338",
+      "buy_date": "2026-05-18",
+      "buy_price": 77.8,
+      "sell_date": "2026-05-19",
+      "sell_price": 73.4,
+      "shares": 642,
+      "pl": -2824.8,
+      "pl_pct": -5.66,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -397,37 +815,37 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "041742",
+      "ticker": "2376",
       "buy_date": "2026-05-18",
-      "buy_price": 0.98,
+      "buy_price": 330.5,
       "sell_date": "2026-05-19",
-      "sell_price": 0.85,
-      "shares": 51020,
-      "pl": -6632.6,
-      "pl_pct": -13.27,
-      "sell_reason": "止損-13.3%"
-    },
-    {
-      "ticker": "2390",
-      "buy_date": "2026-05-18",
-      "buy_price": 10.15,
-      "sell_date": "2026-05-19",
-      "sell_price": 9.92,
-      "shares": 4926,
-      "pl": -1132.98,
-      "pl_pct": -2.27,
+      "sell_price": 305.0,
+      "shares": 151,
+      "pl": -3850.5,
+      "pl_pct": -7.72,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "033639",
+      "ticker": "3563",
       "buy_date": "2026-05-18",
-      "buy_price": 0.34,
+      "buy_price": 893.0,
       "sell_date": "2026-05-19",
-      "sell_price": 0.22,
-      "shares": 147058,
-      "pl": -17646.96,
-      "pl_pct": -35.29,
-      "sell_reason": "止損-35.3%"
+      "sell_price": 853.0,
+      "shares": 55,
+      "pl": -2200.0,
+      "pl_pct": -4.48,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6491",
+      "buy_date": "2026-05-19",
+      "buy_price": 305.5,
+      "sell_date": "2026-05-20",
+      "sell_price": 303.0,
+      "shares": 163,
+      "pl": -407.5,
+      "pl_pct": -0.82,
+      "sell_reason": "月RSI4=50<77"
     },
     {
       "ticker": "068393",
@@ -441,6 +859,28 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "2413",
+      "buy_date": "2026-05-19",
+      "buy_price": 49.95,
+      "sell_date": "2026-05-20",
+      "sell_price": 49.3,
+      "shares": 1001,
+      "pl": -650.65,
+      "pl_pct": -1.3,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "045190",
+      "buy_date": "2026-05-19",
+      "buy_price": 1.04,
+      "sell_date": "2026-05-20",
+      "sell_price": 0.8,
+      "shares": 48076,
+      "pl": -11538.24,
+      "pl_pct": -23.08,
+      "sell_reason": "止損-23.1%"
+    },
+    {
       "ticker": "052680",
       "buy_date": "2026-05-19",
       "buy_price": 0.81,
@@ -449,6 +889,61 @@
       "shares": 61728,
       "pl": -4938.24,
       "pl_pct": -9.88,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "8081",
+      "buy_date": "2026-05-20",
+      "buy_price": 272.0,
+      "sell_date": "2026-05-21",
+      "sell_price": 274.0,
+      "shares": 183,
+      "pl": 366.0,
+      "pl_pct": 0.74,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "9933",
+      "buy_date": "2026-05-20",
+      "buy_price": 38.75,
+      "sell_date": "2026-05-21",
+      "sell_price": 39.6,
+      "shares": 1290,
+      "pl": 1096.5,
+      "pl_pct": 2.19,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3591",
+      "buy_date": "2026-05-20",
+      "buy_price": 25.9,
+      "sell_date": "2026-05-21",
+      "sell_price": 26.0,
+      "shares": 1930,
+      "pl": 193.0,
+      "pl_pct": 0.39,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "055500",
+      "buy_date": "2026-05-20",
+      "buy_price": 1.21,
+      "sell_date": "2026-05-21",
+      "sell_price": 1.62,
+      "shares": 41322,
+      "pl": 16942.02,
+      "pl_pct": 33.88,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "053033",
+      "buy_date": "2026-05-21",
+      "buy_price": 1.93,
+      "sell_date": "2026-05-22",
+      "sell_price": 1.92,
+      "shares": 25906,
+      "pl": -259.06,
+      "pl_pct": -0.52,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -463,6 +958,17 @@
       "sell_reason": "止損-14.6%"
     },
     {
+      "ticker": "3031",
+      "buy_date": "2026-05-21",
+      "buy_price": 33.6,
+      "sell_date": "2026-05-22",
+      "sell_price": 33.75,
+      "shares": 1488,
+      "pl": 223.2,
+      "pl_pct": 0.45,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "3563",
       "buy_date": "2026-05-21",
       "buy_price": 933.0,
@@ -474,58 +980,201 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2413",
+      "ticker": "035338",
       "buy_date": "2026-05-21",
-      "buy_price": 51.1,
+      "buy_price": 0.49,
       "sell_date": "2026-05-22",
-      "sell_price": 51.5,
-      "shares": 978,
-      "pl": 391.2,
-      "pl_pct": 0.78,
+      "sell_price": 0.53,
+      "shares": 102040,
+      "pl": 4081.6,
+      "pl_pct": 8.16,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "042882",
-      "buy_date": "2026-05-21",
-      "buy_price": 0.13,
-      "sell_date": "2026-05-22",
-      "sell_price": 0.16,
-      "shares": 384615,
-      "pl": 11538.45,
-      "pl_pct": 23.08,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2515",
-      "buy_date": "2026-05-21",
-      "buy_price": 13.85,
-      "sell_date": "2026-05-22",
-      "sell_price": 13.35,
-      "shares": 3610,
-      "pl": -1805.0,
-      "pl_pct": -3.61,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "049971",
+      "ticker": "6120",
       "buy_date": "2026-05-22",
-      "buy_price": 1.68,
-      "sell_date": "2026-05-26",
-      "sell_price": 2.18,
-      "shares": 29761,
-      "pl": 14880.51,
-      "pl_pct": 29.76,
+      "buy_price": 14.7,
+      "sell_date": "2026-05-25",
+      "sell_price": 15.15,
+      "shares": 3401,
+      "pl": 1530.45,
+      "pl_pct": 3.06,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "056147",
+      "ticker": "4927",
+      "buy_date": "2026-05-22",
+      "buy_price": 56.3,
+      "sell_date": "2026-05-25",
+      "sell_price": 61.9,
+      "shares": 888,
+      "pl": 4972.8,
+      "pl_pct": 9.95,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6456",
+      "buy_date": "2026-05-22",
+      "buy_price": 76.1,
+      "sell_date": "2026-05-25",
+      "sell_price": 74.6,
+      "shares": 657,
+      "pl": -985.5,
+      "pl_pct": -1.97,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6854",
+      "buy_date": "2026-05-22",
+      "buy_price": 169.5,
+      "sell_date": "2026-05-25",
+      "sell_price": 172.5,
+      "shares": 294,
+      "pl": 882.0,
+      "pl_pct": 1.77,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3051",
+      "buy_date": "2026-05-22",
+      "buy_price": 28.2,
+      "sell_date": "2026-05-25",
+      "sell_price": 30.8,
+      "shares": 1773,
+      "pl": 4609.8,
+      "pl_pct": 9.22,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6226",
       "buy_date": "2026-05-25",
-      "buy_price": 1.85,
+      "buy_price": 14.0,
       "sell_date": "2026-05-26",
-      "sell_price": 2.2,
-      "shares": 27027,
-      "pl": 9459.45,
-      "pl_pct": 18.92,
+      "sell_price": 13.3,
+      "shares": 3571,
+      "pl": -2499.7,
+      "pl_pct": -5.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3380",
+      "buy_date": "2026-05-25",
+      "buy_price": 35.8,
+      "sell_date": "2026-05-26",
+      "sell_price": 35.4,
+      "shares": 1396,
+      "pl": -558.4,
+      "pl_pct": -1.12,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3515",
+      "buy_date": "2026-05-25",
+      "buy_price": 245.0,
+      "sell_date": "2026-05-26",
+      "sell_price": 245.0,
+      "shares": 204,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2485",
+      "buy_date": "2026-05-25",
+      "buy_price": 76.7,
+      "sell_date": "2026-05-26",
+      "sell_price": 74.6,
+      "shares": 651,
+      "pl": -1367.1,
+      "pl_pct": -2.74,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2340",
+      "buy_date": "2026-05-25",
+      "buy_price": 39.7,
+      "sell_date": "2026-05-26",
+      "sell_price": 39.0,
+      "shares": 1259,
+      "pl": -881.3,
+      "pl_pct": -1.76,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2449",
+      "buy_date": "2026-05-26",
+      "buy_price": 338.5,
+      "sell_date": "2026-05-27",
+      "sell_price": 315.5,
+      "shares": 147,
+      "pl": -3381.0,
+      "pl_pct": -6.79,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2305",
+      "buy_date": "2026-05-26",
+      "buy_price": 20.8,
+      "sell_date": "2026-05-27",
+      "sell_price": 22.85,
+      "shares": 2403,
+      "pl": 4926.15,
+      "pl_pct": 9.86,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6202",
+      "buy_date": "2026-05-26",
+      "buy_price": 61.5,
+      "sell_date": "2026-05-27",
+      "sell_price": 60.4,
+      "shares": 813,
+      "pl": -894.3,
+      "pl_pct": -1.79,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6141",
+      "buy_date": "2026-05-26",
+      "buy_price": 35.75,
+      "sell_date": "2026-05-27",
+      "sell_price": 39.3,
+      "shares": 1398,
+      "pl": 4962.9,
+      "pl_pct": 9.93,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1513",
+      "buy_date": "2026-05-26",
+      "buy_price": 165.0,
+      "sell_date": "2026-05-27",
+      "sell_price": 169.0,
+      "shares": 303,
+      "pl": 1212.0,
+      "pl_pct": 2.42,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "8150",
+      "buy_date": "2026-05-27",
+      "buy_price": 93.9,
+      "sell_date": "2026-05-28",
+      "sell_price": 103.0,
+      "shares": 532,
+      "pl": 4841.2,
+      "pl_pct": 9.69,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4755",
+      "buy_date": "2026-05-27",
+      "buy_price": 162.5,
+      "sell_date": "2026-05-28",
+      "sell_price": 150.5,
+      "shares": 307,
+      "pl": -3684.0,
+      "pl_pct": -7.38,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -540,14 +1189,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "1513",
+      "ticker": "3003",
       "buy_date": "2026-05-27",
-      "buy_price": 169.0,
+      "buy_price": 62.9,
       "sell_date": "2026-05-28",
-      "sell_price": 165.5,
-      "shares": 295,
-      "pl": -1032.5,
-      "pl_pct": -2.07,
+      "sell_price": 62.2,
+      "shares": 794,
+      "pl": -555.8,
+      "pl_pct": -1.11,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "052222",
+      "buy_date": "2026-05-27",
+      "buy_price": 1.68,
+      "sell_date": "2026-05-28",
+      "sell_price": 2.12,
+      "shares": 29761,
+      "pl": 13094.84,
+      "pl_pct": 26.19,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -559,6 +1219,50 @@
       "shares": 1371,
       "pl": -891.15,
       "pl_pct": -1.78,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3380",
+      "buy_date": "2026-05-28",
+      "buy_price": 36.1,
+      "sell_date": "2026-05-29",
+      "sell_price": 38.6,
+      "shares": 1385,
+      "pl": 3462.5,
+      "pl_pct": 6.93,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1455",
+      "buy_date": "2026-05-28",
+      "buy_price": 8.61,
+      "sell_date": "2026-05-29",
+      "sell_price": 8.61,
+      "shares": 5807,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2497",
+      "buy_date": "2026-05-28",
+      "buy_price": 60.8,
+      "sell_date": "2026-05-29",
+      "sell_price": 59.7,
+      "shares": 822,
+      "pl": -904.2,
+      "pl_pct": -1.81,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "8070",
+      "buy_date": "2026-05-28",
+      "buy_price": 50.9,
+      "sell_date": "2026-05-29",
+      "sell_price": 52.5,
+      "shares": 982,
+      "pl": 1571.2,
+      "pl_pct": 3.14,
       "sell_reason": "月RSI4=50<77"
     }
   ],
@@ -635,42 +1339,42 @@
     },
     {
       "date": "2026-04-24",
-      "equity": 1004287.42,
+      "equity": 1008103.61,
       "type": "daily"
     },
     {
       "date": "2026-05-04",
-      "equity": 983693.08,
+      "equity": 986819.87,
       "type": "daily"
     },
     {
       "date": "2026-05-11",
-      "equity": 983693.08,
+      "equity": 986819.87,
       "type": "daily"
     },
     {
       "date": "2026-05-18",
-      "equity": 969904.25,
+      "equity": 976288.06,
       "type": "daily"
     },
     {
       "date": "2026-05-25",
-      "equity": 941158.42,
+      "equity": 979935.73,
       "type": "daily"
     },
     {
       "date": "2026-06-01",
-      "equity": 961654.73,
+      "equity": 996469.57,
       "type": "daily"
     },
     {
       "date": "2026-06-08",
-      "equity": 961654.73,
+      "equity": 996469.57,
       "type": "daily"
     },
     {
       "date": "2026-12-31",
-      "equity": 961654.73,
+      "equity": 996469.57,
       "type": "final"
     }
   ],
