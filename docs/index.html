@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台股回測儀表板 · TWSE Backtest</title>
+<style>
+  :root {
+    --bg: #0f172a; --card: #1e293b; --border: #334155;
+    --text: #e2e8f0; --muted: #94a3b8;
+    --green: #22c55e; --red: #ef4444; --yellow: #f59e0b;
+    --blue: #3b82f6; --purple: #a855f7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; padding: 20px; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .kpi-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .kpi-value { font-size: 1.8rem; font-weight: 700; }
+  .pos { color: var(--green); } .neg { color: var(--red); } .neu { color: var(--yellow); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th { text-align: right; padding: 8px 10px; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
+  th:first-child { text-align: left; }
+  th:hover { color: var(--text); }
+  td { padding: 8px 10px; border-bottom: 1px solid #1e293b; text-align: right; }
+  td:first-child { text-align: left; font-weight: 600; }
+  tr:hover td { background: #263148; }
+  .bar-wrap { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+  .bar { height: 6px; border-radius: 3px; min-width: 2px; }
+  .bar.pos { background: var(--green); }
+  .bar.neg { background: var(--red); }
+  canvas { max-width: 100%; }
+  #chart-wrapper { position: relative; height: 260px; }
+  .note { font-size: 0.75rem; color: var(--muted); margin-top: 12px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; }
+  .badge.pos { background: #14532d; color: var(--green); }
+  .badge.neg { background: #450a0a; color: var(--red); }
+  .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 1.1rem; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<h1>📈 台股量化回測儀表板</h1>
+<p class="subtitle">大飆股 DNA 策略 · 2004–2026 年度回測 · 各年獨立起始資金 100 萬</p>
+
+<div id="app"><div class="loading">⏳ 載入回測資料中...</div></div>
+
+<script>
+const DATA_URL = "data/summary.json";
+
+async function load() {
+  let data;
+  try {
+    const r = await fetch(DATA_URL);
+    if (!r.ok) throw new Error(r.status);
+    data = await r.json();
+  } catch(e) {
+    document.getElementById("app").innerHTML =
+      `<div class="loading">⚠️ 尚未有回測結果（先執行 <code>python crawler/run_backtest.py</code>）<br><small>${e}</small></div>`;
+    return;
+  }
+  render(data);
+}
+
+function fmt(n, d=1) {
+  return n == null ? "—" : (n >= 0 ? "+" : "") + n.toFixed(d) + "%";
+}
+function fmtPL(n) {
+  if (n == null) return "—";
+  const s = (n >= 0 ? "+" : "") + Math.abs(n).toLocaleString("zh-TW", {maximumFractionDigits:0});
+  return (n >= 0 ? "+" : "-") + Math.abs(n).toLocaleString("zh-TW", {maximumFractionDigits:0});
+}
+
+function render(rows) {
+  const pos = rows.filter(r => r.total_return_pct > 0).length;
+  const neg = rows.filter(r => r.total_return_pct <= 0).length;
+  const avgRet = rows.reduce((a,r) => a + r.total_return_pct, 0) / rows.length;
+  const avgWin = rows.reduce((a,r) => a + r.trade_win_rate, 0) / rows.length;
+  const best  = rows.reduce((a,r) => r.total_return_pct > a.total_return_pct ? r : a, rows[0]);
+  const worst = rows.reduce((a,r) => r.total_return_pct < a.total_return_pct ? r : a, rows[0]);
+  const totalTrades = rows.reduce((a,r) => a + r.trade_count, 0);
+
+  const kpis = [
+    { label:"年均報酬率", value: fmt(avgRet), cls: avgRet>=0?"pos":"neg" },
+    { label:"正報酬年份", value: `${pos}/${rows.length}`, cls:"pos" },
+    { label:"負報酬年份", value: `${neg}/${rows.length}`, cls: neg>0?"neg":"pos" },
+    { label:"平均勝率",  value: fmt(avgWin), cls:"neu" },
+    { label:"最佳年份",  value: `${best.year} (${fmt(best.total_return_pct)})`, cls:"pos" },
+    { label:"最差年份",  value: `${worst.year} (${fmt(worst.total_return_pct)})`, cls:"neg" },
+    { label:"總交易次數", value: totalTrades.toLocaleString(), cls:"neu" },
+    { label:"回測期間",  value: `${rows[0].year}–${rows[rows.length-1].year}`, cls:"neu" },
+  ];
+
+  // Sort state for table
+  let sortKey = "year", sortAsc = true;
+
+  function sortedRows() {
+    return [...rows].sort((a,b) => {
+      const av = a[sortKey], bv = b[sortKey];
+      return sortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+    });
+  }
+
+  const maxAbs = Math.max(...rows.map(r => Math.abs(r.total_return_pct)));
+
+  function tableHTML() {
+    const cols = [
+      { key:"year", label:"年份" },
+      { key:"total_return_pct", label:"報酬率" },
+      { key:"total_pl", label:"損益 (NT$)" },
+      { key:"trade_count", label:"交易次數" },
+      { key:"stocks_with_signals", label:"訊號股" },
+      { key:"trade_win_rate", label:"勝率" },
+    ];
+    const ths = cols.map(c =>
+      `<th data-key="${c.key}">${c.label}${sortKey===c.key?(sortAsc?" ▲":" ▼"):""}</th>`
+    ).join("");
+    const trs = sortedRows().map(r => {
+      const ret = r.total_return_pct;
+      const barW = Math.round(Math.abs(ret) / maxAbs * 80);
+      const cls = ret >= 0 ? "pos" : "neg";
+      return `<tr>
+        <td>${r.year}</td>
+        <td><span class="${cls}">${fmt(ret)}</span></td>
+        <td style="color:${ret>=0?'var(--green)':'var(--red)'}">
+          <div class="bar-wrap">
+            <span>${ret>=0?"+":"-"}${Math.abs(r.total_pl).toLocaleString("zh-TW",{maximumFractionDigits:0})}</span>
+            <div class="bar ${cls}" style="width:${barW}px"></div>
+          </div>
+        </td>
+        <td>${r.trade_count}</td>
+        <td>${r.stocks_with_signals}</td>
+        <td><span class="badge ${r.trade_win_rate>=50?'pos':'neg'}">${r.trade_win_rate.toFixed(1)}%</span></td>
+      </tr>`;
+    }).join("");
+    return `<table id="tbl"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+  }
+
+  document.getElementById("app").innerHTML = `
+    <div class="grid">${kpis.map(k=>`<div class="kpi"><div class="kpi-label">${k.label}</div><div class="kpi-value ${k.cls}">${k.value}</div></div>`).join("")}</div>
+    <div class="card">
+      <h2>年度報酬率走勢</h2>
+      <div id="chart-wrapper"><canvas id="chart"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>年度明細</h2>
+      <div id="table-wrap">${tableHTML()}</div>
+      <p class="note">⚠️ 各年獨立起始資金 100 萬，不複利累積。點擊欄標題排序。</p>
+    </div>
+  `;
+
+  // Sort click
+  document.getElementById("tbl").querySelectorAll("th").forEach(th => {
+    th.addEventListener("click", () => {
+      const k = th.dataset.key;
+      if (sortKey === k) sortAsc = !sortAsc;
+      else { sortKey = k; sortAsc = false; }
+      document.getElementById("table-wrap").innerHTML = tableHTML();
+      document.getElementById("tbl").querySelectorAll("th").forEach(t2 => {
+        t2.addEventListener("click", arguments.callee); // re-bind handled by outer closure
+      });
+      attachSort();
+    });
+  });
+
+  function attachSort() {
+    document.getElementById("tbl").querySelectorAll("th").forEach(th => {
+      th.addEventListener("click", () => {
+        const k = th.dataset.key;
+        if (sortKey === k) sortAsc = !sortAsc;
+        else { sortKey = k; sortAsc = false; }
+        document.getElementById("table-wrap").innerHTML = tableHTML();
+        attachSort();
+      });
+    });
+  }
+  attachSort();
+
+  // Chart
+  drawChart(rows);
+}
+
+function drawChart(rows) {
+  const canvas = document.getElementById("chart");
+  const W = canvas.parentElement.clientWidth;
+  const H = 260;
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext("2d");
+
+  const pad = { l:50, r:20, t:20, b:30 };
+  const cw = W - pad.l - pad.r;
+  const ch = H - pad.t - pad.b;
+
+  const vals = rows.map(r => r.total_return_pct);
+  const maxV = Math.max(...vals, 5);
+  const minV = Math.min(...vals, -5);
+  const range = maxV - minV || 1;
+
+  function fy(v) { return pad.t + ch * (1 - (v - minV) / range); }
+  function fx(i) { return pad.l + (i / (rows.length - 1)) * cw; }
+
+  // Zero line
+  const zy = fy(0);
+  ctx.strokeStyle = "#334155"; ctx.lineWidth = 1;
+  ctx.setLineDash([4,4]);
+  ctx.beginPath(); ctx.moveTo(pad.l, zy); ctx.lineTo(pad.l+cw, zy); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Bars
+  const bw = Math.max(4, cw / rows.length - 3);
+  rows.forEach((r, i) => {
+    const x = fx(i) - bw/2;
+    const v = r.total_return_pct;
+    const y1 = fy(Math.max(v,0));
+    const y2 = fy(Math.min(v,0));
+    ctx.fillStyle = v >= 0 ? "rgba(34,197,94,0.8)" : "rgba(239,68,68,0.8)";
+    ctx.fillRect(x, Math.min(y1,y2), bw, Math.abs(y1-y2) || 2);
+  });
+
+  // X axis labels
+  ctx.fillStyle = "#64748b"; ctx.font = "11px system-ui"; ctx.textAlign = "center";
+  rows.forEach((r, i) => {
+    if (i % 2 === 0 || rows.length <= 10) {
+      ctx.fillText(r.year, fx(i), H - 8);
+    }
+  });
+
+  // Y axis
+  ctx.textAlign = "right";
+  [-20,-10,0,10,20,30].forEach(v => {
+    if (v < minV || v > maxV) return;
+    const y = fy(v);
+    ctx.fillStyle = "#64748b";
+    ctx.fillText(v + "%", pad.l - 6, y + 4);
+    ctx.strokeStyle = "#1e293b"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l+cw, y); ctx.stroke();
+  });
+}
+
+load();
+</script>
+</body>
+</html>

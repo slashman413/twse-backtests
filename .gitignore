@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.env
+ig_creds.json
+threads_chrome_session.json
+ig_session.json
+*.log
+core/__pycache__/
+crawler/__pycache__/
+tests/__pycache__/
