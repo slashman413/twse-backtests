@@ -44,7 +44,7 @@ MKT_ADX_MIN     = 20          # 0050 ADX must exceed this for BULL classificatio
 MIN_AVG_VOL_LOTS = 300        # Min 20-day avg daily volume in lots (張); Adj_Volume in shares ÷ 1000
 MKT_VOL_GATE    = 0.25        # 0050 20-day realized vol > this → suppress new entries
 RVOL_MIN        = 1.2         # Breakout day volume must be ≥ 1.2× its 20-day average
-# ATR_RATIO_MIN removed in v9 — over-filtered 2026/2014; RVOL gate alone is sufficient
+ATR_RATIO_MIN   = 1.0         # v9b: relaxed from 1.3 to reduce over-filtering in trend years
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
@@ -261,7 +261,8 @@ def process_year(year: int):
             (cl[warmup:]          > h20[warmup:])  &
             (cl[warmup:]          > 0)             &
             (avl[warmup:]         >= MIN_AVG_VOL_LOTS) &
-            (rvol_arr[warmup:]    >= RVOL_MIN)
+            (rvol_arr[warmup:]    >= RVOL_MIN)     &
+            (atr_[warmup:]        >= ATR_RATIO_MIN)
         )
         for rel_i in np.where(valid_mask)[0]:
             i = rel_i + warmup
