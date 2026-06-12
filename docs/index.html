@@ -23,11 +23,11 @@
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
   .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
   table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-  th { text-align: right; padding: 8px 10px; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
-  th:first-child { text-align: left; }
+  th { text-align: right; padding: 8px 10px; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
+  th:first-child, th:nth-child(2) { text-align: left; }
   th:hover { color: var(--text); }
-  td { padding: 8px 10px; border-bottom: 1px solid #1e293b; text-align: right; }
-  td:first-child { text-align: left; font-weight: 600; }
+  td { padding: 8px 10px; border-bottom: 1px solid #1e293b; text-align: right; white-space: nowrap; }
+  td:first-child, td:nth-child(2) { text-align: left; }
   tr:hover td { background: #263148; }
   .bar-wrap { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
   .bar { height: 6px; border-radius: 3px; min-width: 2px; }
@@ -40,6 +40,26 @@
   .badge.pos { background: #14532d; color: var(--green); }
   .badge.neg { background: #450a0a; color: var(--red); }
   .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 1.1rem; }
+  /* Year tabs */
+  .year-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .ytab { padding: 4px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--border); background: transparent; color: var(--muted); transition: all .15s; }
+  .ytab:hover { border-color: var(--blue); color: var(--blue); }
+  .ytab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .ytab.pos-year { border-color: #14532d; color: var(--green); }
+  .ytab.pos-year.active { background: var(--green); border-color: var(--green); color: #000; }
+  .ytab.neg-year { border-color: #450a0a; color: var(--red); }
+  .ytab.neg-year.active { background: var(--red); border-color: var(--red); color: #fff; }
+  /* Trade table specific */
+  .trade-ticker { font-weight: 700; font-size: 0.85rem; }
+  .trade-name { color: var(--muted); font-size: 0.78rem; }
+  .trade-stats { display: flex; gap: 20px; margin-bottom: 12px; flex-wrap: wrap; }
+  .trade-stat { font-size: 0.85rem; }
+  .trade-stat span { color: var(--muted); margin-right: 4px; }
+  .tbl-scroll { overflow-x: auto; }
+  #trade-search { background: #263148; border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); padding: 6px 12px; font-size: 0.85rem; margin-bottom: 12px; width: 100%; max-width: 300px; }
+  #trade-search::placeholder { color: var(--muted); }
   @media (max-width: 600px) { .grid { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
@@ -50,52 +70,69 @@
 <div id="app"><div class="loading">⏳ 載入回測資料中...</div></div>
 
 <script>
-const DATA_URL = "data/summary.json";
+const SUMMARY_URL    = "data/summary.json";
+const NAMES_URL      = "data/stock_names.json";
+const TRADES_URL     = y => `data/${y}_trades.json`;
 
+let summaryData = [];
+let stockNames  = {};
+let tradeCache  = {};   // year -> {trades, equity_curve}
+let activeYear  = null;
+
+// ── Formatting helpers ──────────────────────────────────────────────────────
+function fmt(n, d=1) {
+  return n == null ? "—" : (n >= 0 ? "+" : "") + n.toFixed(d) + "%";
+}
+function fmtMoney(n) {
+  if (n == null) return "—";
+  const abs = Math.abs(n).toLocaleString("zh-TW", {maximumFractionDigits:0});
+  return (n >= 0 ? "+" : "-") + abs;
+}
+function shortName(full) {
+  if (!full) return "";
+  return full.replace(/股份有限公司$/, "").replace(/有限公司$/, "").replace(/股份$/, "").trim();
+}
+
+// ── Bootstrap ───────────────────────────────────────────────────────────────
 async function load() {
-  let data;
   try {
-    const r = await fetch(DATA_URL);
-    if (!r.ok) throw new Error(r.status);
-    data = await r.json();
+    const [sumRes, nameRes] = await Promise.all([fetch(SUMMARY_URL), fetch(NAMES_URL)]);
+    if (!sumRes.ok) throw new Error("summary.json " + sumRes.status);
+    summaryData = await sumRes.json();
+    if (nameRes.ok) stockNames = await nameRes.json();
   } catch(e) {
     document.getElementById("app").innerHTML =
       `<div class="loading">⚠️ 尚未有回測結果（先執行 <code>python crawler/run_backtest.py</code>）<br><small>${e}</small></div>`;
     return;
   }
-  render(data);
+  renderSummary();
+  // Default: select most recent year with data
+  const yr = summaryData[summaryData.length - 1].year;
+  loadTradeYear(yr);
 }
 
-function fmt(n, d=1) {
-  return n == null ? "—" : (n >= 0 ? "+" : "") + n.toFixed(d) + "%";
-}
-function fmtPL(n) {
-  if (n == null) return "—";
-  const s = (n >= 0 ? "+" : "") + Math.abs(n).toLocaleString("zh-TW", {maximumFractionDigits:0});
-  return (n >= 0 ? "+" : "-") + Math.abs(n).toLocaleString("zh-TW", {maximumFractionDigits:0});
-}
-
-function render(rows) {
-  const pos = rows.filter(r => r.total_return_pct > 0).length;
-  const neg = rows.filter(r => r.total_return_pct <= 0).length;
+// ── Summary view ─────────────────────────────────────────────────────────────
+function renderSummary() {
+  const rows  = summaryData;
+  const pos   = rows.filter(r => r.total_return_pct > 0).length;
+  const neg   = rows.filter(r => r.total_return_pct <= 0).length;
   const avgRet = rows.reduce((a,r) => a + r.total_return_pct, 0) / rows.length;
   const avgWin = rows.reduce((a,r) => a + r.trade_win_rate, 0) / rows.length;
-  const best  = rows.reduce((a,r) => r.total_return_pct > a.total_return_pct ? r : a, rows[0]);
-  const worst = rows.reduce((a,r) => r.total_return_pct < a.total_return_pct ? r : a, rows[0]);
+  const best   = rows.reduce((a,r) => r.total_return_pct > a.total_return_pct ? r : a, rows[0]);
+  const worst  = rows.reduce((a,r) => r.total_return_pct < a.total_return_pct ? r : a, rows[0]);
   const totalTrades = rows.reduce((a,r) => a + r.trade_count, 0);
 
   const kpis = [
-    { label:"年均報酬率", value: fmt(avgRet), cls: avgRet>=0?"pos":"neg" },
-    { label:"正報酬年份", value: `${pos}/${rows.length}`, cls:"pos" },
-    { label:"負報酬年份", value: `${neg}/${rows.length}`, cls: neg>0?"neg":"pos" },
-    { label:"平均勝率",  value: fmt(avgWin), cls:"neu" },
-    { label:"最佳年份",  value: `${best.year} (${fmt(best.total_return_pct)})`, cls:"pos" },
-    { label:"最差年份",  value: `${worst.year} (${fmt(worst.total_return_pct)})`, cls:"neg" },
-    { label:"總交易次數", value: totalTrades.toLocaleString(), cls:"neu" },
-    { label:"回測期間",  value: `${rows[0].year}–${rows[rows.length-1].year}`, cls:"neu" },
+    { label:"年均報酬率",  value: fmt(avgRet),  cls: avgRet>=0?"pos":"neg" },
+    { label:"正報酬年份",  value: `${pos}/${rows.length}`, cls:"pos" },
+    { label:"負報酬年份",  value: `${neg}/${rows.length}`, cls: neg>0?"neg":"pos" },
+    { label:"平均勝率",    value: fmt(avgWin),  cls:"neu" },
+    { label:"最佳年份",    value: `${best.year} (${fmt(best.total_return_pct)})`, cls:"pos" },
+    { label:"最差年份",    value: `${worst.year} (${fmt(worst.total_return_pct)})`, cls:"neg" },
+    { label:"總交易次數",  value: totalTrades.toLocaleString(), cls:"neu" },
+    { label:"回測期間",    value: `${rows[0].year}–${rows[rows.length-1].year}`, cls:"neu" },
   ];
 
-  // Sort state for table
   let sortKey = "year", sortAsc = true;
 
   function sortedRows() {
@@ -107,14 +144,14 @@ function render(rows) {
 
   const maxAbs = Math.max(...rows.map(r => Math.abs(r.total_return_pct)));
 
-  function tableHTML() {
+  function summaryTableHTML() {
     const cols = [
-      { key:"year", label:"年份" },
+      { key:"year",             label:"年份" },
       { key:"total_return_pct", label:"報酬率" },
-      { key:"total_pl", label:"損益 (NT$)" },
-      { key:"trade_count", label:"交易次數" },
+      { key:"total_pl",         label:"損益 (NT$)" },
+      { key:"trade_count",      label:"交易次數" },
       { key:"stocks_with_signals", label:"訊號股" },
-      { key:"trade_win_rate", label:"勝率" },
+      { key:"trade_win_rate",   label:"勝率" },
     ];
     const ths = cols.map(c =>
       `<th data-key="${c.key}">${c.label}${sortKey===c.key?(sortAsc?" ▲":" ▼"):""}</th>`
@@ -123,12 +160,12 @@ function render(rows) {
       const ret = r.total_return_pct;
       const barW = Math.round(Math.abs(ret) / maxAbs * 80);
       const cls = ret >= 0 ? "pos" : "neg";
-      return `<tr>
+      return `<tr class="sum-row" data-year="${r.year}" style="cursor:pointer">
         <td>${r.year}</td>
         <td><span class="${cls}">${fmt(ret)}</span></td>
         <td style="color:${ret>=0?'var(--green)':'var(--red)'}">
           <div class="bar-wrap">
-            <span>${ret>=0?"+":"-"}${Math.abs(r.total_pl).toLocaleString("zh-TW",{maximumFractionDigits:0})}</span>
+            <span>${fmtMoney(r.total_pl)}</span>
             <div class="bar ${cls}" style="width:${barW}px"></div>
           </div>
         </td>
@@ -137,7 +174,7 @@ function render(rows) {
         <td><span class="badge ${r.trade_win_rate>=50?'pos':'neg'}">${r.trade_win_rate.toFixed(1)}%</span></td>
       </tr>`;
     }).join("");
-    return `<table id="tbl"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+    return `<table id="sum-tbl"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
   }
 
   document.getElementById("app").innerHTML = `
@@ -147,43 +184,167 @@ function render(rows) {
       <div id="chart-wrapper"><canvas id="chart"></canvas></div>
     </div>
     <div class="card">
-      <h2>年度明細</h2>
-      <div id="table-wrap">${tableHTML()}</div>
-      <p class="note">⚠️ 各年獨立起始資金 100 萬，不複利累積。點擊欄標題排序。</p>
+      <h2>年度摘要 <small style="font-size:.75rem;color:var(--muted);font-weight:400">（點選年份查看交易明細）</small></h2>
+      <div id="sum-table-wrap">${summaryTableHTML()}</div>
+      <p class="note">⚠️ 各年獨立起始資金 100 萬，不複利累積。點擊欄標題排序；點擊列查看該年明細。</p>
+    </div>
+    <div class="card" id="trade-card">
+      <h2 id="trade-title">年度買賣明細</h2>
+      <div id="trade-wrap"><div class="loading" style="padding:20px">← 點選上方年份列</div></div>
     </div>
   `;
 
-  // Sort click
-  document.getElementById("tbl").querySelectorAll("th").forEach(th => {
-    th.addEventListener("click", () => {
-      const k = th.dataset.key;
-      if (sortKey === k) sortAsc = !sortAsc;
-      else { sortKey = k; sortAsc = false; }
-      document.getElementById("table-wrap").innerHTML = tableHTML();
-      document.getElementById("tbl").querySelectorAll("th").forEach(t2 => {
-        t2.addEventListener("click", arguments.callee); // re-bind handled by outer closure
-      });
-      attachSort();
-    });
-  });
-
   function attachSort() {
-    document.getElementById("tbl").querySelectorAll("th").forEach(th => {
+    document.getElementById("sum-tbl").querySelectorAll("th").forEach(th => {
       th.addEventListener("click", () => {
         const k = th.dataset.key;
         if (sortKey === k) sortAsc = !sortAsc;
         else { sortKey = k; sortAsc = false; }
-        document.getElementById("table-wrap").innerHTML = tableHTML();
-        attachSort();
+        document.getElementById("sum-table-wrap").innerHTML = summaryTableHTML();
+        attachSort(); attachRowClick();
       });
     });
   }
-  attachSort();
 
-  // Chart
+  function attachRowClick() {
+    document.querySelectorAll(".sum-row").forEach(tr => {
+      tr.addEventListener("click", () => loadTradeYear(+tr.dataset.year));
+    });
+  }
+
+  attachSort(); attachRowClick();
   drawChart(rows);
 }
 
+// ── Trade detail view ────────────────────────────────────────────────────────
+async function loadTradeYear(year) {
+  activeYear = year;
+  document.getElementById("trade-title").textContent = `${year} 年 買賣明細`;
+  document.getElementById("trade-wrap").innerHTML = `<div class="loading" style="padding:20px">⏳ 載入 ${year} 年交易紀錄...</div>`;
+  document.getElementById("trade-card").scrollIntoView({behavior:"smooth", block:"start"});
+
+  if (!tradeCache[year]) {
+    try {
+      const r = await fetch(TRADES_URL(year));
+      if (!r.ok) throw new Error(r.status);
+      tradeCache[year] = await r.json();
+    } catch(e) {
+      document.getElementById("trade-wrap").innerHTML = `<div class="loading" style="padding:20px">⚠️ 無法載入 ${year} 年資料<br><small>${e}</small></div>`;
+      return;
+    }
+  }
+
+  renderTrades(year, tradeCache[year].trades || []);
+}
+
+function renderTrades(year, trades) {
+  const sumRow = summaryData.find(r => r.year === year) || {};
+  const wins   = trades.filter(t => t.pl > 0).length;
+  const losses = trades.filter(t => t.pl <= 0).length;
+  const totalPL = trades.reduce((a,t) => a + (t.pl || 0), 0);
+  const avgPct  = trades.length ? trades.reduce((a,t) => a + (t.pl_pct || 0), 0) / trades.length : 0;
+
+  let filterText = "";
+  let sortKey2 = "buy_date", sortAsc2 = true;
+
+  function filteredTrades() {
+    const q = filterText.trim().toLowerCase();
+    const result = q
+      ? trades.filter(t =>
+          t.ticker.includes(q) ||
+          (stockNames[t.ticker] || "").toLowerCase().includes(q) ||
+          (t.sell_reason || "").toLowerCase().includes(q)
+        )
+      : [...trades];
+    return result.sort((a,b) => {
+      let av = a[sortKey2], bv = b[sortKey2];
+      if (av == null) av = ""; if (bv == null) bv = "";
+      if (typeof av === "string") return sortAsc2 ? av.localeCompare(bv) : bv.localeCompare(av);
+      return sortAsc2 ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+    });
+  }
+
+  function tradeTableHTML() {
+    const cols = [
+      { key:"ticker",    label:"代號/名稱" },
+      { key:"buy_date",  label:"買入日" },
+      { key:"sell_date", label:"賣出日" },
+      { key:"buy_price", label:"買入價" },
+      { key:"sell_price",label:"賣出價" },
+      { key:"shares",    label:"股數" },
+      { key:"pl",        label:"損益 (NT$)" },
+      { key:"pl_pct",    label:"報酬率" },
+      { key:"sell_reason", label:"賣出原因" },
+    ];
+    const ths = cols.map(c =>
+      `<th data-col="${c.key}">${c.label}${sortKey2===c.key?(sortAsc2?" ▲":" ▼"):""}</th>`
+    ).join("");
+
+    const rows = filteredTrades();
+    const trs = rows.map(t => {
+      const name  = shortName(stockNames[t.ticker] || "");
+      const cls   = t.pl >= 0 ? "pos" : "neg";
+      return `<tr>
+        <td><div class="trade-ticker">${t.ticker}</div><div class="trade-name">${name}</div></td>
+        <td>${t.buy_date}</td>
+        <td>${t.sell_date}</td>
+        <td>${t.buy_price != null ? t.buy_price.toFixed(2) : "—"}</td>
+        <td>${t.sell_price != null ? t.sell_price.toFixed(2) : "—"}</td>
+        <td>${t.shares != null ? t.shares.toLocaleString() : "—"}</td>
+        <td class="${cls}">${fmtMoney(t.pl)}</td>
+        <td><span class="badge ${cls}">${t.pl_pct != null ? fmt(t.pl_pct) : "—"}</span></td>
+        <td style="color:var(--muted);font-size:.78rem">${t.sell_reason || ""}</td>
+      </tr>`;
+    }).join("");
+
+    return `
+      <table id="trade-tbl">
+        <thead><tr>${ths}</tr></thead>
+        <tbody>${trs}</tbody>
+      </table>
+      <p class="note" style="margin-top:8px">顯示 ${rows.length} / ${trades.length} 筆交易</p>
+    `;
+  }
+
+  const statsHTML = `
+    <div class="trade-stats">
+      <div class="trade-stat"><span>交易筆數</span>${trades.length}</div>
+      <div class="trade-stat"><span>獲利</span><span class="pos">${wins}</span></div>
+      <div class="trade-stat"><span>虧損</span><span class="neg">${losses}</span></div>
+      <div class="trade-stat"><span>總損益</span><span class="${totalPL>=0?'pos':'neg'}">${fmtMoney(totalPL)}</span></div>
+      <div class="trade-stat"><span>平均報酬率</span><span class="${avgPct>=0?'pos':'neg'}">${fmt(avgPct)}</span></div>
+      <div class="trade-stat"><span>勝率</span>${trades.length ? (wins/trades.length*100).toFixed(1)+"%" : "—"}</div>
+    </div>
+  `;
+
+  document.getElementById("trade-wrap").innerHTML = `
+    ${statsHTML}
+    <input id="trade-search" type="text" placeholder="搜尋代號/名稱/原因...">
+    <div class="tbl-scroll" id="trade-tbl-wrap">${tradeTableHTML()}</div>
+  `;
+
+  function attachTradeSort() {
+    document.getElementById("trade-tbl").querySelectorAll("th").forEach(th => {
+      th.addEventListener("click", () => {
+        const k = th.dataset.col;
+        if (sortKey2 === k) sortAsc2 = !sortAsc2;
+        else { sortKey2 = k; sortAsc2 = false; }
+        document.getElementById("trade-tbl-wrap").innerHTML = tradeTableHTML();
+        attachTradeSort();
+      });
+    });
+  }
+
+  document.getElementById("trade-search").addEventListener("input", e => {
+    filterText = e.target.value;
+    document.getElementById("trade-tbl-wrap").innerHTML = tradeTableHTML();
+    attachTradeSort();
+  });
+
+  attachTradeSort();
+}
+
+// ── Bar chart ────────────────────────────────────────────────────────────────
 function drawChart(rows) {
   const canvas = document.getElementById("chart");
   const W = canvas.parentElement.clientWidth;
@@ -191,7 +352,7 @@ function drawChart(rows) {
   canvas.width = W; canvas.height = H;
   const ctx = canvas.getContext("2d");
 
-  const pad = { l:50, r:20, t:20, b:30 };
+  const pad = { l:55, r:20, t:20, b:30 };
   const cw = W - pad.l - pad.r;
   const ch = H - pad.t - pad.b;
 
@@ -203,14 +364,12 @@ function drawChart(rows) {
   function fy(v) { return pad.t + ch * (1 - (v - minV) / range); }
   function fx(i) { return pad.l + (i / (rows.length - 1)) * cw; }
 
-  // Zero line
   const zy = fy(0);
   ctx.strokeStyle = "#334155"; ctx.lineWidth = 1;
   ctx.setLineDash([4,4]);
   ctx.beginPath(); ctx.moveTo(pad.l, zy); ctx.lineTo(pad.l+cw, zy); ctx.stroke();
   ctx.setLineDash([]);
 
-  // Bars
   const bw = Math.max(4, cw / rows.length - 3);
   rows.forEach((r, i) => {
     const x = fx(i) - bw/2;
@@ -221,18 +380,15 @@ function drawChart(rows) {
     ctx.fillRect(x, Math.min(y1,y2), bw, Math.abs(y1-y2) || 2);
   });
 
-  // X axis labels
   ctx.fillStyle = "#64748b"; ctx.font = "11px system-ui"; ctx.textAlign = "center";
   rows.forEach((r, i) => {
-    if (i % 2 === 0 || rows.length <= 10) {
+    if (i % 2 === 0 || rows.length <= 10)
       ctx.fillText(r.year, fx(i), H - 8);
-    }
   });
 
-  // Y axis
   ctx.textAlign = "right";
-  [-20,-10,0,10,20,30].forEach(v => {
-    if (v < minV || v > maxV) return;
+  [-20,-10,0,10,20,30,50,100,200].forEach(v => {
+    if (v < minV - 5 || v > maxV + 5) return;
     const y = fy(v);
     ctx.fillStyle = "#64748b";
     ctx.fillText(v + "%", pad.l - 6, y + 4);
