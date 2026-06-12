@@ -1,14 +1,12 @@
 """
-Backtest v2 — improved capital simulation.
+Backtest v3 — optimised capital simulation.
 
-Changes vs crawler/run_backtest.py:
-- 1M annual capital, 50K fixed per position (was 100K)
-- Daily scan: market BULL required + top-5 scoring per day
-- Entry: B1(MACD≥3) + B2(ADX>20) + B3(WR<−20) + 20-day high breakout
-- Market proxy: 0050 MACD(200/209/210) for bull/bear/crash detection
-- CRASH → immediate liquidation of all holdings
-- Capital exhausted → record missed trade instead of buying
-- Return = (end_cash − 1M) / 1M × 100% (clean per-year P&L)
+Changes vs v2:
+- Hard stop-loss: -10% in BULL, -7% in ALERT/BEAR market
+- Trailing stop: -12% from position peak in BULL, -9% in ALERT/BEAR
+- Minimum score ≥ 1 required for entry (at least 1 bonus condition)
+- Peak price tracked per position for trailing stop
+- Sell reason recorded for every exit type
 """
 import os, sys, time, json, gc, math
 import pandas as pd
@@ -31,6 +29,13 @@ INITIAL_CAPITAL = 1_000_000
 POSITION_SIZE   = 50_000      # Fixed capital per position
 TOP_N_PER_DAY   = 5           # Max new buys per trading day
 MARKET_PROXY    = "0050"      # Used for bull/crash detection
+
+# Risk management thresholds
+STOP_LOSS_BULL  = 0.90        # Hard stop -10% in BULL market
+TRAIL_STOP_BULL = 0.88        # Trailing stop -12% from peak in BULL
+STOP_LOSS_WEAK  = 0.93        # Hard stop -7% in ALERT/BEAR market
+TRAIL_STOP_WEAK = 0.91        # Trailing stop -9% from peak in ALERT/BEAR
+MIN_SCORE       = 1           # Minimum bonus conditions met to enter
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
@@ -232,6 +237,9 @@ def process_year(year: int):
             score = int(rsi60_v > 57) + int(abs(w_vr_v - 150) < 50) + \
                     int(abs(m_vr_v - 150) < 50) + int(m_pdi1_v > 50 and m_rsi4_v > 77)
 
+            if score < MIN_SCORE:
+                continue  # Require at least 1 bonus condition
+
             breakout_pct = float((cl[i] - h20[i]) / h20[i] * 100)
 
             if day not in candidates_by_date:
@@ -299,7 +307,10 @@ def process_year(year: int):
                                   "equity": round(cash, 2), "type": "crash"})
             continue
 
-        # ── Regular sell: monthly RSI4 < 77 ──────────────────────────────────
+        # ── Regular sell: stop-loss / trailing-stop / monthly RSI4 ──────────
+        sl = STOP_LOSS_BULL  if mkt == "BULL" else STOP_LOSS_WEAK
+        ts = TRAIL_STOP_BULL if mkt == "BULL" else TRAIL_STOP_WEAK
+
         for tkr in list(positions.keys()):
             info = ticker_info.get(tkr)
             if info is None:
@@ -307,12 +318,36 @@ def process_year(year: int):
             idx = info["date_to_idx"].get(day)
             if idx is None:
                 continue
-            m_rsi4 = float(info["m_rsi4_d"][idx])
-            if m_rsi4 >= 77:
-                continue
             sell_price = float(info["close"][idx])
             if sell_price == 0:
                 continue
+
+            pos = positions[tkr]
+
+            # Update trailing peak
+            if sell_price > pos["peak_price"]:
+                positions[tkr]["peak_price"] = sell_price
+
+            buy_px  = pos["buy_price"]
+            peak_px = pos["peak_price"]
+            m_rsi4  = float(info["m_rsi4_d"][idx])
+
+            sell_flag   = False
+            sell_reason = ""
+
+            if sell_price <= buy_px * sl:
+                sell_flag   = True
+                sell_reason = f"止損{(sell_price/buy_px-1)*100:.1f}%"
+            elif sell_price <= peak_px * ts:
+                sell_flag   = True
+                sell_reason = f"追蹤停損{(sell_price/peak_px-1)*100:.1f}%"
+            elif m_rsi4 < 77:
+                sell_flag   = True
+                sell_reason = f"月RSI4={m_rsi4:.0f}<77"
+
+            if not sell_flag:
+                continue
+
             pos = positions.pop(tkr)
             proceeds = pos["shares"] * sell_price
             pl = proceeds - pos["cost"]
@@ -320,13 +355,13 @@ def process_year(year: int):
             trades.append({
                 "ticker":      tkr,
                 "buy_date":    pos["buy_date"],
-                "buy_price":   round(pos["buy_price"], 2),
+                "buy_price":   round(buy_px, 2),
                 "sell_date":   day.strftime("%Y-%m-%d"),
                 "sell_price":  round(sell_price, 2),
                 "shares":      pos["shares"],
                 "pl":          round(pl, 2),
-                "pl_pct":      round((sell_price - pos["buy_price"]) / pos["buy_price"] * 100, 2),
-                "sell_reason": f"月RSI4={m_rsi4:.0f}<77",
+                "pl_pct":      round((sell_price - buy_px) / buy_px * 100, 2),
+                "sell_reason": sell_reason,
             })
 
         # ── Buy: only in BULL market ──────────────────────────────────────────
@@ -356,10 +391,11 @@ def process_year(year: int):
                 cost = shares * c["close"]
                 cash -= cost
                 positions[tkr] = {
-                    "shares":    shares,
-                    "buy_price": c["close"],
-                    "buy_date":  day.strftime("%Y-%m-%d"),
-                    "cost":      cost,
+                    "shares":      shares,
+                    "buy_price":   c["close"],
+                    "buy_date":    day.strftime("%Y-%m-%d"),
+                    "cost":        cost,
+                    "peak_price":  c["close"],  # for trailing stop
                 }
                 buys_today += 1
 
@@ -391,6 +427,7 @@ def process_year(year: int):
             "pl":          round(pl, 2),
             "pl_pct":      round((last_close - pos["buy_price"]) / pos["buy_price"] * 100, 2),
             "sell_reason": "年終結算",
+            "peak_price":  round(pos.get("peak_price", pos["buy_price"]), 2),
         })
     positions.clear()
 

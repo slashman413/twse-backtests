@@ -108,7 +108,7 @@
       "shares": 106382,
       "pl": -7446.74,
       "pl_pct": -14.89,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-14.9%"
     },
     {
       "ticker": "063729",
@@ -295,7 +295,7 @@
       "shares": 26455,
       "pl": -7407.4,
       "pl_pct": -14.81,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-14.8%"
     },
     {
       "ticker": "070875",
@@ -306,7 +306,7 @@
       "shares": 43478,
       "pl": -7391.26,
       "pl_pct": -14.78,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-14.8%"
     },
     {
       "ticker": "085948",
@@ -328,7 +328,7 @@
       "shares": 166666,
       "pl": -13333.28,
       "pl_pct": -26.67,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-26.7%"
     },
     {
       "ticker": "087604",
@@ -416,7 +416,7 @@
       "shares": 51020,
       "pl": -10204.0,
       "pl_pct": -20.41,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-20.4%"
     },
     {
       "ticker": "087684",
@@ -427,7 +427,7 @@
       "shares": 47169,
       "pl": -5188.59,
       "pl_pct": -10.38,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-10.4%"
     },
     {
       "ticker": "032113",
@@ -460,7 +460,7 @@
       "shares": 17006,
       "pl": -20917.38,
       "pl_pct": -41.84,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-41.8%"
     },
     {
       "ticker": "061028",
@@ -471,7 +471,7 @@
       "shares": 12500,
       "pl": -18125.0,
       "pl_pct": -36.25,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-36.3%"
     },
     {
       "ticker": "2801",
@@ -485,28 +485,6 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "077425",
-      "buy_date": "2025-11-05",
-      "buy_price": 1.96,
-      "sell_date": "2025-11-06",
-      "sell_price": 1.99,
-      "shares": 25510,
-      "pl": 765.3,
-      "pl_pct": 1.53,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "04233U",
-      "buy_date": "2025-11-05",
-      "buy_price": 2.11,
-      "sell_date": "2025-11-06",
-      "sell_price": 1.82,
-      "shares": 23696,
-      "pl": -6871.84,
-      "pl_pct": -13.74,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
       "ticker": "065836",
       "buy_date": "2025-11-05",
       "buy_price": 2.0,
@@ -515,7 +493,7 @@
       "shares": 25000,
       "pl": -5000.0,
       "pl_pct": -10.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-10.0%"
     },
     {
       "ticker": "086752",
@@ -548,7 +526,7 @@
       "shares": 20920,
       "pl": -7740.4,
       "pl_pct": -15.48,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-15.5%"
     },
     {
       "ticker": "087888",
@@ -559,7 +537,7 @@
       "shares": 13440,
       "pl": -5913.6,
       "pl_pct": -11.83,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-11.8%"
     },
     {
       "ticker": "082270",
@@ -570,18 +548,7 @@
       "shares": 34482,
       "pl": -9999.78,
       "pl_pct": -20.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "083180",
-      "buy_date": "2025-11-05",
-      "buy_price": 1.15,
-      "sell_date": "2025-11-10",
-      "sell_price": 0.9,
-      "shares": 43478,
-      "pl": -10869.5,
-      "pl_pct": -21.74,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-20.0%"
     },
     {
       "ticker": "086546",
@@ -768,7 +735,7 @@
       "shares": 15151,
       "pl": -7878.52,
       "pl_pct": -15.76,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-15.8%"
     },
     {
       "ticker": "4739",
@@ -801,7 +768,7 @@
       "shares": 16666,
       "pl": -14999.4,
       "pl_pct": -30.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-30.0%"
     },
     {
       "ticker": "030758",
@@ -812,7 +779,7 @@
       "shares": 36764,
       "pl": -5882.24,
       "pl_pct": -11.76,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-11.8%"
     },
     {
       "ticker": "4739",
@@ -845,7 +812,7 @@
       "shares": 44247,
       "pl": -6194.58,
       "pl_pct": -12.39,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-12.4%"
     },
     {
       "ticker": "038341",
@@ -878,7 +845,7 @@
       "shares": 16666,
       "pl": -17665.96,
       "pl_pct": -35.33,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-35.3%"
     },
     {
       "ticker": "086964",
@@ -922,7 +889,7 @@
       "shares": 56179,
       "pl": -10674.01,
       "pl_pct": -21.35,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-21.3%"
     },
     {
       "ticker": "2481",
@@ -966,7 +933,7 @@
       "shares": 66666,
       "pl": -15999.84,
       "pl_pct": -32.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-32.0%"
     },
     {
       "ticker": "086998",
@@ -988,7 +955,7 @@
       "shares": 22222,
       "pl": -12666.54,
       "pl_pct": -25.33,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-25.3%"
     },
     {
       "ticker": "030253",
@@ -999,7 +966,7 @@
       "shares": 4716,
       "pl": -6130.8,
       "pl_pct": -12.26,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-12.3%"
     },
     {
       "ticker": "1325",
@@ -1043,7 +1010,7 @@
       "shares": 36764,
       "pl": -8455.72,
       "pl_pct": -16.91,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-16.9%"
     },
     {
       "ticker": "1419",
@@ -1054,17 +1021,6 @@
       "shares": 776,
       "pl": 77.6,
       "pl_pct": 0.16,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "089086",
-      "buy_date": "2025-11-19",
-      "buy_price": 1.12,
-      "sell_date": "2025-11-21",
-      "sell_price": 1.01,
-      "shares": 44642,
-      "pl": -4910.62,
-      "pl_pct": -9.82,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1098,7 +1054,7 @@
       "shares": 26455,
       "pl": -8730.15,
       "pl_pct": -17.46,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-17.5%"
     },
     {
       "ticker": "031753",
@@ -1109,7 +1065,7 @@
       "shares": 8130,
       "pl": -7723.5,
       "pl_pct": -15.45,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-15.4%"
     },
     {
       "ticker": "042097",
@@ -1153,28 +1109,6 @@
       "shares": 86206,
       "pl": -1724.12,
       "pl_pct": -3.45,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "036088",
-      "buy_date": "2025-11-21",
-      "buy_price": 1.65,
-      "sell_date": "2025-11-24",
-      "sell_price": 2.24,
-      "shares": 30303,
-      "pl": 17878.77,
-      "pl_pct": 35.76,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "068157",
-      "buy_date": "2025-11-21",
-      "buy_price": 0.6,
-      "sell_date": "2025-11-24",
-      "sell_price": 0.52,
-      "shares": 83333,
-      "pl": -6666.64,
-      "pl_pct": -13.33,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1428,7 +1362,7 @@
       "shares": 8333,
       "pl": -9082.97,
       "pl_pct": -18.17,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-18.2%"
     },
     {
       "ticker": "032648",
@@ -1450,7 +1384,7 @@
       "shares": 10683,
       "pl": -5768.82,
       "pl_pct": -11.54,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-11.5%"
     },
     {
       "ticker": "006207",
@@ -1626,7 +1560,7 @@
       "shares": 11013,
       "pl": -7488.84,
       "pl_pct": -14.98,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-15.0%"
     },
     {
       "ticker": "2369",
@@ -1824,7 +1758,7 @@
       "shares": 26178,
       "pl": -6282.72,
       "pl_pct": -12.57,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-12.6%"
     },
     {
       "ticker": "039825",
@@ -1868,7 +1802,7 @@
       "shares": 18382,
       "pl": -6801.34,
       "pl_pct": -13.6,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-13.6%"
     },
     {
       "ticker": "031668",
@@ -1912,7 +1846,7 @@
       "shares": 15197,
       "pl": -8814.26,
       "pl_pct": -17.63,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-17.6%"
     },
     {
       "ticker": "087125",
@@ -1923,7 +1857,7 @@
       "shares": 4807,
       "pl": -10575.4,
       "pl_pct": -21.15,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-21.2%"
     },
     {
       "ticker": "032765",
@@ -1978,7 +1912,7 @@
       "shares": 18181,
       "pl": -9635.93,
       "pl_pct": -19.27,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-19.3%"
     },
     {
       "ticker": "087103",
@@ -1989,7 +1923,7 @@
       "shares": 10162,
       "pl": -15852.72,
       "pl_pct": -31.71,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-31.7%"
     },
     {
       "ticker": "030124",
@@ -2000,7 +1934,7 @@
       "shares": 12468,
       "pl": -16582.44,
       "pl_pct": -33.17,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-33.2%"
     },
     {
       "ticker": "032734",
@@ -2011,7 +1945,7 @@
       "shares": 44247,
       "pl": -13274.1,
       "pl_pct": -26.55,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-26.5%"
     },
     {
       "ticker": "034958",
@@ -2022,7 +1956,7 @@
       "shares": 12626,
       "pl": -8585.68,
       "pl_pct": -17.17,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-17.2%"
     },
     {
       "ticker": "085719",
@@ -2033,7 +1967,7 @@
       "shares": 11086,
       "pl": -8092.78,
       "pl_pct": -16.19,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-16.2%"
     },
     {
       "ticker": "049317",
@@ -2044,7 +1978,7 @@
       "shares": 119047,
       "pl": -13095.17,
       "pl_pct": -26.19,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-26.2%"
     },
     {
       "ticker": "05378U",
@@ -2055,7 +1989,7 @@
       "shares": 35971,
       "pl": -5035.94,
       "pl_pct": -10.07,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-10.1%"
     },
     {
       "ticker": "7732",
@@ -2077,7 +2011,7 @@
       "shares": 10438,
       "pl": -11064.28,
       "pl_pct": -22.13,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-22.1%"
     },
     {
       "ticker": "032125",
@@ -2088,7 +2022,7 @@
       "shares": 10351,
       "pl": -6107.09,
       "pl_pct": -12.22,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-12.2%"
     },
     {
       "ticker": "084015",
@@ -2121,7 +2055,7 @@
       "shares": 70422,
       "pl": -13380.18,
       "pl_pct": -26.76,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-26.8%"
     },
     {
       "ticker": "033225",
@@ -2154,7 +2088,7 @@
       "shares": 11961,
       "pl": -6698.16,
       "pl_pct": -13.4,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-13.4%"
     },
     {
       "ticker": "040451",
@@ -2220,7 +2154,7 @@
       "shares": 6535,
       "pl": -12743.25,
       "pl_pct": -25.49,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-25.5%"
     },
     {
       "ticker": "040964",
@@ -2286,7 +2220,7 @@
       "shares": 41666,
       "pl": -14583.1,
       "pl_pct": -29.17,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-29.2%"
     },
     {
       "ticker": "040129",
@@ -2330,7 +2264,7 @@
       "shares": 34722,
       "pl": -5208.3,
       "pl_pct": -10.42,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-10.4%"
     },
     {
       "ticker": "084021",
@@ -2352,7 +2286,7 @@
       "shares": 62499,
       "pl": -5624.91,
       "pl_pct": -11.25,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-11.3%"
     },
     {
       "ticker": "034052",
@@ -2462,7 +2396,7 @@
       "shares": 9615,
       "pl": -5672.85,
       "pl_pct": -11.35,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-11.3%"
     },
     {
       "ticker": "035168",
@@ -2517,7 +2451,7 @@
       "shares": 27472,
       "pl": -5769.12,
       "pl_pct": -11.54,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "止損-11.5%"
     },
     {
       "ticker": "076747",
@@ -2594,7 +2528,8 @@
       "shares": 5464,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 9.15
     },
     {
       "ticker": "075549",
@@ -2605,7 +2540,8 @@
       "shares": 16447,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 3.04
     },
     {
       "ticker": "084015",
@@ -2616,7 +2552,8 @@
       "shares": 24154,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 2.07
     },
     {
       "ticker": "076131",
@@ -2627,7 +2564,8 @@
       "shares": 6944,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 7.2
     },
     {
       "ticker": "079931",
@@ -2638,7 +2576,8 @@
       "shares": 5988,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 8.35
     },
     {
       "ticker": "034597",
@@ -2649,7 +2588,8 @@
       "shares": 40000,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 1.25
     },
     {
       "ticker": "033738",
@@ -2660,7 +2600,8 @@
       "shares": 12376,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 4.04
     },
     {
       "ticker": "071473",
@@ -2671,7 +2612,8 @@
       "shares": 46296,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 1.08
     },
     {
       "ticker": "036072",
@@ -2682,7 +2624,8 @@
       "shares": 16611,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 3.01
     },
     {
       "ticker": "036101",
@@ -2693,7 +2636,8 @@
       "shares": 11627,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "年終結算"
+      "sell_reason": "年終結算",
+      "peak_price": 4.3
     }
   ],
   "equity_curve": [
@@ -2929,47 +2873,47 @@
     },
     {
       "date": "2025-11-07",
-      "equity": 935975.07,
+      "equity": 942081.61,
       "type": "daily"
     },
     {
       "date": "2025-11-14",
-      "equity": 979254.99,
+      "equity": 996231.03,
       "type": "daily"
     },
     {
       "date": "2025-11-21",
-      "equity": 867817.7,
+      "equity": 889704.36,
       "type": "daily"
     },
     {
       "date": "2025-11-28",
-      "equity": 1004892.78,
+      "equity": 1015567.32,
       "type": "daily"
     },
     {
       "date": "2025-12-05",
-      "equity": 988844.94,
+      "equity": 999519.47,
       "type": "daily"
     },
     {
       "date": "2025-12-12",
-      "equity": 1055965.48,
+      "equity": 1066640.01,
       "type": "daily"
     },
     {
       "date": "2025-12-19",
-      "equity": 922024.79,
+      "equity": 932699.32,
       "type": "daily"
     },
     {
       "date": "2025-12-29",
-      "equity": 936165.39,
+      "equity": 946839.93,
       "type": "daily"
     },
     {
       "date": "2025-12-31",
-      "equity": 952978.01,
+      "equity": 963652.54,
       "type": "final"
     }
   ],
