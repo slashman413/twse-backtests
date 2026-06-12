@@ -292,10 +292,10 @@ def main():
         json.dump(all_summary, f, indent=2, ensure_ascii=False)
 
     print("\n📊 年度資金模擬回測摘要")
-    print(f"{'Year':>6} {'Stocks':>8} {'Trades':>8} {'PL':>10} {'Equity':>10} {'Return%':>8} {'WinRate':>8}")
+    print(f"{'Year':>6} {'Tickers':>8} {'Trades':>8} {'PL':>14} {'AvgRet%':>8} {'WinRate':>8}")
     for s in all_summary:
-        print(f"{s['year']:>6} {s['stocks_with_signals']:>8} {s['trade_count']:>8} "
-              f"{s['total_pl']:>+9.0f} {s['final_equity']:>9.0f} {s['total_return_pct']:>+7.2f}% {s['trade_win_rate']:>6.1f}%")
+        print(f"{s['year']:>6} {s['stocks_simulated']:>8} {s['trade_count']:>8} "
+              f"{s['total_pl']:>+13.0f} {s['avg_return_pct']:>+7.2f}% {s['trade_win_rate']:>6.1f}%")
 
     if not all_summary:
         print("No results."); return
