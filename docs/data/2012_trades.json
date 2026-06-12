@@ -12,6 +12,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "047158",
+      "buy_date": "2012-02-22",
+      "buy_price": 0.7,
+      "sell_date": "2012-02-23",
+      "sell_price": 0.98,
+      "shares": 71428,
+      "pl": 19999.84,
+      "pl_pct": 40.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "6271",
       "buy_date": "2012-02-22",
       "buy_price": 100.44,
@@ -23,6 +34,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "8210",
+      "buy_date": "2012-02-22",
+      "buy_price": 33.28,
+      "sell_date": "2012-02-23",
+      "sell_price": 33.23,
+      "shares": 1502,
+      "pl": -67.46,
+      "pl_pct": -0.13,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "3605",
       "buy_date": "2012-02-22",
       "buy_price": 60.0,
@@ -31,28 +53,6 @@
       "shares": 833,
       "pl": -647.04,
       "pl_pct": -1.29,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3576",
-      "buy_date": "2012-02-22",
-      "buy_price": 31.95,
-      "sell_date": "2012-02-23",
-      "sell_price": 30.85,
-      "shares": 1564,
-      "pl": -1720.4,
-      "pl_pct": -3.44,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "046164",
-      "buy_date": "2012-02-22",
-      "buy_price": 0.75,
-      "sell_date": "2012-02-23",
-      "sell_price": 1.1,
-      "shares": 66666,
-      "pl": 23333.1,
-      "pl_pct": 46.67,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -100,14 +100,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2315",
+      "ticker": "3004",
       "buy_date": "2012-02-23",
-      "buy_price": 10.85,
+      "buy_price": 36.38,
       "sell_date": "2012-02-24",
-      "sell_price": 10.7,
-      "shares": 4608,
-      "pl": -691.2,
-      "pl_pct": -1.38,
+      "sell_price": 36.38,
+      "shares": 1374,
+      "pl": 0.0,
+      "pl_pct": 0.0,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -122,6 +122,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "3312",
+      "buy_date": "2012-02-24",
+      "buy_price": 12.45,
+      "sell_date": "2012-02-29",
+      "sell_price": 12.3,
+      "shares": 4016,
+      "pl": -602.4,
+      "pl_pct": -1.2,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "047961",
       "buy_date": "2012-02-24",
       "buy_price": 4.6,
@@ -130,6 +141,17 @@
       "shares": 10869,
       "pl": 8151.75,
       "pl_pct": 16.3,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3209",
+      "buy_date": "2012-02-24",
+      "buy_price": 22.27,
+      "sell_date": "2012-02-29",
+      "sell_price": 22.14,
+      "shares": 2245,
+      "pl": -297.58,
+      "pl_pct": -0.6,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -144,25 +166,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6108",
-      "buy_date": "2012-02-24",
-      "buy_price": 21.97,
-      "sell_date": "2012-02-29",
-      "sell_price": 21.78,
-      "shares": 2275,
-      "pl": -435.57,
-      "pl_pct": -0.87,
+      "ticker": "048043",
+      "buy_date": "2012-02-29",
+      "buy_price": 1.45,
+      "sell_date": "2012-03-01",
+      "sell_price": 1.37,
+      "shares": 34482,
+      "pl": -2758.56,
+      "pl_pct": -5.52,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6269",
-      "buy_date": "2012-02-24",
-      "buy_price": 122.0,
-      "sell_date": "2012-02-29",
-      "sell_price": 130.5,
-      "shares": 409,
-      "pl": 3476.5,
-      "pl_pct": 6.97,
+      "ticker": "046031",
+      "buy_date": "2012-02-29",
+      "buy_price": 0.87,
+      "sell_date": "2012-03-01",
+      "sell_price": 0.94,
+      "shares": 57471,
+      "pl": 4022.97,
+      "pl_pct": 8.05,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -188,36 +210,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "1218",
+      "ticker": "047004",
       "buy_date": "2012-02-29",
-      "buy_price": 16.65,
+      "buy_price": 1.69,
       "sell_date": "2012-03-01",
-      "sell_price": 16.7,
-      "shares": 3003,
-      "pl": 150.15,
-      "pl_pct": 0.3,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2365",
-      "buy_date": "2012-02-29",
-      "buy_price": 13.2,
-      "sell_date": "2012-03-01",
-      "sell_price": 13.1,
-      "shares": 3787,
-      "pl": -378.7,
-      "pl_pct": -0.76,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9904",
-      "buy_date": "2012-02-29",
-      "buy_price": 26.1,
-      "sell_date": "2012-03-01",
-      "sell_price": 25.9,
-      "shares": 1915,
-      "pl": -383.0,
-      "pl_pct": -0.77,
+      "sell_price": 1.62,
+      "shares": 29585,
+      "pl": -2070.95,
+      "pl_pct": -4.14,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -276,6 +276,17 @@
       "sell_reason": "止損-11.9%"
     },
     {
+      "ticker": "045845",
+      "buy_date": "2012-03-02",
+      "buy_price": 0.92,
+      "sell_date": "2012-03-05",
+      "sell_price": 0.63,
+      "shares": 54347,
+      "pl": -15760.63,
+      "pl_pct": -31.52,
+      "sell_reason": "止損-31.5%"
+    },
+    {
       "ticker": "047725",
       "buy_date": "2012-03-02",
       "buy_price": 2.81,
@@ -320,15 +331,15 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "046467",
-      "buy_date": "2012-03-02",
-      "buy_price": 2.64,
-      "sell_date": "2012-03-05",
-      "sell_price": 2.18,
-      "shares": 18939,
-      "pl": -8711.94,
-      "pl_pct": -17.42,
-      "sell_reason": "止損-17.4%"
+      "ticker": "047798",
+      "buy_date": "2012-03-05",
+      "buy_price": 1.7,
+      "sell_date": "2012-03-06",
+      "sell_price": 1.52,
+      "shares": 29411,
+      "pl": -5293.98,
+      "pl_pct": -10.59,
+      "sell_reason": "止損-10.6%"
     },
     {
       "ticker": "1104",
@@ -375,14 +386,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "910579",
-      "buy_date": "2012-03-05",
-      "buy_price": 3.53,
-      "sell_date": "2012-03-06",
-      "sell_price": 3.39,
-      "shares": 14164,
-      "pl": -1982.96,
-      "pl_pct": -3.97,
+      "ticker": "1423",
+      "buy_date": "2012-03-09",
+      "buy_price": 8.23,
+      "sell_date": "2012-03-12",
+      "sell_price": 8.18,
+      "shares": 6075,
+      "pl": -303.75,
+      "pl_pct": -0.61,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "9917",
+      "buy_date": "2012-03-09",
+      "buy_price": 59.8,
+      "sell_date": "2012-03-12",
+      "sell_price": 59.8,
+      "shares": 836,
+      "pl": 0.0,
+      "pl_pct": 0.0,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -397,6 +419,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "047384",
+      "buy_date": "2012-03-09",
+      "buy_price": 1.98,
+      "sell_date": "2012-03-12",
+      "sell_price": 1.97,
+      "shares": 25252,
+      "pl": -252.52,
+      "pl_pct": -0.51,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "046423",
       "buy_date": "2012-03-09",
       "buy_price": 0.98,
@@ -405,39 +438,6 @@
       "shares": 51020,
       "pl": -1530.6,
       "pl_pct": -3.06,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "4956",
-      "buy_date": "2012-03-09",
-      "buy_price": 43.9,
-      "sell_date": "2012-03-12",
-      "sell_price": 42.0,
-      "shares": 1138,
-      "pl": -2162.2,
-      "pl_pct": -4.33,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2340",
-      "buy_date": "2012-03-09",
-      "buy_price": 14.8,
-      "sell_date": "2012-03-12",
-      "sell_price": 14.6,
-      "shares": 3378,
-      "pl": -675.6,
-      "pl_pct": -1.35,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3481",
-      "buy_date": "2012-03-09",
-      "buy_price": 15.95,
-      "sell_date": "2012-03-12",
-      "sell_price": 15.45,
-      "shares": 3134,
-      "pl": -1567.0,
-      "pl_pct": -3.13,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -496,6 +496,50 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "047914",
+      "buy_date": "2012-03-14",
+      "buy_price": 0.9,
+      "sell_date": "2012-03-15",
+      "sell_price": 0.86,
+      "shares": 55555,
+      "pl": -2222.2,
+      "pl_pct": -4.44,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "048449",
+      "buy_date": "2012-03-14",
+      "buy_price": 2.4,
+      "sell_date": "2012-03-15",
+      "sell_price": 2.12,
+      "shares": 20833,
+      "pl": -5833.24,
+      "pl_pct": -11.67,
+      "sell_reason": "止損-11.7%"
+    },
+    {
+      "ticker": "2471",
+      "buy_date": "2012-03-14",
+      "buy_price": 20.0,
+      "sell_date": "2012-03-15",
+      "sell_price": 20.0,
+      "shares": 2500,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "047225",
+      "buy_date": "2012-03-14",
+      "buy_price": 1.34,
+      "sell_date": "2012-03-15",
+      "sell_price": 1.18,
+      "shares": 37313,
+      "pl": -5970.08,
+      "pl_pct": -11.94,
+      "sell_reason": "止損-11.9%"
+    },
+    {
       "ticker": "047226",
       "buy_date": "2012-03-14",
       "buy_price": 1.89,
@@ -505,50 +549,6 @@
       "pl": -5291.0,
       "pl_pct": -10.58,
       "sell_reason": "止損-10.6%"
-    },
-    {
-      "ticker": "2439",
-      "buy_date": "2012-03-14",
-      "buy_price": 46.1,
-      "sell_date": "2012-03-15",
-      "sell_price": 46.45,
-      "shares": 1084,
-      "pl": 379.4,
-      "pl_pct": 0.76,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2022",
-      "buy_date": "2012-03-14",
-      "buy_price": 6.92,
-      "sell_date": "2012-03-15",
-      "sell_price": 6.84,
-      "shares": 7225,
-      "pl": -578.0,
-      "pl_pct": -1.16,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3607",
-      "buy_date": "2012-03-14",
-      "buy_price": 50.8,
-      "sell_date": "2012-03-15",
-      "sell_price": 51.38,
-      "shares": 984,
-      "pl": 561.7,
-      "pl_pct": 1.12,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1789",
-      "buy_date": "2012-03-14",
-      "buy_price": 57.04,
-      "sell_date": "2012-03-15",
-      "sell_price": 55.77,
-      "shares": 876,
-      "pl": -1110.33,
-      "pl_pct": -2.22,
-      "sell_reason": "月RSI4=50<77"
     },
     {
       "ticker": "5471",
@@ -606,6 +606,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "3257",
+      "buy_date": "2012-03-16",
+      "buy_price": 31.95,
+      "sell_date": "2012-03-19",
+      "sell_price": 31.3,
+      "shares": 1564,
+      "pl": -1016.6,
+      "pl_pct": -2.03,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "047804",
       "buy_date": "2012-03-16",
       "buy_price": 1.32,
@@ -647,17 +658,6 @@
       "shares": 3225,
       "pl": -806.25,
       "pl_pct": -1.61,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2439",
-      "buy_date": "2012-03-16",
-      "buy_price": 47.0,
-      "sell_date": "2012-03-19",
-      "sell_price": 46.5,
-      "shares": 1063,
-      "pl": -531.5,
-      "pl_pct": -1.06,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -754,222 +754,222 @@
     },
     {
       "date": "2012-03-02",
-      "equity": 980755.89,
+      "equity": 975630.87,
       "type": "daily"
     },
     {
       "date": "2012-03-09",
-      "equity": 966173.63,
+      "equity": 950688.9,
       "type": "daily"
     },
     {
       "date": "2012-03-16",
-      "equity": 948785.39,
+      "equity": 923870.89,
       "type": "daily"
     },
     {
       "date": "2012-03-23",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-03-30",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-04-09",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-04-16",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-04-23",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-04-30",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-05-08",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-05-15",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-05-22",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-05-29",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-06-05",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-06-12",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-06-19",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-06-26",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-07-03",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-07-10",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-07-17",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-07-24",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-07-31",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-08-08",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-08-15",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-08-22",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-08-29",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-09-05",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-09-12",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-09-19",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-09-26",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-10-03",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-10-11",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-10-18",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-10-25",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-11-01",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-11-08",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-11-15",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-11-22",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-11-29",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-12-06",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-12-13",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-12-20",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-12-27",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "daily"
     },
     {
       "date": "2012-12-31",
-      "equity": 945257.25,
+      "equity": 919857.65,
       "type": "final"
     }
   ],

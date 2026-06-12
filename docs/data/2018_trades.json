@@ -12,6 +12,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "3010",
+      "buy_date": "2018-04-11",
+      "buy_price": 55.74,
+      "sell_date": "2018-04-12",
+      "sell_price": 55.17,
+      "shares": 897,
+      "pl": -511.05,
+      "pl_pct": -1.02,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "1218",
       "buy_date": "2018-04-11",
       "buy_price": 16.74,
@@ -42,6 +53,17 @@
       "shares": 961,
       "pl": -416.28,
       "pl_pct": -0.83,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "4532",
+      "buy_date": "2018-06-06",
+      "buy_price": 30.25,
+      "sell_date": "2018-06-07",
+      "sell_price": 30.3,
+      "shares": 1652,
+      "pl": 78.58,
+      "pl_pct": 0.16,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -78,25 +100,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "064154",
+      "ticker": "074558",
       "buy_date": "2018-06-06",
-      "buy_price": 1.17,
+      "buy_price": 2.23,
       "sell_date": "2018-06-07",
-      "sell_price": 1.18,
-      "shares": 42735,
-      "pl": 427.35,
-      "pl_pct": 0.85,
+      "sell_price": 2.17,
+      "shares": 22421,
+      "pl": -1345.26,
+      "pl_pct": -2.69,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "3011",
-      "buy_date": "2018-06-06",
-      "buy_price": 9.25,
-      "sell_date": "2018-06-07",
-      "sell_price": 9.35,
-      "shares": 5405,
-      "pl": 540.5,
-      "pl_pct": 1.08,
+      "ticker": "4532",
+      "buy_date": "2018-06-07",
+      "buy_price": 30.3,
+      "sell_date": "2018-06-08",
+      "sell_price": 30.16,
+      "shares": 1650,
+      "pl": -235.45,
+      "pl_pct": -0.47,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -144,14 +166,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "4739",
-      "buy_date": "2018-06-07",
-      "buy_price": 120.33,
-      "sell_date": "2018-06-08",
-      "sell_price": 119.38,
-      "shares": 415,
-      "pl": -394.76,
-      "pl_pct": -0.79,
+      "ticker": "2617",
+      "buy_date": "2018-06-08",
+      "buy_price": 16.64,
+      "sell_date": "2018-06-11",
+      "sell_price": 16.98,
+      "shares": 3004,
+      "pl": 1008.59,
+      "pl_pct": 2.02,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -188,25 +210,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "073311",
+      "ticker": "3535",
       "buy_date": "2018-06-08",
-      "buy_price": 2.17,
+      "buy_price": 14.15,
       "sell_date": "2018-06-11",
-      "sell_price": 1.95,
-      "shares": 23041,
-      "pl": -5069.02,
-      "pl_pct": -10.14,
-      "sell_reason": "止損-10.1%"
-    },
-    {
-      "ticker": "2851",
-      "buy_date": "2018-06-08",
-      "buy_price": 19.11,
-      "sell_date": "2018-06-11",
-      "sell_price": 19.11,
-      "shares": 2615,
-      "pl": 0.0,
-      "pl_pct": 0.0,
+      "sell_price": 14.6,
+      "shares": 3533,
+      "pl": 1589.85,
+      "pl_pct": 3.18,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -309,14 +320,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6202",
+      "ticker": "071767",
       "buy_date": "2018-06-12",
-      "buy_price": 78.75,
+      "buy_price": 1.6,
       "sell_date": "2018-06-13",
-      "sell_price": 79.04,
-      "shares": 634,
-      "pl": 186.76,
-      "pl_pct": 0.37,
+      "sell_price": 3.02,
+      "shares": 31250,
+      "pl": 44374.99,
+      "pl_pct": 88.75,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -331,6 +342,17 @@
       "sell_reason": "止損-15.4%"
     },
     {
+      "ticker": "4104",
+      "buy_date": "2018-06-13",
+      "buy_price": 49.38,
+      "sell_date": "2018-06-14",
+      "sell_price": 48.91,
+      "shares": 1012,
+      "pl": -481.45,
+      "pl_pct": -0.96,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "00640L",
       "buy_date": "2018-06-13",
       "buy_price": 25.13,
@@ -340,6 +362,17 @@
       "pl": -696.15,
       "pl_pct": -1.39,
       "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "070669",
+      "buy_date": "2018-06-13",
+      "buy_price": 2.29,
+      "sell_date": "2018-06-14",
+      "sell_price": 2.0,
+      "shares": 21834,
+      "pl": -6331.86,
+      "pl_pct": -12.66,
+      "sell_reason": "止損-12.7%"
     },
     {
       "ticker": "074558",
@@ -353,25 +386,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "073903",
-      "buy_date": "2018-06-13",
-      "buy_price": 2.41,
-      "sell_date": "2018-06-14",
-      "sell_price": 3.18,
-      "shares": 20746,
-      "pl": 15974.41,
-      "pl_pct": 31.95,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1615",
-      "buy_date": "2018-06-13",
-      "buy_price": 21.47,
-      "sell_date": "2018-06-14",
-      "sell_price": 21.32,
-      "shares": 2329,
-      "pl": -334.79,
-      "pl_pct": -0.67,
+      "ticker": "4912",
+      "buy_date": "2018-06-15",
+      "buy_price": 195.5,
+      "sell_date": "2018-06-19",
+      "sell_price": 198.5,
+      "shares": 255,
+      "pl": 765.0,
+      "pl_pct": 1.53,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -430,6 +452,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "2850",
+      "buy_date": "2018-07-13",
+      "buy_price": 35.45,
+      "sell_date": "2018-07-16",
+      "sell_price": 35.6,
+      "shares": 1410,
+      "pl": 211.5,
+      "pl_pct": 0.42,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "4999",
       "buy_date": "2018-07-13",
       "buy_price": 50.0,
@@ -460,17 +493,6 @@
       "shares": 170,
       "pl": -1500.42,
       "pl_pct": -3.02,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "4190",
-      "buy_date": "2018-07-13",
-      "buy_price": 126.85,
-      "sell_date": "2018-07-16",
-      "sell_price": 138.59,
-      "shares": 394,
-      "pl": 4627.64,
-      "pl_pct": 9.26,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -529,6 +551,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "075007",
+      "buy_date": "2018-07-17",
+      "buy_price": 1.08,
+      "sell_date": "2018-07-18",
+      "sell_price": 1.37,
+      "shares": 46296,
+      "pl": 13425.84,
+      "pl_pct": 26.85,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "075952",
       "buy_date": "2018-07-17",
       "buy_price": 0.97,
@@ -562,25 +595,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "075028",
+      "ticker": "077466",
       "buy_date": "2018-07-17",
-      "buy_price": 1.82,
+      "buy_price": 1.34,
       "sell_date": "2018-07-18",
-      "sell_price": 1.83,
-      "shares": 27472,
-      "pl": 274.72,
-      "pl_pct": 0.55,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "077301",
-      "buy_date": "2018-07-17",
-      "buy_price": 0.62,
-      "sell_date": "2018-07-18",
-      "sell_price": 0.67,
-      "shares": 80645,
-      "pl": 4032.25,
-      "pl_pct": 8.06,
+      "sell_price": 1.36,
+      "shares": 37313,
+      "pl": 746.26,
+      "pl_pct": 1.49,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -606,6 +628,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "076802",
+      "buy_date": "2018-07-18",
+      "buy_price": 1.07,
+      "sell_date": "2018-07-19",
+      "sell_price": 1.05,
+      "shares": 46728,
+      "pl": -934.56,
+      "pl_pct": -1.87,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "3189",
       "buy_date": "2018-07-18",
       "buy_price": 54.05,
@@ -617,25 +650,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "075952",
+      "ticker": "077466",
       "buy_date": "2018-07-18",
-      "buy_price": 0.98,
+      "buy_price": 1.36,
       "sell_date": "2018-07-19",
-      "sell_price": 0.98,
-      "shares": 51020,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2442",
-      "buy_date": "2018-07-18",
-      "buy_price": 9.45,
-      "sell_date": "2018-07-19",
-      "sell_price": 9.43,
-      "shares": 5291,
-      "pl": -105.82,
-      "pl_pct": -0.21,
+      "sell_price": 1.25,
+      "shares": 36764,
+      "pl": -4044.04,
+      "pl_pct": -8.09,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -683,14 +705,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "076611",
+      "ticker": "05876P",
       "buy_date": "2018-07-19",
-      "buy_price": 1.95,
+      "buy_price": 0.85,
       "sell_date": "2018-07-20",
-      "sell_price": 1.86,
-      "shares": 25641,
-      "pl": -2307.69,
-      "pl_pct": -4.62,
+      "sell_price": 0.87,
+      "shares": 58823,
+      "pl": 1176.46,
+      "pl_pct": 2.35,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -738,15 +760,15 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2363",
+      "ticker": "077261",
       "buy_date": "2018-07-20",
-      "buy_price": 13.1,
+      "buy_price": 1.54,
       "sell_date": "2018-07-23",
-      "sell_price": 12.45,
-      "shares": 3816,
-      "pl": -2480.4,
-      "pl_pct": -4.96,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 1.24,
+      "shares": 32467,
+      "pl": -9740.1,
+      "pl_pct": -19.48,
+      "sell_reason": "止損-19.5%"
     },
     {
       "ticker": "3504",
@@ -757,6 +779,17 @@
       "shares": 375,
       "pl": -375.0,
       "pl_pct": -0.75,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1711",
+      "buy_date": "2018-07-23",
+      "buy_price": 18.4,
+      "sell_date": "2018-07-24",
+      "sell_price": 18.2,
+      "shares": 2717,
+      "pl": -543.4,
+      "pl_pct": -1.09,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -793,17 +826,6 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "073024",
-      "buy_date": "2018-07-23",
-      "buy_price": 1.3,
-      "sell_date": "2018-07-24",
-      "sell_price": 1.34,
-      "shares": 38461,
-      "pl": 1538.44,
-      "pl_pct": 3.08,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
       "ticker": "074933",
       "buy_date": "2018-07-24",
       "buy_price": 1.67,
@@ -823,6 +845,17 @@
       "shares": 45045,
       "pl": 1801.8,
       "pl_pct": 3.6,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "075613",
+      "buy_date": "2018-07-24",
+      "buy_price": 1.59,
+      "sell_date": "2018-07-25",
+      "sell_price": 1.71,
+      "shares": 31446,
+      "pl": 3773.52,
+      "pl_pct": 7.55,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -848,17 +881,6 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "074001",
-      "buy_date": "2018-07-24",
-      "buy_price": 1.48,
-      "sell_date": "2018-07-25",
-      "sell_price": 1.52,
-      "shares": 33783,
-      "pl": 1351.32,
-      "pl_pct": 2.7,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
       "ticker": "3504",
       "buy_date": "2018-07-25",
       "buy_price": 134.5,
@@ -867,6 +889,17 @@
       "shares": 371,
       "pl": -1298.5,
       "pl_pct": -2.6,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "073187",
+      "buy_date": "2018-07-25",
+      "buy_price": 1.55,
+      "sell_date": "2018-07-26",
+      "sell_price": 1.49,
+      "shares": 32258,
+      "pl": -1935.48,
+      "pl_pct": -3.87,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -889,28 +922,6 @@
       "shares": 3199,
       "pl": -151.47,
       "pl_pct": -0.3,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3535",
-      "buy_date": "2018-07-25",
-      "buy_price": 16.2,
-      "sell_date": "2018-07-26",
-      "sell_price": 16.3,
-      "shares": 3086,
-      "pl": 308.6,
-      "pl_pct": 0.62,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3005",
-      "buy_date": "2018-07-25",
-      "buy_price": 45.0,
-      "sell_date": "2018-07-26",
-      "sell_price": 44.66,
-      "shares": 1111,
-      "pl": -375.1,
-      "pl_pct": -0.75,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1068,14 +1079,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "1904",
+      "ticker": "1737",
       "buy_date": "2018-07-30",
-      "buy_price": 17.1,
+      "buy_price": 29.2,
       "sell_date": "2018-07-31",
-      "sell_price": 17.25,
-      "shares": 2923,
-      "pl": 438.45,
-      "pl_pct": 0.88,
+      "sell_price": 29.2,
+      "shares": 1712,
+      "pl": 0.0,
+      "pl_pct": 0.0,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1123,14 +1134,36 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "1218",
+      "ticker": "077312",
       "buy_date": "2018-07-31",
-      "buy_price": 18.5,
+      "buy_price": 1.0,
       "sell_date": "2018-08-01",
-      "sell_price": 18.3,
-      "shares": 2702,
-      "pl": -540.4,
-      "pl_pct": -1.08,
+      "sell_price": 1.05,
+      "shares": 50000,
+      "pl": 2499.99,
+      "pl_pct": 5.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "077145",
+      "buy_date": "2018-08-01",
+      "buy_price": 1.63,
+      "sell_date": "2018-08-02",
+      "sell_price": 1.59,
+      "shares": 30674,
+      "pl": -1226.96,
+      "pl_pct": -2.45,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "077312",
+      "buy_date": "2018-08-01",
+      "buy_price": 1.05,
+      "sell_date": "2018-08-02",
+      "sell_price": 1.05,
+      "shares": 47619,
+      "pl": 0.0,
+      "pl_pct": 0.0,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1156,36 +1189,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6202",
+      "ticker": "2476",
       "buy_date": "2018-08-01",
-      "buy_price": 73.15,
+      "buy_price": 25.16,
       "sell_date": "2018-08-02",
-      "sell_price": 73.55,
-      "shares": 683,
-      "pl": 268.26,
-      "pl_pct": 0.54,
+      "sell_price": 25.02,
+      "shares": 1987,
+      "pl": -279.8,
+      "pl_pct": -0.56,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "073804",
-      "buy_date": "2018-08-01",
-      "buy_price": 0.69,
-      "sell_date": "2018-08-02",
-      "sell_price": 0.68,
-      "shares": 72463,
-      "pl": -724.63,
-      "pl_pct": -1.45,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1457",
-      "buy_date": "2018-08-01",
-      "buy_price": 13.95,
-      "sell_date": "2018-08-02",
-      "sell_price": 13.8,
-      "shares": 3584,
-      "pl": -537.6,
-      "pl_pct": -1.08,
+      "ticker": "00638R",
+      "buy_date": "2018-08-02",
+      "buy_price": 16.08,
+      "sell_date": "2018-08-03",
+      "sell_price": 16.05,
+      "shares": 3109,
+      "pl": -93.27,
+      "pl_pct": -0.19,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1200,6 +1222,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "077003",
+      "buy_date": "2018-08-02",
+      "buy_price": 2.14,
+      "sell_date": "2018-08-03",
+      "sell_price": 2.24,
+      "shares": 23364,
+      "pl": 2336.4,
+      "pl_pct": 4.67,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "00634R",
       "buy_date": "2018-08-02",
       "buy_price": 7.97,
@@ -1208,6 +1241,28 @@
       "shares": 6273,
       "pl": -125.46,
       "pl_pct": -0.25,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "00656R",
+      "buy_date": "2018-08-02",
+      "buy_price": 14.82,
+      "sell_date": "2018-08-03",
+      "sell_price": 14.77,
+      "shares": 3373,
+      "pl": -168.65,
+      "pl_pct": -0.34,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "077145",
+      "buy_date": "2018-08-03",
+      "buy_price": 1.71,
+      "sell_date": "2018-08-06",
+      "sell_price": 1.7,
+      "shares": 29239,
+      "pl": -292.39,
+      "pl_pct": -0.58,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1222,6 +1277,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "076572",
+      "buy_date": "2018-08-03",
+      "buy_price": 1.3,
+      "sell_date": "2018-08-06",
+      "sell_price": 1.3,
+      "shares": 38461,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "077749",
       "buy_date": "2018-08-03",
       "buy_price": 1.09,
@@ -1233,25 +1299,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "5305",
+      "ticker": "1443",
       "buy_date": "2018-08-03",
-      "buy_price": 41.1,
+      "buy_price": 7.26,
       "sell_date": "2018-08-06",
-      "sell_price": 41.05,
-      "shares": 1216,
-      "pl": -60.8,
-      "pl_pct": -0.12,
+      "sell_price": 7.14,
+      "shares": 6887,
+      "pl": -826.44,
+      "pl_pct": -1.65,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2882",
-      "buy_date": "2018-08-03",
-      "buy_price": 52.8,
-      "sell_date": "2018-08-06",
-      "sell_price": 53.0,
-      "shares": 946,
-      "pl": 189.2,
-      "pl_pct": 0.38,
+      "ticker": "077105",
+      "buy_date": "2018-08-06",
+      "buy_price": 2.04,
+      "sell_date": "2018-08-07",
+      "sell_price": 2.43,
+      "shares": 24509,
+      "pl": 9558.51,
+      "pl_pct": 19.12,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1288,25 +1354,25 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2329",
+      "ticker": "00638R",
       "buy_date": "2018-08-06",
-      "buy_price": 11.0,
+      "buy_price": 16.12,
       "sell_date": "2018-08-07",
-      "sell_price": 10.55,
-      "shares": 4545,
-      "pl": -2045.25,
-      "pl_pct": -4.09,
+      "sell_price": 15.99,
+      "shares": 3101,
+      "pl": -403.13,
+      "pl_pct": -0.81,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2882",
-      "buy_date": "2018-08-06",
-      "buy_price": 53.0,
-      "sell_date": "2018-08-07",
-      "sell_price": 52.5,
-      "shares": 943,
-      "pl": -471.5,
-      "pl_pct": -0.94,
+      "ticker": "3047",
+      "buy_date": "2018-08-07",
+      "buy_price": 9.62,
+      "sell_date": "2018-08-08",
+      "sell_price": 9.82,
+      "shares": 5197,
+      "pl": 1039.4,
+      "pl_pct": 2.08,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1332,6 +1398,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "076952",
+      "buy_date": "2018-08-08",
+      "buy_price": 1.46,
+      "sell_date": "2018-08-09",
+      "sell_price": 1.53,
+      "shares": 34246,
+      "pl": 2397.22,
+      "pl_pct": 4.79,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "3047",
       "buy_date": "2018-08-08",
       "buy_price": 9.82,
@@ -1340,6 +1417,17 @@
       "shares": 5091,
       "pl": -1578.21,
       "pl_pct": -3.16,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "2442",
+      "buy_date": "2018-08-08",
+      "buy_price": 9.45,
+      "sell_date": "2018-08-09",
+      "sell_price": 9.65,
+      "shares": 5291,
+      "pl": 1058.2,
+      "pl_pct": 2.12,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1365,25 +1453,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2458",
-      "buy_date": "2018-08-08",
-      "buy_price": 49.3,
-      "sell_date": "2018-08-09",
-      "sell_price": 50.3,
-      "shares": 1014,
-      "pl": 1014.0,
-      "pl_pct": 2.03,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1477",
-      "buy_date": "2018-08-08",
-      "buy_price": 140.5,
-      "sell_date": "2018-08-09",
-      "sell_price": 139.0,
-      "shares": 355,
-      "pl": -532.5,
-      "pl_pct": -1.07,
+      "ticker": "075869",
+      "buy_date": "2018-08-09",
+      "buy_price": 0.91,
+      "sell_date": "2018-08-10",
+      "sell_price": 0.88,
+      "shares": 54945,
+      "pl": -1648.35,
+      "pl_pct": -3.3,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1464,6 +1541,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "1446",
+      "buy_date": "2018-08-10",
+      "buy_price": 27.51,
+      "sell_date": "2018-08-13",
+      "sell_price": 26.14,
+      "shares": 1817,
+      "pl": -2499.43,
+      "pl_pct": -5.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "1457",
       "buy_date": "2018-08-10",
       "buy_price": 14.05,
@@ -1472,17 +1560,6 @@
       "shares": 3558,
       "pl": -711.6,
       "pl_pct": -1.42,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "078019",
-      "buy_date": "2018-08-10",
-      "buy_price": 2.52,
-      "sell_date": "2018-08-13",
-      "sell_price": 2.82,
-      "shares": 19841,
-      "pl": 5952.3,
-      "pl_pct": 11.9,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1530,6 +1607,50 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "00688L",
+      "buy_date": "2018-08-13",
+      "buy_price": 19.49,
+      "sell_date": "2018-08-14",
+      "sell_price": 19.34,
+      "shares": 2565,
+      "pl": -384.75,
+      "pl_pct": -0.77,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "074652",
+      "buy_date": "2018-07-25",
+      "buy_price": 1.15,
+      "sell_date": "2018-08-15",
+      "sell_price": 0.6,
+      "shares": 43478,
+      "pl": -23912.89,
+      "pl_pct": -47.83,
+      "sell_reason": "止損-47.8%"
+    },
+    {
+      "ticker": "1443",
+      "buy_date": "2018-08-14",
+      "buy_price": 7.35,
+      "sell_date": "2018-08-15",
+      "sell_price": 7.15,
+      "shares": 6802,
+      "pl": -1360.4,
+      "pl_pct": -2.72,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "075869",
+      "buy_date": "2018-08-14",
+      "buy_price": 0.92,
+      "sell_date": "2018-08-15",
+      "sell_price": 0.9,
+      "shares": 54347,
+      "pl": -1086.94,
+      "pl_pct": -2.17,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "077291",
       "buy_date": "2018-08-14",
       "buy_price": 0.94,
@@ -1549,6 +1670,17 @@
       "shares": 1562,
       "pl": -1718.2,
       "pl_pct": -3.44,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "078244",
+      "buy_date": "2018-08-15",
+      "buy_price": 1.98,
+      "sell_date": "2018-08-16",
+      "sell_price": 2.13,
+      "shares": 25252,
+      "pl": 3787.81,
+      "pl_pct": 7.58,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -1642,192 +1774,192 @@
     },
     {
       "date": "2018-04-17",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-04-24",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-05-02",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-05-09",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-05-16",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-05-23",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-05-30",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-06-06",
-      "equity": 999163.62,
+      "equity": 998652.57,
       "type": "daily"
     },
     {
       "date": "2018-06-13",
-      "equity": 1009115.33,
+      "equity": 1058384.75,
       "type": "daily"
     },
     {
       "date": "2018-06-21",
-      "equity": 1013255.16,
+      "equity": 1040836.65,
       "type": "daily"
     },
     {
       "date": "2018-06-28",
-      "equity": 1013255.16,
+      "equity": 1040836.65,
       "type": "daily"
     },
     {
       "date": "2018-07-05",
-      "equity": 1013255.16,
+      "equity": 1040836.65,
       "type": "daily"
     },
     {
       "date": "2018-07-12",
-      "equity": 1013255.16,
+      "equity": 1040836.65,
       "type": "daily"
     },
     {
       "date": "2018-07-19",
-      "equity": 1010915.08,
+      "equity": 1039072.77,
       "type": "daily"
     },
     {
       "date": "2018-07-26",
-      "equity": 997323.04,
+      "equity": 1020176.57,
       "type": "daily"
     },
     {
       "date": "2018-08-02",
-      "equity": 973784.84,
+      "equity": 998727.53,
       "type": "daily"
     },
     {
       "date": "2018-08-09",
-      "equity": 981719.12,
+      "equity": 1023174.49,
       "type": "daily"
     },
     {
       "date": "2018-08-16",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-08-23",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-08-30",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-09-06",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-09-13",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-09-20",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-09-28",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-10-05",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-10-15",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-10-22",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-10-29",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-11-05",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-11-12",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-11-19",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-11-26",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-12-03",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-12-10",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-12-14",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "crash"
     },
     {
       "date": "2018-12-17",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-12-24",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "daily"
     },
     {
       "date": "2018-12-31",
-      "equity": 1008378.8,
+      "equity": 1016776.91,
       "type": "final"
     }
   ],

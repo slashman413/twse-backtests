@@ -1,12 +1,11 @@
 """
-Backtest v6 — liquidity filter added.
+Backtest v7 — liquidity filter 300 lots.
 
-Changes vs v5:
-- Add volume filter: require 20-day average daily volume ≥ 500 lots (張)
-  (Adj_Volume is in shares; 500 lots = 500,000 shares)
-  Eliminates illiquid/thin stocks that are hard to execute in practice.
+Changes vs v6:
+- Reduce volume filter threshold from 500 to 300 lots/day
+  (v6's 500-lot filter was too aggressive: cut 2026's best performers)
 
-Unchanged from v5:
+Unchanged from v6:
 - BULL definition: 0050 MACD arrows ≥3 AND 0050 ADX > 20
 - Hard stop-loss: -10% BULL, -7% ALERT/BEAR
 - Minimum score ≥ 1
@@ -38,7 +37,7 @@ STOP_LOSS_BULL  = 0.90        # Hard stop -10% in BULL market
 STOP_LOSS_WEAK  = 0.93        # Hard stop -7% in ALERT/BEAR market
 MIN_SCORE       = 1           # Minimum bonus conditions met to enter
 MKT_ADX_MIN     = 20          # 0050 ADX must exceed this for BULL classification
-MIN_AVG_VOL_LOTS = 500        # Min 20-day avg daily volume in lots (張); Adj_Volume in shares ÷ 1000
+MIN_AVG_VOL_LOTS = 300        # Min 20-day avg daily volume in lots (張); Adj_Volume in shares ÷ 1000
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
