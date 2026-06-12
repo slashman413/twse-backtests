@@ -1,14 +1,18 @@
 """
-Backtest v7 — liquidity filter 300 lots.
+Backtest v8 — research-driven quality filters.
 
-Changes vs v6:
-- Reduce volume filter threshold from 500 to 300 lots/day
-  (v6's 500-lot filter was too aggressive: cut 2026's best performers)
+Changes vs v7 (based on Deep Research recommendations):
+1. Volatility gate: if 0050 20-day realized vol > 25% (annualised), suppress new entries
+   (targets 2016 Jan-Feb panic, 2011 EU-debt crisis — high-vol regimes kill breakouts)
+2. RVOL ≥ 1.2: breakout day volume must be ≥ 1.2x its own 20-day average
+   (dynamic filter — catches genuine breakout energy without static lot threshold)
+3. ATR Ratio ≥ 1.3: breakout bar range must be ≥ 1.3x recent ATR baseline
+   (filters low-energy fake breakouts)
+4. RVOL bonus scoring: +1 if ≥1.5x, +2 if ≥2.5x (on top of existing score)
 
-Unchanged from v6:
-- BULL definition: 0050 MACD arrows ≥3 AND 0050 ADX > 20
-- Hard stop-loss: -10% BULL, -7% ALERT/BEAR
-- Minimum score ≥ 1
+Unchanged from v7:
+- 300-lot static floor, BULL = 0050 MACD≥3 AND ADX>20
+- Hard stop-loss: -10% BULL, -7% ALERT/BEAR, MIN_SCORE ≥ 1
 """
 import os, sys, time, json, gc, math
 import pandas as pd
@@ -38,6 +42,9 @@ STOP_LOSS_WEAK  = 0.93        # Hard stop -7% in ALERT/BEAR market
 MIN_SCORE       = 1           # Minimum bonus conditions met to enter
 MKT_ADX_MIN     = 20          # 0050 ADX must exceed this for BULL classification
 MIN_AVG_VOL_LOTS = 300        # Min 20-day avg daily volume in lots (張); Adj_Volume in shares ÷ 1000
+MKT_VOL_GATE    = 0.25        # 0050 20-day realized vol > this → suppress new entries
+RVOL_MIN        = 1.2         # Breakout day volume must be ≥ 1.2× its 20-day average
+ATR_RATIO_MIN   = 1.3         # Breakout bar range must be ≥ 1.3× recent ATR baseline
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
@@ -78,6 +85,16 @@ def _compute_indicators(grp: pd.DataFrame):
 
     # 20-day avg volume in lots (張): Adj_Volume in shares ÷ 1000, shifted to avoid look-ahead
     avg_vol_lots = (pd.Series(vol).rolling(20).mean().shift(1) / 1000.0).values.astype(np.float32)
+
+    # ATR ratio: today's ATR(14) ÷ 20-day avg of ATR(14), shifted to avoid look-ahead
+    prev_cl = pd.Series(close).shift(1)
+    tr = pd.concat([
+        pd.Series(high) - pd.Series(low),
+        (pd.Series(high) - prev_cl).abs(),
+        (pd.Series(low)  - prev_cl).abs(),
+    ], axis=1).max(axis=1)
+    atr14     = tr.rolling(14).mean()
+    atr_ratio = (atr14 / atr14.rolling(20).mean().shift(1)).fillna(0).values.astype(np.float32)
 
     # Multi-timeframe — compute on a date-indexed DataFrame
     daily_df = pd.DataFrame(
@@ -128,14 +145,16 @@ def _compute_indicators(grp: pd.DataFrame):
     m_pdi1_d = _forward_fill_to_daily(m_pdi1_s, dti, 0.0)
 
     return {
-        "dates":        dates,        # pd.DatetimeIndex
+        "dates":        dates,
         "close":        close.astype(np.float32),
+        "vol":          vol.astype(np.float32),   # raw daily volume (shares)
         "d4":           d4,
         "adx":          adx_arr,
         "wr":           wr_arr,
         "rsi60":        rsi60,
-        "high20":       high20,       # yesterday's 20-day rolling max
-        "avg_vol_lots": avg_vol_lots, # yesterday's 20-day avg volume in lots
+        "high20":       high20,
+        "avg_vol_lots": avg_vol_lots,
+        "atr_ratio":    atr_ratio,
         "w_vr_d":       w_vr_d,
         "m_vr_d":       m_vr_d,
         "m_rsi4_d":     m_rsi4_d,
@@ -196,8 +215,14 @@ def process_year(year: int):
     if len(mkt_grp) >= 120:
         mkt_info = _compute_indicators(mkt_grp)
         mkt_signals = _market_signal_series(mkt_info) if mkt_info else {}
+        # Volatility gate: 20-day realized vol > MKT_VOL_GATE → suppress new entries
+        mkt_close_s  = pd.Series(mkt_info["close"], index=pd.DatetimeIndex(mkt_info["dates"]))
+        mkt_rvol_20d = mkt_close_s.pct_change().rolling(20).std() * np.sqrt(252)
+        mkt_high_vol = {d: (not np.isnan(v) and v > MKT_VOL_GATE)
+                        for d, v in mkt_rvol_20d.items()}
     else:
-        mkt_signals = {}  # fallback: treat all days as BULL
+        mkt_signals  = {}
+        mkt_high_vol = {}
 
     # ── Pre-compute indicators per ticker ─────────────────────────────────────
     print(f"  {year}: computing indicators for {df['Ticker'].nunique()} tickers…", flush=True)
@@ -216,23 +241,28 @@ def process_year(year: int):
 
     for ticker, info in ticker_info.items():
         n = len(info["dates"])
-        cl  = info["close"]
-        d4  = info["d4"]
-        adx = info["adx"]
-        wr_ = info["wr"]
-        h20 = info["high20"]
-        avl = info["avg_vol_lots"]
+        cl   = info["close"]
+        d4   = info["d4"]
+        adx  = info["adx"]
+        wr_  = info["wr"]
+        h20  = info["high20"]
+        avl  = info["avg_vol_lots"]
+        atr_ = info["atr_ratio"]
+        vol_ = info["vol"]
 
         # Vectorised pre-filter (numpy) to avoid pure Python per-row loop
-        warmup = 120
+        warmup   = 120
+        rvol_arr = (vol_ / 1000.0) / (avl + 1e-9)
         valid_mask = (
-            (d4[warmup:]    >= 3)  &
-            (adx[warmup:]   >  20) &
-            (wr_[warmup:]   < -20) &
-            (~np.isnan(h20[warmup:])) &
-            (cl[warmup:]    > h20[warmup:]) &
-            (cl[warmup:]    > 0) &
-            (avl[warmup:]   >= MIN_AVG_VOL_LOTS)
+            (d4[warmup:]          >= 3)           &
+            (adx[warmup:]         >  20)           &
+            (wr_[warmup:]         < -20)           &
+            (~np.isnan(h20[warmup:]))              &
+            (cl[warmup:]          > h20[warmup:])  &
+            (cl[warmup:]          > 0)             &
+            (avl[warmup:]         >= MIN_AVG_VOL_LOTS) &
+            (rvol_arr[warmup:]    >= RVOL_MIN)     &
+            (atr_[warmup:]        >= ATR_RATIO_MIN)
         )
         for rel_i in np.where(valid_mask)[0]:
             i = rel_i + warmup
@@ -246,6 +276,9 @@ def process_year(year: int):
 
             score = int(rsi60_v > 57) + int(abs(w_vr_v - 150) < 50) + \
                     int(abs(m_vr_v - 150) < 50) + int(m_pdi1_v > 50 and m_rsi4_v > 77)
+
+            rvol_v = float(vol_[i]) / 1000.0 / max(float(avl[i]), 1e-9)
+            score += int(rvol_v >= 1.5) + int(rvol_v >= 2.5)
 
             if score < MIN_SCORE:
                 continue  # Require at least 1 bonus condition
@@ -364,8 +397,8 @@ def process_year(year: int):
                 "sell_reason": sell_reason,
             })
 
-        # ── Buy: BULL market only ────────────────────────────────────────────
-        if mkt == "BULL":
+        # ── Buy: BULL market, no high-vol regime ────────────────────────────
+        if mkt == "BULL" and not mkt_high_vol.get(day, False):
             today_candidates = candidates_by_date.get(day, [])
             buys_today = 0
             for c in today_candidates:
