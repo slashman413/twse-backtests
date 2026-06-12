@@ -1,12 +1,15 @@
 """
-Backtest v5 — optimised capital simulation.
+Backtest v6 — liquidity filter added.
 
-Changes vs v4:
-- Remove BULL streak gate (too blunt: destroyed 2017, 2006, 2021)
-- Tighten BULL market definition: require 0050 MACD arrows ≥3 AND 0050 ADX > 20
-  (ADX > 20 confirms actual trend strength, filters fake BULL flickers in bear years)
-- Keep hard stop-loss: -10% in BULL, -7% in ALERT/BEAR
-- Minimum score ≥ 1 still required
+Changes vs v5:
+- Add volume filter: require 20-day average daily volume ≥ 500 lots (張)
+  (Adj_Volume is in shares; 500 lots = 500,000 shares)
+  Eliminates illiquid/thin stocks that are hard to execute in practice.
+
+Unchanged from v5:
+- BULL definition: 0050 MACD arrows ≥3 AND 0050 ADX > 20
+- Hard stop-loss: -10% BULL, -7% ALERT/BEAR
+- Minimum score ≥ 1
 """
 import os, sys, time, json, gc, math
 import pandas as pd
@@ -35,6 +38,7 @@ STOP_LOSS_BULL  = 0.90        # Hard stop -10% in BULL market
 STOP_LOSS_WEAK  = 0.93        # Hard stop -7% in ALERT/BEAR market
 MIN_SCORE       = 1           # Minimum bonus conditions met to enter
 MKT_ADX_MIN     = 20          # 0050 ADX must exceed this for BULL classification
+MIN_AVG_VOL_LOTS = 500        # Min 20-day avg daily volume in lots (張); Adj_Volume in shares ÷ 1000
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
@@ -72,6 +76,9 @@ def _compute_indicators(grp: pd.DataFrame):
 
     # 20-day breakout threshold: yesterday's 20-day high (shift=1 → no look-ahead)
     high20 = pd.Series(close).rolling(20).max().shift(1).values.astype(np.float32)
+
+    # 20-day avg volume in lots (張): Adj_Volume in shares ÷ 1000, shifted to avoid look-ahead
+    avg_vol_lots = (pd.Series(vol).rolling(20).mean().shift(1) / 1000.0).values.astype(np.float32)
 
     # Multi-timeframe — compute on a date-indexed DataFrame
     daily_df = pd.DataFrame(
@@ -122,17 +129,18 @@ def _compute_indicators(grp: pd.DataFrame):
     m_pdi1_d = _forward_fill_to_daily(m_pdi1_s, dti, 0.0)
 
     return {
-        "dates":     dates,        # pd.DatetimeIndex
-        "close":     close.astype(np.float32),
-        "d4":        d4,
-        "adx":       adx_arr,
-        "wr":        wr_arr,
-        "rsi60":     rsi60,
-        "high20":    high20,       # yesterday's 20-day rolling max
-        "w_vr_d":   w_vr_d,
-        "m_vr_d":   m_vr_d,
-        "m_rsi4_d": m_rsi4_d,
-        "m_pdi1_d": m_pdi1_d,
+        "dates":        dates,        # pd.DatetimeIndex
+        "close":        close.astype(np.float32),
+        "d4":           d4,
+        "adx":          adx_arr,
+        "wr":           wr_arr,
+        "rsi60":        rsi60,
+        "high20":       high20,       # yesterday's 20-day rolling max
+        "avg_vol_lots": avg_vol_lots, # yesterday's 20-day avg volume in lots
+        "w_vr_d":       w_vr_d,
+        "m_vr_d":       m_vr_d,
+        "m_rsi4_d":     m_rsi4_d,
+        "m_pdi1_d":     m_pdi1_d,
     }
 
 
@@ -214,6 +222,7 @@ def process_year(year: int):
         adx = info["adx"]
         wr_ = info["wr"]
         h20 = info["high20"]
+        avl = info["avg_vol_lots"]
 
         # Vectorised pre-filter (numpy) to avoid pure Python per-row loop
         warmup = 120
@@ -223,7 +232,8 @@ def process_year(year: int):
             (wr_[warmup:]   < -20) &
             (~np.isnan(h20[warmup:])) &
             (cl[warmup:]    > h20[warmup:]) &
-            (cl[warmup:]    > 0)
+            (cl[warmup:]    > 0) &
+            (avl[warmup:]   >= MIN_AVG_VOL_LOTS)
         )
         for rel_i in np.where(valid_mask)[0]:
             i = rel_i + warmup
