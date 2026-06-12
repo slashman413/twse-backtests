@@ -145,11 +145,13 @@ function renderSummary() {
   const maxAbs = Math.max(...rows.map(r => Math.abs(r.total_return_pct)));
 
   function summaryTableHTML() {
+    const hasMissed = rows.some(r => r.missed_count != null);
     const cols = [
       { key:"year",             label:"年份" },
       { key:"total_return_pct", label:"報酬率" },
       { key:"total_pl",         label:"損益 (NT$)" },
       { key:"trade_count",      label:"交易次數" },
+      ...(hasMissed ? [{ key:"missed_count", label:"錯過" }] : []),
       { key:"stocks_with_signals", label:"訊號股" },
       { key:"trade_win_rate",   label:"勝率" },
     ];
@@ -170,6 +172,7 @@ function renderSummary() {
           </div>
         </td>
         <td>${r.trade_count}</td>
+        ${hasMissed ? `<td style="color:var(--yellow)">${r.missed_count ?? "—"}</td>` : ""}
         <td>${r.stocks_with_signals}</td>
         <td><span class="badge ${r.trade_win_rate>=50?'pos':'neg'}">${r.trade_win_rate.toFixed(1)}%</span></td>
       </tr>`;
@@ -234,10 +237,11 @@ async function loadTradeYear(year) {
     }
   }
 
-  renderTrades(year, tradeCache[year].trades || []);
+  renderTrades(year, tradeCache[year].trades || [], tradeCache[year].missed_trades || []);
 }
 
-function renderTrades(year, trades) {
+function renderTrades(year, trades, missed) {
+  missed = missed || [];
   const sumRow = summaryData.find(r => r.year === year) || {};
   const wins   = trades.filter(t => t.pl > 0).length;
   const losses = trades.filter(t => t.pl <= 0).length;
@@ -246,6 +250,7 @@ function renderTrades(year, trades) {
 
   let filterText = "";
   let sortKey2 = "buy_date", sortAsc2 = true;
+  let showTab = "trades"; // "trades" | "missed"
 
   function filteredTrades() {
     const q = filterText.trim().toLowerCase();
@@ -306,6 +311,33 @@ function renderTrades(year, trades) {
     `;
   }
 
+  function missedTableHTML() {
+    const q = filterText.trim().toLowerCase();
+    const rows = q
+      ? missed.filter(m => m.ticker.includes(q) || (stockNames[m.ticker]||"").toLowerCase().includes(q))
+      : missed;
+    if (!rows.length) return `<p style="color:var(--muted);padding:12px">無錯過的訊號</p>`;
+    return `<div class="tbl-scroll"><table>
+      <thead><tr>
+        <th style="text-align:left">代號/名稱</th>
+        <th style="text-align:right">日期</th>
+        <th style="text-align:right">價格</th>
+        <th style="text-align:right">評分</th>
+        <th style="text-align:right">突破幅%</th>
+        <th style="text-align:left">原因</th>
+      </tr></thead>
+      <tbody>${rows.map(m => `<tr>
+        <td><div class="trade-ticker">${m.ticker}</div><div class="trade-name">${shortName(stockNames[m.ticker]||"")}</div></td>
+        <td>${m.date}</td>
+        <td>${m.price != null ? m.price.toFixed(2) : "—"}</td>
+        <td>${m.score}</td>
+        <td>${m.breakout_pct != null ? m.breakout_pct.toFixed(2)+"%" : "—"}</td>
+        <td style="color:var(--muted);font-size:.78rem">${m.reason||""}</td>
+      </tr>`).join("")}</tbody>
+    </table>
+    <p class="note" style="margin-top:8px">顯示 ${rows.length} 筆錯過訊號</p></div>`;
+  }
+
   const statsHTML = `
     <div class="trade-stats">
       <div class="trade-stat"><span>交易筆數</span>${trades.length}</div>
@@ -314,13 +346,18 @@ function renderTrades(year, trades) {
       <div class="trade-stat"><span>總損益</span><span class="${totalPL>=0?'pos':'neg'}">${fmtMoney(totalPL)}</span></div>
       <div class="trade-stat"><span>平均報酬率</span><span class="${avgPct>=0?'pos':'neg'}">${fmt(avgPct)}</span></div>
       <div class="trade-stat"><span>勝率</span>${trades.length ? (wins/trades.length*100).toFixed(1)+"%" : "—"}</div>
+      <div class="trade-stat"><span>錯過訊號</span><span style="color:var(--yellow)">${missed.length}</span></div>
     </div>
   `;
 
   document.getElementById("trade-wrap").innerHTML = `
     ${statsHTML}
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button id="tab-trades" class="ytab active" onclick="switchTab('trades')">交易明細 (${trades.length})</button>
+      <button id="tab-missed" class="ytab neg-year" onclick="switchTab('missed')">錯過訊號 (${missed.length})</button>
+    </div>
     <input id="trade-search" type="text" placeholder="搜尋代號/名稱/原因...">
-    <div class="tbl-scroll" id="trade-tbl-wrap">${tradeTableHTML()}</div>
+    <div id="trade-tbl-wrap">${tradeTableHTML()}</div>
   `;
 
   function attachTradeSort() {
@@ -337,9 +374,19 @@ function renderTrades(year, trades) {
 
   document.getElementById("trade-search").addEventListener("input", e => {
     filterText = e.target.value;
-    document.getElementById("trade-tbl-wrap").innerHTML = tradeTableHTML();
-    attachTradeSort();
+    document.getElementById("trade-tbl-wrap").innerHTML =
+      showTab === "trades" ? tradeTableHTML() : missedTableHTML();
+    if (showTab === "trades") attachTradeSort();
   });
+
+  window.switchTab = function(tab) {
+    showTab = tab;
+    document.getElementById("tab-trades").classList.toggle("active", tab === "trades");
+    document.getElementById("tab-missed").classList.toggle("active", tab === "missed");
+    document.getElementById("trade-tbl-wrap").innerHTML =
+      tab === "trades" ? tradeTableHTML() : missedTableHTML();
+    if (tab === "trades") attachTradeSort();
+  };
 
   attachTradeSort();
 }

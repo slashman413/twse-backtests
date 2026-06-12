@@ -1,0 +1,496 @@
+"""
+Backtest v2 — improved capital simulation.
+
+Changes vs crawler/run_backtest.py:
+- 1M annual capital, 50K fixed per position (was 100K)
+- Daily scan: market BULL required + top-5 scoring per day
+- Entry: B1(MACD≥3) + B2(ADX>20) + B3(WR<−20) + 20-day high breakout
+- Market proxy: 0050 MACD(200/209/210) for bull/bear/crash detection
+- CRASH → immediate liquidation of all holdings
+- Capital exhausted → record missed trade instead of buying
+- Return = (end_cash − 1M) / 1M × 100% (clean per-year P&L)
+"""
+import os, sys, time, json, gc, math
+import pandas as pd
+import numpy as np
+from concurrent.futures import ProcessPoolExecutor, as_completed
+
+# ── Path config ──────────────────────────────────────────────────────────────
+_HERE = os.path.dirname(os.path.abspath(__file__))
+ADJ_TEMP_DIR = os.environ.get("ADJ_TEMP_DIR",
+               os.path.join("D:/TWSE-Data/Adjusted", "_temp"))
+OUT_DIR      = os.environ.get("BACKTEST_OUT_DIR",
+               os.path.join(_HERE, "..", "docs", "data"))
+CORE_DIR     = os.path.join(_HERE, "..", "core")
+os.makedirs(OUT_DIR, exist_ok=True)
+sys.path.insert(0, CORE_DIR)
+
+from indicators import macd_4arrows, dmi, wr, rsi
+
+INITIAL_CAPITAL = 1_000_000
+POSITION_SIZE   = 50_000      # Fixed capital per position
+TOP_N_PER_DAY   = 5           # Max new buys per trading day
+MARKET_PROXY    = "0050"      # Used for bull/crash detection
+
+
+# ── Indicator helpers ─────────────────────────────────────────────────────────
+
+def _forward_fill_to_daily(ts: pd.Series, daily_index: pd.DatetimeIndex,
+                            default: float) -> np.ndarray:
+    """Reindex a weekly/monthly series onto daily dates with forward-fill."""
+    if ts.empty:
+        return np.full(len(daily_index), default, dtype=np.float32)
+    return ts.reindex(daily_index, method="ffill").fillna(default).values.astype(np.float32)
+
+
+def _compute_indicators(grp: pd.DataFrame):
+    """Return per-day indicator arrays for one ticker. Returns None if too short."""
+    grp = grp.sort_values("Date").reset_index(drop=True)
+    n = len(grp)
+    if n < 120:
+        return None
+
+    close = np.nan_to_num(grp["Adj_Close"].values.astype(np.float64), nan=0.0)
+    high  = np.nan_to_num(grp["Adj_High"].values.astype(np.float64),  nan=0.0)
+    low   = np.nan_to_num(grp["Adj_Low"].values.astype(np.float64),   nan=0.0)
+    vol   = grp["Adj_Volume"].values.astype(np.float64)
+    dates = pd.to_datetime(grp["Date"].values)
+
+    cs = pd.Series(close, index=range(n))
+    hs = pd.Series(high,  index=range(n))
+    ls = pd.Series(low,   index=range(n))
+
+    # Daily indicators
+    d4      = np.nan_to_num(macd_4arrows(cs, 200, 209, 210)["arrows_count"].values, nan=0).astype(np.float32)
+    adx_arr = np.nan_to_num(dmi(hs, ls, cs, 300)["adx"].values, nan=0).astype(np.float32)
+    wr_arr  = np.nan_to_num(wr(hs, ls, cs, 50).values, nan=0).astype(np.float32)
+    rsi60   = np.nan_to_num(rsi(cs, 60).values, nan=50).astype(np.float32)
+
+    # 20-day breakout threshold: yesterday's 20-day high (shift=1 → no look-ahead)
+    high20 = pd.Series(close).rolling(20).max().shift(1).values.astype(np.float32)
+
+    # Multi-timeframe — compute on a date-indexed DataFrame
+    daily_df = pd.DataFrame(
+        {"Close": close, "High": high, "Low": low, "Volume": vol},
+        index=dates
+    )
+    dti = pd.DatetimeIndex(dates)
+
+    weekly  = daily_df.resample("W").agg({"Close":"last","High":"max","Low":"min","Volume":"sum"}).dropna()
+    monthly = daily_df.resample("ME").agg({"Close":"last","High":"max","Low":"min","Volume":"sum"}).dropna()
+
+    # Weekly VR → forward-fill to daily
+    if len(weekly) > 3:
+        wu  = weekly["Close"].diff() > 0
+        wd  = weekly["Close"].diff() < 0
+        wvr = (100.0 * (weekly["Volume"]*wu).rolling(2).sum()
+               / (weekly["Volume"]*wd).rolling(2).sum().replace(0, np.nan)).fillna(0.0)
+    else:
+        wvr = pd.Series(dtype=float)
+    w_vr_d = _forward_fill_to_daily(wvr, dti, 0.0)
+
+    # Monthly VR → forward-fill
+    if len(monthly) > 3:
+        mu  = monthly["Close"].diff() > 0
+        md  = monthly["Close"].diff() < 0
+        mvr = (100.0 * (monthly["Volume"]*mu).rolling(2).sum()
+               / (monthly["Volume"]*md).rolling(2).sum().replace(0, np.nan)).fillna(0.0)
+    else:
+        mvr = pd.Series(dtype=float)
+    m_vr_d = _forward_fill_to_daily(mvr, dti, 0.0)
+
+    # Monthly RSI4 + DMI+DI1 → forward-fill
+    if len(monthly) > 14:
+        mc       = pd.Series(monthly["Close"].values, index=range(len(monthly)))
+        m_rsi4_s = rsi(mc, 4)
+        m_rsi4_s.index = monthly.index
+        _dm      = dmi(
+            pd.Series(monthly["High"].values, index=range(len(monthly))),
+            pd.Series(monthly["Low"].values,  index=range(len(monthly))),
+            mc, period=1
+        )
+        m_pdi1_s = _dm["plus_di"]; m_pdi1_s.index = monthly.index
+    else:
+        m_rsi4_s = pd.Series(dtype=float)
+        m_pdi1_s = pd.Series(dtype=float)
+
+    m_rsi4_d = _forward_fill_to_daily(m_rsi4_s, dti, 50.0)
+    m_pdi1_d = _forward_fill_to_daily(m_pdi1_s, dti, 0.0)
+
+    return {
+        "dates":     dates,        # pd.DatetimeIndex
+        "close":     close.astype(np.float32),
+        "d4":        d4,
+        "adx":       adx_arr,
+        "wr":        wr_arr,
+        "rsi60":     rsi60,
+        "high20":    high20,       # yesterday's 20-day rolling max
+        "w_vr_d":   w_vr_d,
+        "m_vr_d":   m_vr_d,
+        "m_rsi4_d": m_rsi4_d,
+        "m_pdi1_d": m_pdi1_d,
+    }
+
+
+def _market_signal_series(mkt_info: dict) -> dict:
+    """Build date → signal mapping from market proxy indicators.
+
+    BULL   : d4 >= 3
+    ALERT  : d4 in {1, 2}
+    BEAR   : d4 == 0
+    CRASH  : d4 == 0  AND  close dropped ≥ 3% vs 3 days ago
+    """
+    dates = mkt_info["dates"]
+    close = mkt_info["close"]
+    d4    = mkt_info["d4"]
+    sig   = {}
+    n = len(dates)
+    for i in range(n):
+        arrows = int(d4[i])
+        crash = False
+        if arrows == 0 and i >= 3:
+            drop = (close[i] - close[i-3]) / max(close[i-3], 1e-9)
+            crash = drop <= -0.03
+        if crash:
+            s = "CRASH"
+        elif arrows >= 3:
+            s = "BULL"
+        elif arrows >= 1:
+            s = "ALERT"
+        else:
+            s = "BEAR"
+        sig[dates[i]] = s
+    return sig
+
+
+# ── Main year processor ──────────────────────────────────────────────────────
+
+def process_year(year: int):
+    t0 = time.time()
+    f = os.path.join(ADJ_TEMP_DIR, f"{year}.parquet")
+    if not os.path.exists(f):
+        return None
+
+    df = pd.read_parquet(f)
+    df["Date"]   = pd.to_datetime(df["Date"])
+    df["Ticker"] = df["Ticker"].astype(str).str.zfill(4)
+    for col in ["Adj_Close", "Adj_High", "Adj_Low"]:
+        df = df[df[col].notna()]
+    df = df.sort_values(["Ticker", "Date"]).reset_index(drop=True)
+
+    # ── Market proxy ──────────────────────────────────────────────────────────
+    mkt_grp = df[df["Ticker"] == MARKET_PROXY]
+    if len(mkt_grp) >= 120:
+        mkt_info = _compute_indicators(mkt_grp)
+        mkt_signals = _market_signal_series(mkt_info) if mkt_info else {}
+    else:
+        mkt_signals = {}  # fallback: treat all days as BULL
+
+    # ── Pre-compute indicators per ticker ─────────────────────────────────────
+    print(f"  {year}: computing indicators for {df['Ticker'].nunique()} tickers…", flush=True)
+    ticker_info = {}
+    for ticker, grp in df.groupby("Ticker", sort=False):
+        info = _compute_indicators(grp)
+        if info is not None:
+            info["date_to_idx"] = {d: i for i, d in enumerate(info["dates"])}
+            ticker_info[ticker] = info
+
+    # ── Pre-build candidates per trading date ─────────────────────────────────
+    # For each (ticker, day) that passes B1+B2+B3+breakout, register as candidate.
+    # This avoids an inner loop over all tickers in the simulation.
+    print(f"  {year}: building candidate index…", flush=True)
+    candidates_by_date: dict[pd.Timestamp, list] = {}
+
+    for ticker, info in ticker_info.items():
+        n = len(info["dates"])
+        cl  = info["close"]
+        d4  = info["d4"]
+        adx = info["adx"]
+        wr_ = info["wr"]
+        h20 = info["high20"]
+
+        # Vectorised pre-filter (numpy) to avoid pure Python per-row loop
+        warmup = 120
+        valid_mask = (
+            (d4[warmup:]    >= 3)  &
+            (adx[warmup:]   >  20) &
+            (wr_[warmup:]   < -20) &
+            (~np.isnan(h20[warmup:])) &
+            (cl[warmup:]    > h20[warmup:]) &
+            (cl[warmup:]    > 0)
+        )
+        for rel_i in np.where(valid_mask)[0]:
+            i = rel_i + warmup
+            day = info["dates"][i]
+
+            rsi60_v = float(info["rsi60"][i])
+            w_vr_v  = float(info["w_vr_d"][i])
+            m_vr_v  = float(info["m_vr_d"][i])
+            m_rsi4_v = float(info["m_rsi4_d"][i])
+            m_pdi1_v = float(info["m_pdi1_d"][i])
+
+            score = int(rsi60_v > 57) + int(abs(w_vr_v - 150) < 50) + \
+                    int(abs(m_vr_v - 150) < 50) + int(m_pdi1_v > 50 and m_rsi4_v > 77)
+
+            breakout_pct = float((cl[i] - h20[i]) / h20[i] * 100)
+
+            if day not in candidates_by_date:
+                candidates_by_date[day] = []
+            candidates_by_date[day].append({
+                "ticker":       ticker,
+                "close":        float(cl[i]),
+                "score":        score,
+                "breakout_pct": breakout_pct,
+                "m_rsi4":       m_rsi4_v,
+            })
+
+    # Sort each day's list once (score DESC, breakout_pct DESC)
+    for day_list in candidates_by_date.values():
+        day_list.sort(key=lambda x: (-x["score"], -x["breakout_pct"]))
+
+    # ── Simulation ────────────────────────────────────────────────────────────
+    all_dates = sorted(df["Date"].unique())
+
+    cash       = float(INITIAL_CAPITAL)
+    positions  = {}   # ticker → {shares, buy_price, buy_date, cost}
+    trades     = []
+    missed     = []
+    equity_curve = []
+
+    def portfolio_value(day: pd.Timestamp) -> float:
+        mval = 0.0
+        for tkr, pos in positions.items():
+            info = ticker_info.get(tkr)
+            if info is None:
+                mval += pos["cost"]
+                continue
+            idx = info["date_to_idx"].get(day)
+            px  = float(info["close"][idx]) if idx is not None else pos["buy_price"]
+            mval += pos["shares"] * (px if px > 0 else pos["buy_price"])
+        return cash + mval
+
+    for raw_day in all_dates:
+        day = pd.Timestamp(raw_day)
+        mkt = mkt_signals.get(day, "BULL")
+
+        # ── CRASH: liquidate everything ───────────────────────────────────────
+        if mkt == "CRASH":
+            for tkr, pos in list(positions.items()):
+                info = ticker_info.get(tkr)
+                idx  = info["date_to_idx"].get(day) if info else None
+                sell_price = float(info["close"][idx]) if (idx is not None and info["close"][idx] > 0) \
+                             else pos["buy_price"]
+                proceeds = pos["shares"] * sell_price
+                pl = proceeds - pos["cost"]
+                cash += proceeds
+                trades.append({
+                    "ticker":      tkr,
+                    "buy_date":    pos["buy_date"],
+                    "buy_price":   round(pos["buy_price"], 2),
+                    "sell_date":   day.strftime("%Y-%m-%d"),
+                    "sell_price":  round(sell_price, 2),
+                    "shares":      pos["shares"],
+                    "pl":          round(pl, 2),
+                    "pl_pct":      round((sell_price - pos["buy_price"]) / pos["buy_price"] * 100, 2),
+                    "sell_reason": "大盤CRASH出清",
+                })
+            positions.clear()
+            equity_curve.append({"date": day.strftime("%Y-%m-%d"),
+                                  "equity": round(cash, 2), "type": "crash"})
+            continue
+
+        # ── Regular sell: monthly RSI4 < 77 ──────────────────────────────────
+        for tkr in list(positions.keys()):
+            info = ticker_info.get(tkr)
+            if info is None:
+                continue
+            idx = info["date_to_idx"].get(day)
+            if idx is None:
+                continue
+            m_rsi4 = float(info["m_rsi4_d"][idx])
+            if m_rsi4 >= 77:
+                continue
+            sell_price = float(info["close"][idx])
+            if sell_price == 0:
+                continue
+            pos = positions.pop(tkr)
+            proceeds = pos["shares"] * sell_price
+            pl = proceeds - pos["cost"]
+            cash += proceeds
+            trades.append({
+                "ticker":      tkr,
+                "buy_date":    pos["buy_date"],
+                "buy_price":   round(pos["buy_price"], 2),
+                "sell_date":   day.strftime("%Y-%m-%d"),
+                "sell_price":  round(sell_price, 2),
+                "shares":      pos["shares"],
+                "pl":          round(pl, 2),
+                "pl_pct":      round((sell_price - pos["buy_price"]) / pos["buy_price"] * 100, 2),
+                "sell_reason": f"月RSI4={m_rsi4:.0f}<77",
+            })
+
+        # ── Buy: only in BULL market ──────────────────────────────────────────
+        if mkt == "BULL":
+            today_candidates = candidates_by_date.get(day, [])
+            buys_today = 0
+            for c in today_candidates:
+                if buys_today >= TOP_N_PER_DAY:
+                    break
+                tkr = c["ticker"]
+                if tkr in positions:
+                    continue  # already holding
+                if cash < POSITION_SIZE:
+                    missed.append({
+                        "ticker":       tkr,
+                        "date":         day.strftime("%Y-%m-%d"),
+                        "price":        round(c["close"], 2),
+                        "score":        c["score"],
+                        "breakout_pct": round(c["breakout_pct"], 2),
+                        "reason":       "資金不足",
+                    })
+                    continue
+                alloc  = min(POSITION_SIZE, cash)
+                shares = math.floor(alloc / c["close"])
+                if shares <= 0:
+                    continue
+                cost = shares * c["close"]
+                cash -= cost
+                positions[tkr] = {
+                    "shares":    shares,
+                    "buy_price": c["close"],
+                    "buy_date":  day.strftime("%Y-%m-%d"),
+                    "cost":      cost,
+                }
+                buys_today += 1
+
+        # Daily equity snapshot (every 5 days to keep JSON size manageable)
+        if raw_day in all_dates[::5]:
+            equity_curve.append({
+                "date":   day.strftime("%Y-%m-%d"),
+                "equity": round(portfolio_value(day), 2),
+                "type":   "daily",
+            })
+
+    # ── Year-end mark-to-market ───────────────────────────────────────────────
+    last_day = pd.Timestamp(all_dates[-1])
+    for tkr, pos in list(positions.items()):
+        info = ticker_info.get(tkr)
+        last_close = float(info["close"][-1]) if info else 0.0
+        if last_close == 0:
+            last_close = pos["buy_price"]
+        proceeds = pos["shares"] * last_close
+        pl = proceeds - pos["cost"]
+        cash += proceeds
+        trades.append({
+            "ticker":      tkr,
+            "buy_date":    pos["buy_date"],
+            "buy_price":   round(pos["buy_price"], 2),
+            "sell_date":   last_day.strftime("%Y-%m-%d") + " (年終)",
+            "sell_price":  round(last_close, 2),
+            "shares":      pos["shares"],
+            "pl":          round(pl, 2),
+            "pl_pct":      round((last_close - pos["buy_price"]) / pos["buy_price"] * 100, 2),
+            "sell_reason": "年終結算",
+        })
+    positions.clear()
+
+    equity_curve.append({
+        "date":   f"{year}-12-31",
+        "equity": round(cash, 2),
+        "type":   "final",
+    })
+
+    # ── Summary ───────────────────────────────────────────────────────────────
+    elapsed = time.time() - t0
+    year_pl = cash - INITIAL_CAPITAL
+    return_pct = round(year_pl / INITIAL_CAPITAL * 100, 2)
+
+    summary = {
+        "year":                 year,
+        "stocks_simulated":     len(ticker_info),
+        "stocks_with_signals":  len(set(t["ticker"] for t in trades)),
+        "trade_count":          len(trades),
+        "missed_count":         len(missed),
+        "total_pl":             round(year_pl, 2),
+        "total_deployed":       INITIAL_CAPITAL,
+        "avg_return_pct":       return_pct,
+        "total_return_pct":     return_pct,
+        "trade_win_rate":       round(
+            len([t for t in trades if t["pl"] > 0]) / len(trades) * 100, 1
+        ) if trades else 0.0,
+        "elapsed_s":            round(elapsed),
+    }
+
+    if trades or missed:
+        out = {"trades": trades, "equity_curve": equity_curve, "missed_trades": missed}
+        with open(os.path.join(OUT_DIR, f"{year}_trades.json"), "w", encoding="utf-8") as fout:
+            json.dump(out, fout, indent=2, ensure_ascii=False)
+
+    print(
+        f"📅 {year}: {len(ticker_info)} tickers | {len(trades)} trades | "
+        f"{len(missed)} missed | PL={year_pl:+.0f} | Return={return_pct:+.2f}% ({elapsed:.0f}s)",
+        flush=True,
+    )
+
+    del df, ticker_info, candidates_by_date
+    gc.collect()
+    return summary
+
+
+# ── Entry point ──────────────────────────────────────────────────────────────
+
+def main():
+    years = list(range(2004, 2027))
+    all_summary = []
+
+    with ProcessPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(process_year, y): y for y in years}
+        for future in as_completed(futures):
+            result = future.result()
+            if result:
+                all_summary.append(result)
+                print(f"  ✓ {result['year']} done", flush=True)
+
+    all_summary.sort(key=lambda s: s["year"])
+
+    out_path = os.path.join(OUT_DIR, "summary.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(all_summary, f, indent=2, ensure_ascii=False)
+
+    if not all_summary:
+        print("No results."); return
+
+    print(f"\n{'='*70}")
+    print(f"{'Year':>6} {'Tickers':>8} {'Trades':>8} {'Missed':>7} "
+          f"{'PL':>14} {'Return%':>8} {'WinRate':>8}")
+    print(f"{'─'*70}")
+    for s in all_summary:
+        cls = "+" if s["total_return_pct"] > 0 else ""
+        print(f"{s['year']:>6} {s['stocks_simulated']:>8} {s['trade_count']:>8} "
+              f"{s['missed_count']:>7} {s['total_pl']:>+13.0f} "
+              f"{s['total_return_pct']:>+7.2f}% {s['trade_win_rate']:>6.1f}%")
+
+    pos_years = [s for s in all_summary if s["total_return_pct"] > 0]
+    neg_years = [s for s in all_summary if s["total_return_pct"] <= 0]
+    best  = max(all_summary, key=lambda s: s["total_return_pct"])
+    worst = min(all_summary, key=lambda s: s["total_return_pct"])
+    avg_ret  = sum(s["total_return_pct"] for s in all_summary) / len(all_summary)
+    avg_win  = sum(s["trade_win_rate"]   for s in all_summary) / len(all_summary)
+
+    print(f"{'='*70}")
+    print(f"起始資金(各年獨立):  {INITIAL_CAPITAL:>12,.0f}")
+    print(f"每筆進場資金:        {POSITION_SIZE:>12,.0f}")
+    print(f"每日最多買進:        {TOP_N_PER_DAY:>12} 檔")
+    print(f"{'─'*70}")
+    print(f"年均報酬率:         {avg_ret:>+10.2f}%")
+    print(f"平均勝率:           {avg_win:>10.1f}%")
+    print(f"最佳年份:           {best['year']:>4}  ({best['total_return_pct']:>+.2f}%)")
+    print(f"最差年份:           {worst['year']:>4}  ({worst['total_return_pct']:>+.2f}%)")
+    print(f"正報酬年數:         {len(pos_years):>4}/{len(all_summary)}")
+    print(f"負報酬年數:         {len(neg_years):>4}/{len(all_summary)}")
+    print(f"{'='*70}")
+    print(f"✅ 結果已儲存至 {out_path}")
+
+
+if __name__ == "__main__":
+    main()
