@@ -1,6 +1,61 @@
 {
   "trades": [
     {
+      "ticker": "3550",
+      "buy_date": "2026-04-13",
+      "buy_price": 20.25,
+      "sell_date": "2026-04-14",
+      "sell_price": 19.95,
+      "shares": 2469,
+      "pl": -740.7,
+      "pl_pct": -1.48,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "6531",
+      "buy_date": "2026-04-13",
+      "buy_price": 567.0,
+      "sell_date": "2026-04-14",
+      "sell_price": 606.0,
+      "shares": 88,
+      "pl": 3432.0,
+      "pl_pct": 6.88,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "3010",
+      "buy_date": "2026-04-13",
+      "buy_price": 136.0,
+      "sell_date": "2026-04-14",
+      "sell_price": 135.0,
+      "shares": 367,
+      "pl": -367.0,
+      "pl_pct": -0.74,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "1727",
+      "buy_date": "2026-04-13",
+      "buy_price": 58.4,
+      "sell_date": "2026-04-14",
+      "sell_price": 58.1,
+      "shares": 856,
+      "pl": -256.8,
+      "pl_pct": -0.51,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
+      "ticker": "8261",
+      "buy_date": "2026-04-13",
+      "buy_price": 111.0,
+      "sell_date": "2026-04-14",
+      "sell_price": 111.0,
+      "shares": 450,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "2464",
       "buy_date": "2026-04-14",
       "buy_price": 75.1,
@@ -2236,47 +2291,47 @@
     },
     {
       "date": "2026-04-17",
-      "equity": 1035268.23,
+      "equity": 1037335.73,
       "type": "daily"
     },
     {
       "date": "2026-04-24",
-      "equity": 1090497.4,
+      "equity": 1092564.9,
       "type": "daily"
     },
     {
       "date": "2026-05-04",
-      "equity": 1091014.22,
+      "equity": 1093081.72,
       "type": "daily"
     },
     {
       "date": "2026-05-11",
-      "equity": 1201428.01,
+      "equity": 1203495.51,
       "type": "daily"
     },
     {
       "date": "2026-05-18",
-      "equity": 1265165.16,
+      "equity": 1267232.66,
       "type": "daily"
     },
     {
       "date": "2026-05-25",
-      "equity": 1402904.07,
+      "equity": 1404971.57,
       "type": "daily"
     },
     {
       "date": "2026-06-01",
-      "equity": 1448362.69,
+      "equity": 1450430.19,
       "type": "daily"
     },
     {
       "date": "2026-06-08",
-      "equity": 1413052.25,
+      "equity": 1415119.75,
       "type": "daily"
     },
     {
       "date": "2026-12-31",
-      "equity": 1391276.72,
+      "equity": 1393344.22,
       "type": "final"
     }
   ],

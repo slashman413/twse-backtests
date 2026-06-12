@@ -1,11 +1,11 @@
 """
-Backtest v4 — optimised capital simulation.
+Backtest v5 — optimised capital simulation.
 
-Changes vs v3:
-- Remove trailing stop (hurt 2022: exits at worse prices than monthly RSI4 in gradual declines)
+Changes vs v4:
+- Remove BULL streak gate (too blunt: destroyed 2017, 2006, 2021)
+- Tighten BULL market definition: require 0050 MACD arrows ≥3 AND 0050 ADX > 20
+  (ADX > 20 confirms actual trend strength, filters fake BULL flickers in bear years)
 - Keep hard stop-loss: -10% in BULL, -7% in ALERT/BEAR
-- Add BULL streak gate: require 0050 to have been BULL ≥5 consecutive days before new entries
-  (prevents buying during brief BULL flickers inside a broader bear market)
 - Minimum score ≥ 1 still required
 """
 import os, sys, time, json, gc, math
@@ -34,7 +34,7 @@ MARKET_PROXY    = "0050"      # Used for bull/crash detection
 STOP_LOSS_BULL  = 0.90        # Hard stop -10% in BULL market
 STOP_LOSS_WEAK  = 0.93        # Hard stop -7% in ALERT/BEAR market
 MIN_SCORE       = 1           # Minimum bonus conditions met to enter
-MIN_BULL_STREAK = 5           # Consecutive BULL days required before new buys
+MKT_ADX_MIN     = 20          # 0050 ADX must exceed this for BULL classification
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
@@ -139,25 +139,27 @@ def _compute_indicators(grp: pd.DataFrame):
 def _market_signal_series(mkt_info: dict) -> dict:
     """Build date → signal mapping from market proxy indicators.
 
-    BULL   : d4 >= 3
-    ALERT  : d4 in {1, 2}
+    BULL   : d4 >= 3  AND  ADX > MKT_ADX_MIN  (confirmed trend strength)
+    ALERT  : d4 in {1, 2}  OR  (d4 >= 3 but ADX ≤ MKT_ADX_MIN)
     BEAR   : d4 == 0
     CRASH  : d4 == 0  AND  close dropped ≥ 3% vs 3 days ago
     """
     dates = mkt_info["dates"]
     close = mkt_info["close"]
     d4    = mkt_info["d4"]
+    adx   = mkt_info["adx"]
     sig   = {}
     n = len(dates)
     for i in range(n):
         arrows = int(d4[i])
+        adx_v  = float(adx[i])
         crash = False
         if arrows == 0 and i >= 3:
             drop = (close[i] - close[i-3]) / max(close[i-3], 1e-9)
             crash = drop <= -0.03
         if crash:
             s = "CRASH"
-        elif arrows >= 3:
+        elif arrows >= 3 and adx_v > MKT_ADX_MIN:
             s = "BULL"
         elif arrows >= 1:
             s = "ALERT"
@@ -258,17 +260,6 @@ def process_year(year: int):
     # ── Simulation ────────────────────────────────────────────────────────────
     all_dates = sorted(df["Date"].unique())
 
-    # Pre-compute consecutive BULL streak for each date (no look-ahead)
-    bull_streak: dict[pd.Timestamp, int] = {}
-    streak = 0
-    for raw_day in all_dates:
-        d = pd.Timestamp(raw_day)
-        if mkt_signals.get(d, "BULL") == "BULL":
-            streak += 1
-        else:
-            streak = 0
-        bull_streak[d] = streak
-
     cash       = float(INITIAL_CAPITAL)
     positions  = {}   # ticker → {shares, buy_price, buy_date, cost}
     trades     = []
@@ -364,8 +355,8 @@ def process_year(year: int):
                 "sell_reason": sell_reason,
             })
 
-        # ── Buy: BULL market + streak gate ───────────────────────────────────
-        if mkt == "BULL" and bull_streak.get(day, 0) >= MIN_BULL_STREAK:
+        # ── Buy: BULL market only ────────────────────────────────────────────
+        if mkt == "BULL":
             today_candidates = candidates_by_date.get(day, [])
             buys_today = 0
             for c in today_candidates:
