@@ -1,12 +1,12 @@
 """
-Backtest v3 — optimised capital simulation.
+Backtest v4 — optimised capital simulation.
 
-Changes vs v2:
-- Hard stop-loss: -10% in BULL, -7% in ALERT/BEAR market
-- Trailing stop: -12% from position peak in BULL, -9% in ALERT/BEAR
-- Minimum score ≥ 1 required for entry (at least 1 bonus condition)
-- Peak price tracked per position for trailing stop
-- Sell reason recorded for every exit type
+Changes vs v3:
+- Remove trailing stop (hurt 2022: exits at worse prices than monthly RSI4 in gradual declines)
+- Keep hard stop-loss: -10% in BULL, -7% in ALERT/BEAR
+- Add BULL streak gate: require 0050 to have been BULL ≥5 consecutive days before new entries
+  (prevents buying during brief BULL flickers inside a broader bear market)
+- Minimum score ≥ 1 still required
 """
 import os, sys, time, json, gc, math
 import pandas as pd
@@ -32,10 +32,9 @@ MARKET_PROXY    = "0050"      # Used for bull/crash detection
 
 # Risk management thresholds
 STOP_LOSS_BULL  = 0.90        # Hard stop -10% in BULL market
-TRAIL_STOP_BULL = 0.88        # Trailing stop -12% from peak in BULL
 STOP_LOSS_WEAK  = 0.93        # Hard stop -7% in ALERT/BEAR market
-TRAIL_STOP_WEAK = 0.91        # Trailing stop -9% from peak in ALERT/BEAR
 MIN_SCORE       = 1           # Minimum bonus conditions met to enter
+MIN_BULL_STREAK = 5           # Consecutive BULL days required before new buys
 
 
 # ── Indicator helpers ─────────────────────────────────────────────────────────
@@ -259,6 +258,17 @@ def process_year(year: int):
     # ── Simulation ────────────────────────────────────────────────────────────
     all_dates = sorted(df["Date"].unique())
 
+    # Pre-compute consecutive BULL streak for each date (no look-ahead)
+    bull_streak: dict[pd.Timestamp, int] = {}
+    streak = 0
+    for raw_day in all_dates:
+        d = pd.Timestamp(raw_day)
+        if mkt_signals.get(d, "BULL") == "BULL":
+            streak += 1
+        else:
+            streak = 0
+        bull_streak[d] = streak
+
     cash       = float(INITIAL_CAPITAL)
     positions  = {}   # ticker → {shares, buy_price, buy_date, cost}
     trades     = []
@@ -307,9 +317,8 @@ def process_year(year: int):
                                   "equity": round(cash, 2), "type": "crash"})
             continue
 
-        # ── Regular sell: stop-loss / trailing-stop / monthly RSI4 ──────────
-        sl = STOP_LOSS_BULL  if mkt == "BULL" else STOP_LOSS_WEAK
-        ts = TRAIL_STOP_BULL if mkt == "BULL" else TRAIL_STOP_WEAK
+        # ── Regular sell: hard stop-loss / monthly RSI4 ──────────────────────
+        sl = STOP_LOSS_BULL if mkt == "BULL" else STOP_LOSS_WEAK
 
         for tkr in list(positions.keys()):
             info = ticker_info.get(tkr)
@@ -322,15 +331,9 @@ def process_year(year: int):
             if sell_price == 0:
                 continue
 
-            pos = positions[tkr]
-
-            # Update trailing peak
-            if sell_price > pos["peak_price"]:
-                positions[tkr]["peak_price"] = sell_price
-
-            buy_px  = pos["buy_price"]
-            peak_px = pos["peak_price"]
-            m_rsi4  = float(info["m_rsi4_d"][idx])
+            pos    = positions[tkr]
+            buy_px = pos["buy_price"]
+            m_rsi4 = float(info["m_rsi4_d"][idx])
 
             sell_flag   = False
             sell_reason = ""
@@ -338,9 +341,6 @@ def process_year(year: int):
             if sell_price <= buy_px * sl:
                 sell_flag   = True
                 sell_reason = f"止損{(sell_price/buy_px-1)*100:.1f}%"
-            elif sell_price <= peak_px * ts:
-                sell_flag   = True
-                sell_reason = f"追蹤停損{(sell_price/peak_px-1)*100:.1f}%"
             elif m_rsi4 < 77:
                 sell_flag   = True
                 sell_reason = f"月RSI4={m_rsi4:.0f}<77"
@@ -364,8 +364,8 @@ def process_year(year: int):
                 "sell_reason": sell_reason,
             })
 
-        # ── Buy: only in BULL market ──────────────────────────────────────────
-        if mkt == "BULL":
+        # ── Buy: BULL market + streak gate ───────────────────────────────────
+        if mkt == "BULL" and bull_streak.get(day, 0) >= MIN_BULL_STREAK:
             today_candidates = candidates_by_date.get(day, [])
             buys_today = 0
             for c in today_candidates:
@@ -391,11 +391,10 @@ def process_year(year: int):
                 cost = shares * c["close"]
                 cash -= cost
                 positions[tkr] = {
-                    "shares":      shares,
-                    "buy_price":   c["close"],
-                    "buy_date":    day.strftime("%Y-%m-%d"),
-                    "cost":        cost,
-                    "peak_price":  c["close"],  # for trailing stop
+                    "shares":    shares,
+                    "buy_price": c["close"],
+                    "buy_date":  day.strftime("%Y-%m-%d"),
+                    "cost":      cost,
                 }
                 buys_today += 1
 
@@ -427,7 +426,6 @@ def process_year(year: int):
             "pl":          round(pl, 2),
             "pl_pct":      round((last_close - pos["buy_price"]) / pos["buy_price"] * 100, 2),
             "sell_reason": "年終結算",
-            "peak_price":  round(pos.get("peak_price", pos["buy_price"]), 2),
         })
     positions.clear()
 
