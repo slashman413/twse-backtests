@@ -10,6 +10,9 @@ Changes vs v7 (based on Deep Research recommendations):
    (filters low-energy fake breakouts)
 4. RVOL bonus scoring: +1 if ≥1.5x, +2 if ≥2.5x (on top of existing score)
 
+v10 (cross-year warmup): load previous year's data to properly warm up ADX(300)/MACD(210)
+   before trading day 1 of each year, eliminating the 120-day blind period.
+
 Unchanged from v7:
 - 300-lot static floor, BULL = 0050 MACD≥3 AND ADX>20
 - Hard stop-loss: -10% BULL, -7% ALERT/BEAR, MIN_SCORE ≥ 1
@@ -199,13 +202,27 @@ def _market_signal_series(mkt_info: dict) -> dict:
 
 def process_year(year: int):
     t0 = time.time()
-    f = os.path.join(ADJ_TEMP_DIR, f"{year}.parquet")
-    if not os.path.exists(f):
+    f_curr = os.path.join(ADJ_TEMP_DIR, f"{year}.parquet")
+    if not os.path.exists(f_curr):
         return None
 
-    df = pd.read_parquet(f)
-    df["Date"]   = pd.to_datetime(df["Date"])
-    df["Ticker"] = df["Ticker"].astype(str).str.zfill(4)
+    df_curr = pd.read_parquet(f_curr)
+    df_curr["Date"]   = pd.to_datetime(df_curr["Date"])
+    df_curr["Ticker"] = df_curr["Ticker"].astype(str).str.zfill(4)
+
+    # Track current-year trading dates (simulation scope)
+    curr_year_dates = set(df_curr["Date"].unique())
+
+    # Load previous year for indicator warmup (ADX=300, MACD=210 need ~300 days history)
+    f_prev = os.path.join(ADJ_TEMP_DIR, f"{year-1}.parquet")
+    if os.path.exists(f_prev):
+        df_prev = pd.read_parquet(f_prev)
+        df_prev["Date"]   = pd.to_datetime(df_prev["Date"])
+        df_prev["Ticker"] = df_prev["Ticker"].astype(str).str.zfill(4)
+        df = pd.concat([df_prev, df_curr], ignore_index=True)
+    else:
+        df = df_curr  # first available year — no prior data
+
     for col in ["Adj_Close", "Adj_High", "Adj_Low"]:
         df = df[df[col].notna()]
     df = df.sort_values(["Ticker", "Date"]).reset_index(drop=True)
@@ -225,7 +242,8 @@ def process_year(year: int):
         mkt_high_vol = {}
 
     # ── Pre-compute indicators per ticker ─────────────────────────────────────
-    print(f"  {year}: computing indicators for {df['Ticker'].nunique()} tickers…", flush=True)
+    n_curr_tickers = df_curr["Ticker"].nunique()
+    print(f"  {year}: computing indicators for {n_curr_tickers} tickers…", flush=True)
     ticker_info = {}
     for ticker, grp in df.groupby("Ticker", sort=False):
         info = _compute_indicators(grp)
@@ -250,23 +268,28 @@ def process_year(year: int):
         atr_ = info["atr_ratio"]
         vol_ = info["vol"]
 
-        # Vectorised pre-filter (numpy) to avoid pure Python per-row loop
-        warmup   = 120
+        # Vectorised pre-filter (numpy) — no fixed warmup offset;
+        # previous year's data provides genuine indicator history.
+        # New tickers (IPO in current year) have no prior data and will
+        # naturally produce ADX=0/MACD=0 early on, filtering themselves out.
         rvol_arr = (vol_ / 1000.0) / (avl + 1e-9)
         valid_mask = (
-            (d4[warmup:]          >= 3)           &
-            (adx[warmup:]         >  20)           &
-            (wr_[warmup:]         < -20)           &
-            (~np.isnan(h20[warmup:]))              &
-            (cl[warmup:]          > h20[warmup:])  &
-            (cl[warmup:]          > 0)             &
-            (avl[warmup:]         >= MIN_AVG_VOL_LOTS) &
-            (rvol_arr[warmup:]    >= RVOL_MIN)     &
-            (atr_[warmup:]        >= ATR_RATIO_MIN)
+            (d4          >= 3)           &
+            (adx         >  20)           &
+            (wr_         < -20)           &
+            (~np.isnan(h20))              &
+            (cl          > h20)           &
+            (cl          > 0)             &
+            (avl         >= MIN_AVG_VOL_LOTS) &
+            (rvol_arr    >= RVOL_MIN)     &
+            (atr_        >= ATR_RATIO_MIN)
         )
-        for rel_i in np.where(valid_mask)[0]:
-            i = rel_i + warmup
+        for i in np.where(valid_mask)[0]:
             day = info["dates"][i]
+
+            # Only emit candidates in the current year's trading dates
+            if day not in curr_year_dates:
+                continue
 
             rsi60_v = float(info["rsi60"][i])
             w_vr_v  = float(info["w_vr_d"][i])
@@ -300,7 +323,8 @@ def process_year(year: int):
         day_list.sort(key=lambda x: (-x["score"], -x["breakout_pct"]))
 
     # ── Simulation ────────────────────────────────────────────────────────────
-    all_dates = sorted(df["Date"].unique())
+    # Only simulate current-year trading days (prev year data was warmup only)
+    all_dates = sorted(curr_year_dates)
 
     cash       = float(INITIAL_CAPITAL)
     positions  = {}   # ticker → {shares, buy_price, buy_date, cost}
