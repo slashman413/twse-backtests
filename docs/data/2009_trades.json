@@ -9,7 +9,7 @@
       "shares": 1063,
       "pl": 1063.0,
       "pl_pct": 2.13,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=33<77"
     },
     {
       "ticker": "1731",
@@ -31,18 +31,29 @@
       "shares": 1041,
       "pl": 832.8,
       "pl_pct": 1.67,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=33<77"
     },
     {
-      "ticker": "1315",
-      "buy_date": "2009-07-08",
-      "buy_price": 21.9,
-      "sell_date": "2009-07-09",
-      "sell_price": 21.9,
-      "shares": 2283,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "1716",
+      "buy_date": "2009-07-09",
+      "buy_price": 34.95,
+      "sell_date": "2009-07-10",
+      "sell_price": 34.5,
+      "shares": 1430,
+      "pl": -643.5,
+      "pl_pct": -1.29,
+      "sell_reason": "月RSI4=56<77"
+    },
+    {
+      "ticker": "1734",
+      "buy_date": "2009-07-09",
+      "buy_price": 31.2,
+      "sell_date": "2009-07-10",
+      "sell_price": 30.8,
+      "shares": 1602,
+      "pl": -640.8,
+      "pl_pct": -1.28,
+      "sell_reason": "月RSI4=64<77"
     },
     {
       "ticker": "1731",
@@ -56,15 +67,15 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "1716",
+      "ticker": "4119",
       "buy_date": "2009-07-09",
-      "buy_price": 34.95,
+      "buy_price": 77.5,
       "sell_date": "2009-07-10",
-      "sell_price": 34.5,
-      "shares": 1430,
-      "pl": -643.5,
-      "pl_pct": -1.29,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 81.5,
+      "shares": 645,
+      "pl": 2580.0,
+      "pl_pct": 5.16,
+      "sell_reason": "月RSI4=46<77"
     },
     {
       "ticker": "2324",
@@ -75,29 +86,7 @@
       "shares": 1686,
       "pl": 252.9,
       "pl_pct": 0.51,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1734",
-      "buy_date": "2009-07-09",
-      "buy_price": 31.2,
-      "sell_date": "2009-07-10",
-      "sell_price": 30.8,
-      "shares": 1602,
-      "pl": -640.8,
-      "pl_pct": -1.28,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "4119",
-      "buy_date": "2009-07-09",
-      "buy_price": 77.5,
-      "sell_date": "2009-07-10",
-      "sell_price": 81.5,
-      "shares": 645,
-      "pl": 2580.0,
-      "pl_pct": 5.16,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=65<77"
     },
     {
       "ticker": "2353",
@@ -108,7 +97,7 @@
       "shares": 834,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=58<77"
     },
     {
       "ticker": "2357",
@@ -119,7 +108,7 @@
       "shares": 1070,
       "pl": -1070.0,
       "pl_pct": -2.14,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=49<77"
     },
     {
       "ticker": "1603",
@@ -130,7 +119,7 @@
       "shares": 6410,
       "pl": 256.4,
       "pl_pct": 0.51,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "6115",
@@ -141,7 +130,18 @@
       "shares": 1234,
       "pl": 1172.3,
       "pl_pct": 2.35,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=65<77"
+    },
+    {
+      "ticker": "1538",
+      "buy_date": "2009-07-14",
+      "buy_price": 18.98,
+      "sell_date": "2009-07-15",
+      "sell_price": 19.33,
+      "shares": 2634,
+      "pl": 938.67,
+      "pl_pct": 1.88,
+      "sell_reason": "月RSI4=20<77"
     },
     {
       "ticker": "9935",
@@ -152,51 +152,7 @@
       "shares": 7288,
       "pl": 72.88,
       "pl_pct": 0.15,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "8046",
-      "buy_date": "2009-07-15",
-      "buy_price": 87.95,
-      "sell_date": "2009-07-16",
-      "sell_price": 92.79,
-      "shares": 568,
-      "pl": 2749.91,
-      "pl_pct": 5.5,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9904",
-      "buy_date": "2009-07-15",
-      "buy_price": 22.0,
-      "sell_date": "2009-07-16",
-      "sell_price": 21.65,
-      "shares": 2272,
-      "pl": -795.2,
-      "pl_pct": -1.59,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9935",
-      "buy_date": "2009-07-15",
-      "buy_price": 6.87,
-      "sell_date": "2009-07-16",
-      "sell_price": 6.8,
-      "shares": 7278,
-      "pl": -509.46,
-      "pl_pct": -1.02,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "05986",
-      "buy_date": "2009-07-15",
-      "buy_price": 0.44,
-      "sell_date": "2009-07-16",
-      "sell_price": 0.39,
-      "shares": 113636,
-      "pl": -5681.8,
-      "pl_pct": -11.36,
-      "sell_reason": "止損-11.4%"
+      "sell_reason": "月RSI4=40<77"
     },
     {
       "ticker": "2312",
@@ -207,7 +163,51 @@
       "shares": 6165,
       "pl": -1171.35,
       "pl_pct": -2.34,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=42<77"
+    },
+    {
+      "ticker": "8046",
+      "buy_date": "2009-07-15",
+      "buy_price": 87.95,
+      "sell_date": "2009-07-16",
+      "sell_price": 92.79,
+      "shares": 568,
+      "pl": 2749.91,
+      "pl_pct": 5.5,
+      "sell_reason": "月RSI4=46<77"
+    },
+    {
+      "ticker": "9904",
+      "buy_date": "2009-07-15",
+      "buy_price": 22.0,
+      "sell_date": "2009-07-16",
+      "sell_price": 21.65,
+      "shares": 2272,
+      "pl": -795.2,
+      "pl_pct": -1.59,
+      "sell_reason": "月RSI4=60<77"
+    },
+    {
+      "ticker": "9935",
+      "buy_date": "2009-07-15",
+      "buy_price": 6.87,
+      "sell_date": "2009-07-16",
+      "sell_price": 6.8,
+      "shares": 7278,
+      "pl": -509.46,
+      "pl_pct": -1.02,
+      "sell_reason": "月RSI4=40<77"
+    },
+    {
+      "ticker": "2353",
+      "buy_date": "2009-07-15",
+      "buy_price": 61.91,
+      "sell_date": "2009-07-16",
+      "sell_price": 65.62,
+      "shares": 807,
+      "pl": 2993.24,
+      "pl_pct": 5.99,
+      "sell_reason": "月RSI4=58<77"
     },
     {
       "ticker": "3006",
@@ -218,7 +218,7 @@
       "shares": 990,
       "pl": 3465.0,
       "pl_pct": 6.93,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=70<77"
     },
     {
       "ticker": "8046",
@@ -229,18 +229,7 @@
       "shares": 538,
       "pl": 241.17,
       "pl_pct": 0.48,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "5469",
-      "buy_date": "2009-07-16",
-      "buy_price": 19.2,
-      "sell_date": "2009-07-17",
-      "sell_price": 19.3,
-      "shares": 2604,
-      "pl": 260.4,
-      "pl_pct": 0.52,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=46<77"
     },
     {
       "ticker": "1467",
@@ -251,7 +240,18 @@
       "shares": 7598,
       "pl": 911.76,
       "pl_pct": 1.82,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=54<77"
+    },
+    {
+      "ticker": "2104",
+      "buy_date": "2009-07-16",
+      "buy_price": 30.56,
+      "sell_date": "2009-07-17",
+      "sell_price": 30.61,
+      "shares": 1636,
+      "pl": 78.11,
+      "pl_pct": 0.16,
+      "sell_reason": "月RSI4=37<77"
     },
     {
       "ticker": "1319",
@@ -262,51 +262,7 @@
       "shares": 1447,
       "pl": 2242.85,
       "pl_pct": 4.49,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2613",
-      "buy_date": "2009-07-17",
-      "buy_price": 20.4,
-      "sell_date": "2009-07-20",
-      "sell_price": 20.8,
-      "shares": 2450,
-      "pl": 980.0,
-      "pl_pct": 1.96,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "8131",
-      "buy_date": "2009-07-17",
-      "buy_price": 29.05,
-      "sell_date": "2009-07-20",
-      "sell_price": 31.05,
-      "shares": 1721,
-      "pl": 3442.0,
-      "pl_pct": 6.88,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3094",
-      "buy_date": "2009-07-17",
-      "buy_price": 37.55,
-      "sell_date": "2009-07-20",
-      "sell_price": 40.15,
-      "shares": 1331,
-      "pl": 3460.6,
-      "pl_pct": 6.92,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "8046",
-      "buy_date": "2009-07-17",
-      "buy_price": 93.24,
-      "sell_date": "2009-07-20",
-      "sell_price": 91.45,
-      "shares": 536,
-      "pl": -961.1,
-      "pl_pct": -1.92,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=75<77"
     },
     {
       "ticker": "3022",
@@ -317,7 +273,51 @@
       "shares": 1577,
       "pl": 1577.0,
       "pl_pct": 3.15,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=47<77"
+    },
+    {
+      "ticker": "3518",
+      "buy_date": "2009-07-17",
+      "buy_price": 101.5,
+      "sell_date": "2009-07-20",
+      "sell_price": 99.6,
+      "shares": 492,
+      "pl": -934.8,
+      "pl_pct": -1.87,
+      "sell_reason": "月RSI4=52<77"
+    },
+    {
+      "ticker": "3041",
+      "buy_date": "2009-07-17",
+      "buy_price": 62.42,
+      "sell_date": "2009-07-20",
+      "sell_price": 64.09,
+      "shares": 801,
+      "pl": 1341.21,
+      "pl_pct": 2.68,
+      "sell_reason": "月RSI4=66<77"
+    },
+    {
+      "ticker": "2613",
+      "buy_date": "2009-07-17",
+      "buy_price": 20.4,
+      "sell_date": "2009-07-20",
+      "sell_price": 20.8,
+      "shares": 2450,
+      "pl": 980.0,
+      "pl_pct": 1.96,
+      "sell_reason": "月RSI4=55<77"
+    },
+    {
+      "ticker": "8131",
+      "buy_date": "2009-07-17",
+      "buy_price": 29.05,
+      "sell_date": "2009-07-20",
+      "sell_price": 31.05,
+      "shares": 1721,
+      "pl": 3442.0,
+      "pl_pct": 6.88,
+      "sell_reason": "月RSI4=47<77"
     },
     {
       "ticker": "3094",
@@ -328,7 +328,7 @@
       "shares": 1245,
       "pl": -1494.0,
       "pl_pct": -2.99,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=61<77"
     },
     {
       "ticker": "2456",
@@ -339,7 +339,7 @@
       "shares": 4273,
       "pl": -1068.25,
       "pl_pct": -2.14,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "8016",
@@ -350,7 +350,18 @@
       "shares": 877,
       "pl": -350.8,
       "pl_pct": -0.7,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=54<77"
+    },
+    {
+      "ticker": "1701",
+      "buy_date": "2009-07-20",
+      "buy_price": 22.75,
+      "sell_date": "2009-07-21",
+      "sell_price": 22.15,
+      "shares": 2197,
+      "pl": -1318.2,
+      "pl_pct": -2.64,
+      "sell_reason": "月RSI4=69<77"
     },
     {
       "ticker": "2476",
@@ -361,18 +372,7 @@
       "shares": 2500,
       "pl": -125.0,
       "pl_pct": -0.25,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1809",
-      "buy_date": "2009-07-20",
-      "buy_price": 9.04,
-      "sell_date": "2009-07-21",
-      "sell_price": 8.86,
-      "shares": 5530,
-      "pl": -995.4,
-      "pl_pct": -1.99,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "6255",
@@ -383,7 +383,29 @@
       "shares": 2053,
       "pl": -410.6,
       "pl_pct": -0.82,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=58<77"
+    },
+    {
+      "ticker": "2832",
+      "buy_date": "2009-07-21",
+      "buy_price": 22.3,
+      "sell_date": "2009-07-22",
+      "sell_price": 21.9,
+      "shares": 2242,
+      "pl": -896.8,
+      "pl_pct": -1.79,
+      "sell_reason": "月RSI4=56<77"
+    },
+    {
+      "ticker": "9103",
+      "buy_date": "2009-07-21",
+      "buy_price": 8.65,
+      "sell_date": "2009-07-22",
+      "sell_price": 8.67,
+      "shares": 5780,
+      "pl": 115.6,
+      "pl_pct": 0.23,
+      "sell_reason": "月RSI4=54<77"
     },
     {
       "ticker": "2434",
@@ -397,28 +419,6 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2832",
-      "buy_date": "2009-07-21",
-      "buy_price": 22.3,
-      "sell_date": "2009-07-22",
-      "sell_price": 21.9,
-      "shares": 2242,
-      "pl": -896.8,
-      "pl_pct": -1.79,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9103",
-      "buy_date": "2009-07-21",
-      "buy_price": 8.65,
-      "sell_date": "2009-07-22",
-      "sell_price": 8.67,
-      "shares": 5780,
-      "pl": 115.6,
-      "pl_pct": 0.23,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
       "ticker": "1523",
       "buy_date": "2009-07-21",
       "buy_price": 19.95,
@@ -427,18 +427,7 @@
       "shares": 2506,
       "pl": -1503.6,
       "pl_pct": -3.01,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2413",
-      "buy_date": "2009-07-22",
-      "buy_price": 13.4,
-      "sell_date": "2009-07-23",
-      "sell_price": 13.35,
-      "shares": 3731,
-      "pl": -186.55,
-      "pl_pct": -0.37,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=55<77"
     },
     {
       "ticker": "6283",
@@ -449,7 +438,40 @@
       "shares": 3861,
       "pl": -386.1,
       "pl_pct": -0.77,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=31<77"
+    },
+    {
+      "ticker": "2413",
+      "buy_date": "2009-07-22",
+      "buy_price": 13.4,
+      "sell_date": "2009-07-23",
+      "sell_price": 13.35,
+      "shares": 3731,
+      "pl": -186.55,
+      "pl_pct": -0.37,
+      "sell_reason": "月RSI4=49<77"
+    },
+    {
+      "ticker": "2436",
+      "buy_date": "2009-07-22",
+      "buy_price": 27.05,
+      "sell_date": "2009-07-23",
+      "sell_price": 26.35,
+      "shares": 1848,
+      "pl": -1293.6,
+      "pl_pct": -2.59,
+      "sell_reason": "月RSI4=63<77"
+    },
+    {
+      "ticker": "2491",
+      "buy_date": "2009-07-22",
+      "buy_price": 2.93,
+      "sell_date": "2009-07-23",
+      "sell_price": 2.95,
+      "shares": 17064,
+      "pl": 341.28,
+      "pl_pct": 0.68,
+      "sell_reason": "月RSI4=25<77"
     },
     {
       "ticker": "2434",
@@ -463,25 +485,14 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "2436",
-      "buy_date": "2009-07-22",
-      "buy_price": 27.05,
-      "sell_date": "2009-07-23",
-      "sell_price": 26.35,
-      "shares": 1848,
-      "pl": -1293.6,
-      "pl_pct": -2.59,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2603",
-      "buy_date": "2009-07-22",
-      "buy_price": 19.5,
-      "sell_date": "2009-07-23",
-      "sell_price": 19.15,
-      "shares": 2564,
-      "pl": -897.4,
-      "pl_pct": -1.79,
+      "ticker": "6251",
+      "buy_date": "2009-07-23",
+      "buy_price": 26.9,
+      "sell_date": "2009-07-24",
+      "sell_price": 28.0,
+      "shares": 1858,
+      "pl": 2043.8,
+      "pl_pct": 4.09,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -493,7 +504,7 @@
       "shares": 2604,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=51<77"
     },
     {
       "ticker": "1560",
@@ -504,18 +515,7 @@
       "shares": 1550,
       "pl": 3487.5,
       "pl_pct": 6.98,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1537",
-      "buy_date": "2009-07-23",
-      "buy_price": 21.75,
-      "sell_date": "2009-07-24",
-      "sell_price": 21.25,
-      "shares": 2298,
-      "pl": -1149.0,
-      "pl_pct": -2.3,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "3559",
@@ -526,28 +526,28 @@
       "shares": 3333,
       "pl": 166.65,
       "pl_pct": 0.33,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=34<77"
     },
     {
-      "ticker": "2474",
+      "ticker": "1537",
       "buy_date": "2009-07-23",
-      "buy_price": 83.73,
+      "buy_price": 21.75,
       "sell_date": "2009-07-24",
-      "sell_price": 81.71,
-      "shares": 597,
-      "pl": -1205.86,
-      "pl_pct": -2.41,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 21.25,
+      "shares": 2298,
+      "pl": -1149.0,
+      "pl_pct": -2.3,
+      "sell_reason": "月RSI4=52<77"
     },
     {
-      "ticker": "1905",
+      "ticker": "6251",
       "buy_date": "2009-07-24",
-      "buy_price": 12.35,
+      "buy_price": 28.0,
       "sell_date": "2009-07-27",
-      "sell_price": 12.15,
-      "shares": 4048,
-      "pl": -809.6,
-      "pl_pct": -1.62,
+      "sell_price": 27.25,
+      "shares": 1785,
+      "pl": -1338.75,
+      "pl_pct": -2.68,
       "sell_reason": "月RSI4=50<77"
     },
     {
@@ -559,7 +559,18 @@
       "shares": 3521,
       "pl": -3344.95,
       "pl_pct": -6.69,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=70<77"
+    },
+    {
+      "ticker": "1905",
+      "buy_date": "2009-07-24",
+      "buy_price": 12.35,
+      "sell_date": "2009-07-27",
+      "sell_price": 12.15,
+      "shares": 4048,
+      "pl": -809.6,
+      "pl_pct": -1.62,
+      "sell_reason": "月RSI4=52<77"
     },
     {
       "ticker": "9911",
@@ -570,18 +581,7 @@
       "shares": 3378,
       "pl": -675.6,
       "pl_pct": -1.35,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "8016",
-      "buy_date": "2009-07-24",
-      "buy_price": 58.4,
-      "sell_date": "2009-07-27",
-      "sell_price": 58.4,
-      "shares": 856,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=64<77"
     },
     {
       "ticker": "2477",
@@ -592,29 +592,7 @@
       "shares": 4975,
       "pl": -547.25,
       "pl_pct": -1.09,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1457",
-      "buy_date": "2009-07-27",
-      "buy_price": 4.93,
-      "sell_date": "2009-07-28",
-      "sell_price": 5.07,
-      "shares": 10141,
-      "pl": 1419.74,
-      "pl_pct": 2.84,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2007",
-      "buy_date": "2009-07-27",
-      "buy_price": 4.81,
-      "sell_date": "2009-07-28",
-      "sell_price": 4.84,
-      "shares": 10395,
-      "pl": 311.85,
-      "pl_pct": 0.62,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=48<77"
     },
     {
       "ticker": "9103",
@@ -625,18 +603,7 @@
       "shares": 5611,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6189",
-      "buy_date": "2009-07-27",
-      "buy_price": 18.75,
-      "sell_date": "2009-07-28",
-      "sell_price": 18.65,
-      "shares": 2666,
-      "pl": -266.6,
-      "pl_pct": -0.53,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=54<77"
     },
     {
       "ticker": "1325",
@@ -647,7 +614,29 @@
       "shares": 2083,
       "pl": 1249.8,
       "pl_pct": 2.5,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=62<77"
+    },
+    {
+      "ticker": "1457",
+      "buy_date": "2009-07-27",
+      "buy_price": 4.93,
+      "sell_date": "2009-07-28",
+      "sell_price": 5.07,
+      "shares": 10141,
+      "pl": 1419.74,
+      "pl_pct": 2.84,
+      "sell_reason": "月RSI4=48<77"
+    },
+    {
+      "ticker": "2007",
+      "buy_date": "2009-07-27",
+      "buy_price": 4.81,
+      "sell_date": "2009-07-28",
+      "sell_price": 4.84,
+      "shares": 10395,
+      "pl": 311.85,
+      "pl_pct": 0.62,
+      "sell_reason": "月RSI4=54<77"
     },
     {
       "ticker": "2391",
@@ -658,29 +647,7 @@
       "shares": 2341,
       "pl": -702.3,
       "pl_pct": -1.41,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2009",
-      "buy_date": "2009-07-28",
-      "buy_price": 8.73,
-      "sell_date": "2009-07-29",
-      "sell_price": 8.35,
-      "shares": 5727,
-      "pl": -2176.26,
-      "pl_pct": -4.35,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2314",
-      "buy_date": "2009-07-28",
-      "buy_price": 15.65,
-      "sell_date": "2009-07-29",
-      "sell_price": 15.15,
-      "shares": 3194,
-      "pl": -1597.0,
-      "pl_pct": -3.19,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=53<77"
     },
     {
       "ticker": "1108",
@@ -691,7 +658,29 @@
       "shares": 6553,
       "pl": -917.42,
       "pl_pct": -1.83,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=54<77"
+    },
+    {
+      "ticker": "1104",
+      "buy_date": "2009-07-28",
+      "buy_price": 16.45,
+      "sell_date": "2009-07-29",
+      "sell_price": 16.05,
+      "shares": 3039,
+      "pl": -1215.6,
+      "pl_pct": -2.43,
+      "sell_reason": "月RSI4=53<77"
+    },
+    {
+      "ticker": "2009",
+      "buy_date": "2009-07-28",
+      "buy_price": 8.73,
+      "sell_date": "2009-07-29",
+      "sell_price": 8.35,
+      "shares": 5727,
+      "pl": -2176.26,
+      "pl_pct": -4.35,
+      "sell_reason": "月RSI4=55<77"
     },
     {
       "ticker": "1457",
@@ -702,18 +691,7 @@
       "shares": 9861,
       "pl": -986.1,
       "pl_pct": -1.97,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2022",
-      "buy_date": "2009-07-29",
-      "buy_price": 6.07,
-      "sell_date": "2009-07-30",
-      "sell_price": 5.95,
-      "shares": 8237,
-      "pl": -988.44,
-      "pl_pct": -1.98,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=48<77"
     },
     {
       "ticker": "1904",
@@ -724,29 +702,18 @@
       "shares": 4716,
       "pl": 471.6,
       "pl_pct": 0.94,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=62<77"
     },
     {
-      "ticker": "2023",
+      "ticker": "2022",
       "buy_date": "2009-07-29",
-      "buy_price": 12.71,
+      "buy_price": 6.07,
       "sell_date": "2009-07-30",
-      "sell_price": 12.81,
-      "shares": 3933,
-      "pl": 373.1,
-      "pl_pct": 0.75,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1537",
-      "buy_date": "2009-07-29",
-      "buy_price": 22.3,
-      "sell_date": "2009-07-30",
-      "sell_price": 22.55,
-      "shares": 2242,
-      "pl": 560.5,
-      "pl_pct": 1.12,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 5.95,
+      "shares": 8237,
+      "pl": -988.44,
+      "pl_pct": -1.98,
+      "sell_reason": "月RSI4=46<77"
     },
     {
       "ticker": "2032",
@@ -757,392 +724,29 @@
       "shares": 3076,
       "pl": -769.0,
       "pl_pct": -1.54,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=67<77"
     },
     {
-      "ticker": "9103",
-      "buy_date": "2009-07-30",
-      "buy_price": 9.1,
-      "sell_date": "2009-07-31",
-      "sell_price": 9.73,
-      "shares": 5494,
-      "pl": 3461.22,
-      "pl_pct": 6.92,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "6196",
+      "buy_date": "2009-07-29",
+      "buy_price": 14.95,
+      "sell_date": "2009-07-30",
+      "sell_price": 15.3,
+      "shares": 3344,
+      "pl": 1170.4,
+      "pl_pct": 2.34,
+      "sell_reason": "月RSI4=61<77"
     },
     {
-      "ticker": "1108",
-      "buy_date": "2009-07-30",
-      "buy_price": 7.9,
-      "sell_date": "2009-07-31",
-      "sell_price": 8.25,
-      "shares": 6329,
-      "pl": 2215.15,
-      "pl_pct": 4.43,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1535",
-      "buy_date": "2009-07-30",
-      "buy_price": 44.5,
-      "sell_date": "2009-07-31",
-      "sell_price": 46.6,
-      "shares": 1123,
-      "pl": 2358.3,
-      "pl_pct": 4.72,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6139",
-      "buy_date": "2009-07-30",
-      "buy_price": 29.1,
-      "sell_date": "2009-07-31",
-      "sell_price": 29.4,
-      "shares": 1718,
-      "pl": 515.4,
-      "pl_pct": 1.03,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1904",
-      "buy_date": "2009-07-30",
-      "buy_price": 10.7,
-      "sell_date": "2009-07-31",
-      "sell_price": 10.65,
-      "shares": 4672,
-      "pl": -233.6,
-      "pl_pct": -0.47,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1537",
-      "buy_date": "2009-07-31",
-      "buy_price": 23.7,
-      "sell_date": "2009-08-03",
-      "sell_price": 25.0,
-      "shares": 2109,
-      "pl": 2741.7,
-      "pl_pct": 5.49,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1535",
-      "buy_date": "2009-07-31",
-      "buy_price": 46.6,
-      "sell_date": "2009-08-03",
-      "sell_price": 46.1,
-      "shares": 1072,
-      "pl": -536.0,
-      "pl_pct": -1.07,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3419",
-      "buy_date": "2009-07-31",
-      "buy_price": 15.1,
-      "sell_date": "2009-08-03",
-      "sell_price": 14.6,
-      "shares": 3311,
-      "pl": -1655.5,
-      "pl_pct": -3.31,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1730",
-      "buy_date": "2009-07-31",
-      "buy_price": 15.35,
-      "sell_date": "2009-08-03",
-      "sell_price": 16.4,
-      "shares": 3257,
-      "pl": 3419.85,
-      "pl_pct": 6.84,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "8926",
-      "buy_date": "2009-07-31",
-      "buy_price": 15.5,
-      "sell_date": "2009-08-03",
-      "sell_price": 15.4,
-      "shares": 3225,
-      "pl": -322.5,
-      "pl_pct": -0.65,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6192",
-      "buy_date": "2009-08-03",
-      "buy_price": 58.2,
-      "sell_date": "2009-08-04",
-      "sell_price": 55.6,
-      "shares": 859,
-      "pl": -2233.4,
-      "pl_pct": -4.47,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2615",
-      "buy_date": "2009-08-03",
-      "buy_price": 17.85,
-      "sell_date": "2009-08-04",
-      "sell_price": 18.15,
-      "shares": 2801,
-      "pl": 840.3,
-      "pl_pct": 1.68,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1613",
-      "buy_date": "2009-08-03",
-      "buy_price": 3.7,
-      "sell_date": "2009-08-04",
-      "sell_price": 3.76,
-      "shares": 13513,
-      "pl": 810.78,
-      "pl_pct": 1.62,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1730",
-      "buy_date": "2009-08-03",
-      "buy_price": 16.4,
-      "sell_date": "2009-08-04",
-      "sell_price": 16.0,
-      "shares": 3048,
-      "pl": -1219.2,
-      "pl_pct": -2.44,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1732",
-      "buy_date": "2009-08-03",
-      "buy_price": 16.55,
-      "sell_date": "2009-08-04",
-      "sell_price": 16.2,
-      "shares": 3021,
-      "pl": -1057.35,
-      "pl_pct": -2.11,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1905",
-      "buy_date": "2009-08-04",
-      "buy_price": 13.0,
-      "sell_date": "2009-08-05",
-      "sell_price": 13.55,
-      "shares": 3846,
-      "pl": 2115.3,
-      "pl_pct": 4.23,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1308",
-      "buy_date": "2009-08-04",
-      "buy_price": 21.8,
-      "sell_date": "2009-08-05",
-      "sell_price": 21.3,
-      "shares": 2293,
-      "pl": -1146.5,
-      "pl_pct": -2.29,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1313",
-      "buy_date": "2009-08-04",
-      "buy_price": 15.15,
-      "sell_date": "2009-08-05",
-      "sell_price": 15.1,
-      "shares": 3300,
-      "pl": -165.0,
-      "pl_pct": -0.33,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1104",
-      "buy_date": "2009-08-04",
-      "buy_price": 16.95,
-      "sell_date": "2009-08-05",
-      "sell_price": 16.75,
-      "shares": 2949,
-      "pl": -589.8,
-      "pl_pct": -1.18,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1613",
-      "buy_date": "2009-08-04",
-      "buy_price": 3.76,
-      "sell_date": "2009-08-05",
-      "sell_price": 3.69,
-      "shares": 13297,
-      "pl": -930.79,
-      "pl_pct": -1.86,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9930",
-      "buy_date": "2009-08-05",
-      "buy_price": 42.5,
-      "sell_date": "2009-08-06",
-      "sell_price": 41.85,
-      "shares": 1176,
-      "pl": -764.4,
-      "pl_pct": -1.53,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1902",
-      "buy_date": "2009-08-05",
-      "buy_price": 10.45,
-      "sell_date": "2009-08-06",
-      "sell_price": 10.65,
-      "shares": 4784,
-      "pl": 956.8,
-      "pl_pct": 1.91,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1902",
-      "buy_date": "2009-08-06",
-      "buy_price": 10.65,
-      "sell_date": "2009-08-10",
-      "sell_price": 11.0,
-      "shares": 4694,
-      "pl": 1642.9,
-      "pl_pct": 3.29,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1612",
-      "buy_date": "2009-08-06",
-      "buy_price": 12.1,
-      "sell_date": "2009-08-10",
-      "sell_price": 12.15,
-      "shares": 4132,
-      "pl": 206.6,
-      "pl_pct": 0.41,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1514",
-      "buy_date": "2009-08-10",
-      "buy_price": 7.04,
-      "sell_date": "2009-08-11",
-      "sell_price": 7.02,
-      "shares": 7102,
-      "pl": -142.04,
-      "pl_pct": -0.28,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1902",
-      "buy_date": "2009-08-10",
-      "buy_price": 11.0,
-      "sell_date": "2009-08-11",
-      "sell_price": 10.7,
-      "shares": 4545,
-      "pl": -1363.5,
-      "pl_pct": -2.73,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1102",
-      "buy_date": "2009-08-10",
-      "buy_price": 36.6,
-      "sell_date": "2009-08-11",
-      "sell_price": 37.95,
-      "shares": 1366,
-      "pl": 1844.1,
-      "pl_pct": 3.69,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1613",
-      "buy_date": "2009-08-10",
-      "buy_price": 3.86,
-      "sell_date": "2009-08-11",
-      "sell_price": 3.84,
-      "shares": 12953,
-      "pl": -259.06,
-      "pl_pct": -0.52,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1723",
-      "buy_date": "2009-08-10",
-      "buy_price": 69.5,
-      "sell_date": "2009-08-11",
-      "sell_price": 69.3,
-      "shares": 719,
-      "pl": -143.8,
-      "pl_pct": -0.29,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1443",
-      "buy_date": "2009-08-11",
-      "buy_price": 2.71,
-      "sell_date": "2009-08-12",
-      "sell_price": 2.78,
-      "shares": 18450,
-      "pl": 1291.5,
-      "pl_pct": 2.58,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2028",
-      "buy_date": "2009-08-11",
-      "buy_price": 7.7,
-      "sell_date": "2009-08-12",
-      "sell_price": 7.71,
-      "shares": 6493,
-      "pl": 64.93,
-      "pl_pct": 0.13,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1532",
-      "buy_date": "2009-08-11",
-      "buy_price": 32.41,
-      "sell_date": "2009-08-12",
-      "sell_price": 32.71,
-      "shares": 1542,
-      "pl": 459.89,
-      "pl_pct": 0.92,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1215",
-      "buy_date": "2009-08-11",
-      "buy_price": 16.7,
-      "sell_date": "2009-08-12",
-      "sell_price": 16.75,
-      "shares": 2994,
-      "pl": 149.7,
-      "pl_pct": 0.3,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1443",
-      "buy_date": "2009-08-12",
-      "buy_price": 2.78,
-      "sell_date": "2009-08-13",
-      "sell_price": 2.74,
-      "shares": 17985,
-      "pl": -719.4,
-      "pl_pct": -1.44,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1215",
-      "buy_date": "2009-08-12",
-      "buy_price": 16.75,
-      "sell_date": "2009-08-13",
-      "sell_price": 16.65,
-      "shares": 2985,
-      "pl": -298.5,
-      "pl_pct": -0.6,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "2023",
+      "buy_date": "2009-07-29",
+      "buy_price": 12.71,
+      "sell_date": "2009-07-30",
+      "sell_price": 12.81,
+      "shares": 3933,
+      "pl": 373.1,
+      "pl_pct": 0.75,
+      "sell_reason": "月RSI4=53<77"
     },
     {
       "ticker": "2450",
@@ -1153,7 +757,18 @@
       "shares": 1140,
       "pl": -1539.0,
       "pl_pct": -3.08,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=53<77"
+    },
+    {
+      "ticker": "1516",
+      "buy_date": "2009-08-13",
+      "buy_price": 14.1,
+      "sell_date": "2009-08-14",
+      "sell_price": 13.6,
+      "shares": 3546,
+      "pl": -1773.0,
+      "pl_pct": -3.55,
+      "sell_reason": "月RSI4=43<77"
     },
     {
       "ticker": "2010",
@@ -1164,7 +779,7 @@
       "shares": 4484,
       "pl": 1793.6,
       "pl_pct": 3.59,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=57<77"
     },
     {
       "ticker": "1514",
@@ -1175,7 +790,7 @@
       "shares": 6858,
       "pl": -1440.18,
       "pl_pct": -2.88,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=67<77"
     },
     {
       "ticker": "1215",
@@ -1186,7 +801,7 @@
       "shares": 2890,
       "pl": -144.5,
       "pl_pct": -0.29,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=71<77"
     },
     {
       "ticker": "1513",
@@ -1197,7 +812,7 @@
       "shares": 2610,
       "pl": -652.5,
       "pl_pct": -1.31,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=55<77"
     },
     {
       "ticker": "9955",
@@ -1208,18 +823,29 @@
       "shares": 896,
       "pl": -1881.6,
       "pl_pct": -3.76,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=67<77"
     },
     {
-      "ticker": "6205",
-      "buy_date": "2009-08-17",
-      "buy_price": 27.15,
-      "sell_date": "2009-08-18",
-      "sell_price": 25.6,
-      "shares": 1841,
-      "pl": -2853.55,
-      "pl_pct": -5.71,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "1315",
+      "buy_date": "2009-07-08",
+      "buy_price": 21.9,
+      "sell_date": "2009-08-21",
+      "sell_price": 20.15,
+      "shares": 2283,
+      "pl": -3995.25,
+      "pl_pct": -7.99,
+      "sell_reason": "止損-8.0%"
+    },
+    {
+      "ticker": "6189",
+      "buy_date": "2009-07-27",
+      "buy_price": 18.75,
+      "sell_date": "2009-08-31",
+      "sell_price": 17.65,
+      "shares": 2666,
+      "pl": -2932.6,
+      "pl_pct": -5.87,
+      "sell_reason": "月RSI4=62<77"
     },
     {
       "ticker": "1733",
@@ -1230,7 +856,7 @@
       "shares": 814,
       "pl": -407.0,
       "pl_pct": -0.81,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=60<77"
     },
     {
       "ticker": "2543",
@@ -1241,62 +867,7 @@
       "shares": 7342,
       "pl": -954.46,
       "pl_pct": -1.91,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1533",
-      "buy_date": "2009-10-02",
-      "buy_price": 24.2,
-      "sell_date": "2009-10-05",
-      "sell_price": 25.85,
-      "shares": 2066,
-      "pl": 3408.9,
-      "pl_pct": 6.82,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2387",
-      "buy_date": "2009-10-05",
-      "buy_price": 37.0,
-      "sell_date": "2009-10-06",
-      "sell_price": 36.65,
-      "shares": 1351,
-      "pl": -472.85,
-      "pl_pct": -0.95,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2495",
-      "buy_date": "2009-10-05",
-      "buy_price": 47.95,
-      "sell_date": "2009-10-06",
-      "sell_price": 47.95,
-      "shares": 1042,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1103",
-      "buy_date": "2009-10-05",
-      "buy_price": 17.15,
-      "sell_date": "2009-10-06",
-      "sell_price": 17.05,
-      "shares": 2915,
-      "pl": -291.5,
-      "pl_pct": -0.58,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3003",
-      "buy_date": "2009-10-06",
-      "buy_price": 23.5,
-      "sell_date": "2009-10-07",
-      "sell_price": 23.0,
-      "shares": 2127,
-      "pl": -1063.5,
-      "pl_pct": -2.13,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=60<77"
     },
     {
       "ticker": "2464",
@@ -1307,7 +878,7 @@
       "shares": 1908,
       "pl": 954.0,
       "pl_pct": 1.91,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=70<77"
     },
     {
       "ticker": "2606",
@@ -1318,18 +889,7 @@
       "shares": 825,
       "pl": -825.0,
       "pl_pct": -1.65,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1710",
-      "buy_date": "2009-10-07",
-      "buy_price": 23.2,
-      "sell_date": "2009-10-08",
-      "sell_price": 22.0,
-      "shares": 2155,
-      "pl": -2586.0,
-      "pl_pct": -5.17,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=48<77"
     },
     {
       "ticker": "2464",
@@ -1340,7 +900,7 @@
       "shares": 1872,
       "pl": -748.8,
       "pl_pct": -1.5,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=70<77"
     },
     {
       "ticker": "2315",
@@ -1351,249 +911,40 @@
       "shares": 3344,
       "pl": -1003.2,
       "pl_pct": -2.01,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=51<77"
     },
     {
-      "ticker": "2010",
+      "ticker": "1710",
       "buy_date": "2009-10-07",
-      "buy_price": 11.25,
-      "sell_date": "2009-10-08",
-      "sell_price": 11.25,
-      "shares": 4444,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2456",
-      "buy_date": "2009-10-08",
-      "buy_price": 16.25,
-      "sell_date": "2009-10-09",
-      "sell_price": 16.8,
-      "shares": 3076,
-      "pl": 1691.8,
-      "pl_pct": 3.38,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6189",
-      "buy_date": "2009-10-08",
-      "buy_price": 20.65,
-      "sell_date": "2009-10-09",
-      "sell_price": 22.0,
-      "shares": 2421,
-      "pl": 3268.35,
-      "pl_pct": 6.54,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3024",
-      "buy_date": "2009-10-08",
-      "buy_price": 11.8,
-      "sell_date": "2009-10-09",
-      "sell_price": 12.6,
-      "shares": 4237,
-      "pl": 3389.6,
-      "pl_pct": 6.78,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2356",
-      "buy_date": "2009-10-08",
-      "buy_price": 19.8,
-      "sell_date": "2009-10-09",
-      "sell_price": 20.05,
-      "shares": 2525,
-      "pl": 631.25,
-      "pl_pct": 1.26,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2034",
-      "buy_date": "2009-10-08",
-      "buy_price": 27.45,
-      "sell_date": "2009-10-09",
-      "sell_price": 27.95,
-      "shares": 1821,
-      "pl": 910.5,
-      "pl_pct": 1.82,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3024",
-      "buy_date": "2009-10-09",
-      "buy_price": 12.6,
-      "sell_date": "2009-10-12",
-      "sell_price": 12.5,
-      "shares": 3968,
-      "pl": -396.8,
-      "pl_pct": -0.79,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3545",
-      "buy_date": "2009-10-09",
-      "buy_price": 62.2,
-      "sell_date": "2009-10-12",
-      "sell_price": 61.3,
-      "shares": 803,
-      "pl": -722.7,
-      "pl_pct": -1.45,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2332",
-      "buy_date": "2009-10-09",
-      "buy_price": 29.7,
-      "sell_date": "2009-10-12",
-      "sell_price": 30.2,
-      "shares": 1683,
-      "pl": 841.5,
-      "pl_pct": 1.68,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2456",
-      "buy_date": "2009-10-09",
-      "buy_price": 16.8,
-      "sell_date": "2009-10-12",
-      "sell_price": 17.95,
-      "shares": 2976,
-      "pl": 3422.4,
-      "pl_pct": 6.85,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1437",
-      "buy_date": "2009-10-09",
       "buy_price": 23.2,
-      "sell_date": "2009-10-12",
-      "sell_price": 24.8,
+      "sell_date": "2009-10-08",
+      "sell_price": 22.0,
       "shares": 2155,
-      "pl": 3448.0,
-      "pl_pct": 6.9,
-      "sell_reason": "月RSI4=50<77"
+      "pl": -2586.0,
+      "pl_pct": -5.17,
+      "sell_reason": "月RSI4=64<77"
     },
     {
-      "ticker": "2456",
-      "buy_date": "2009-10-12",
-      "buy_price": 17.95,
-      "sell_date": "2009-10-13",
-      "sell_price": 17.65,
-      "shares": 2785,
-      "pl": -835.5,
-      "pl_pct": -1.67,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "3536",
+      "buy_date": "2009-10-07",
+      "buy_price": 10.5,
+      "sell_date": "2009-10-08",
+      "sell_price": 10.2,
+      "shares": 4761,
+      "pl": -1428.3,
+      "pl_pct": -2.86,
+      "sell_reason": "月RSI4=51<77"
     },
     {
-      "ticker": "2403",
-      "buy_date": "2009-10-12",
-      "buy_price": 28.2,
-      "sell_date": "2009-10-13",
-      "sell_price": 28.5,
-      "shares": 1773,
-      "pl": 531.9,
-      "pl_pct": 1.06,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "5515",
-      "buy_date": "2009-10-12",
-      "buy_price": 19.4,
-      "sell_date": "2009-10-13",
-      "sell_price": 19.7,
-      "shares": 2577,
-      "pl": 773.1,
-      "pl_pct": 1.55,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1457",
-      "buy_date": "2009-10-12",
-      "buy_price": 5.95,
-      "sell_date": "2009-10-13",
-      "sell_price": 5.97,
-      "shares": 8403,
-      "pl": 168.06,
-      "pl_pct": 0.34,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6136",
-      "buy_date": "2009-10-12",
-      "buy_price": 26.75,
-      "sell_date": "2009-10-13",
-      "sell_price": 27.15,
-      "shares": 1869,
-      "pl": 747.6,
-      "pl_pct": 1.5,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6145",
-      "buy_date": "2009-10-13",
-      "buy_price": 24.4,
-      "sell_date": "2009-10-14",
-      "sell_price": 24.3,
-      "shares": 2049,
-      "pl": -204.9,
-      "pl_pct": -0.41,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1471",
-      "buy_date": "2009-10-13",
-      "buy_price": 27.95,
-      "sell_date": "2009-10-14",
-      "sell_price": 29.5,
-      "shares": 1788,
-      "pl": 2771.4,
-      "pl_pct": 5.55,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "5515",
-      "buy_date": "2009-10-13",
-      "buy_price": 19.7,
-      "sell_date": "2009-10-14",
-      "sell_price": 19.5,
-      "shares": 2538,
-      "pl": -507.6,
-      "pl_pct": -1.02,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1234",
-      "buy_date": "2009-10-13",
-      "buy_price": 18.0,
-      "sell_date": "2009-10-14",
-      "sell_price": 18.05,
-      "shares": 2777,
-      "pl": 138.85,
-      "pl_pct": 0.28,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2403",
-      "buy_date": "2009-10-13",
-      "buy_price": 28.5,
-      "sell_date": "2009-10-14",
-      "sell_price": 28.7,
-      "shares": 1754,
-      "pl": 350.8,
-      "pl_pct": 0.7,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1471",
-      "buy_date": "2009-10-14",
-      "buy_price": 29.5,
-      "sell_date": "2009-10-15",
-      "sell_price": 29.4,
-      "shares": 1694,
-      "pl": -169.4,
-      "pl_pct": -0.34,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "3003",
+      "buy_date": "2009-10-06",
+      "buy_price": 23.5,
+      "sell_date": "2009-10-09",
+      "sell_price": 21.75,
+      "shares": 2127,
+      "pl": -3722.25,
+      "pl_pct": -7.45,
+      "sell_reason": "止損-7.4%"
     },
     {
       "ticker": "1524",
@@ -1604,7 +955,7 @@
       "shares": 4807,
       "pl": -1201.75,
       "pl_pct": -2.4,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=63<77"
     },
     {
       "ticker": "2464",
@@ -1615,62 +966,7 @@
       "shares": 1811,
       "pl": 181.1,
       "pl_pct": 0.36,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9935",
-      "buy_date": "2009-10-14",
-      "buy_price": 8.0,
-      "sell_date": "2009-10-15",
-      "sell_price": 7.75,
-      "shares": 6250,
-      "pl": -1562.5,
-      "pl_pct": -3.12,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1234",
-      "buy_date": "2009-10-14",
-      "buy_price": 18.05,
-      "sell_date": "2009-10-15",
-      "sell_price": 17.55,
-      "shares": 2770,
-      "pl": -1385.0,
-      "pl_pct": -2.77,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2354",
-      "buy_date": "2009-10-15",
-      "buy_price": 104.0,
-      "sell_date": "2009-10-16",
-      "sell_price": 103.5,
-      "shares": 480,
-      "pl": -240.0,
-      "pl_pct": -0.48,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3058",
-      "buy_date": "2009-10-15",
-      "buy_price": 23.15,
-      "sell_date": "2009-10-16",
-      "sell_price": 23.25,
-      "shares": 2159,
-      "pl": 215.9,
-      "pl_pct": 0.43,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1521",
-      "buy_date": "2009-10-15",
-      "buy_price": 32.75,
-      "sell_date": "2009-10-16",
-      "sell_price": 32.25,
-      "shares": 1526,
-      "pl": -763.0,
-      "pl_pct": -1.53,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=70<77"
     },
     {
       "ticker": "6145",
@@ -1681,51 +977,18 @@
       "shares": 1960,
       "pl": -588.0,
       "pl_pct": -1.18,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=72<77"
     },
     {
-      "ticker": "2476",
+      "ticker": "2354",
       "buy_date": "2009-10-15",
-      "buy_price": 25.0,
+      "buy_price": 104.0,
       "sell_date": "2009-10-16",
-      "sell_price": 25.2,
-      "shares": 2000,
-      "pl": 400.0,
-      "pl_pct": 0.8,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2351",
-      "buy_date": "2009-10-16",
-      "buy_price": 29.7,
-      "sell_date": "2009-10-19",
-      "sell_price": 31.75,
-      "shares": 1683,
-      "pl": 3450.15,
-      "pl_pct": 6.9,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2481",
-      "buy_date": "2009-10-16",
-      "buy_price": 22.85,
-      "sell_date": "2009-10-19",
-      "sell_price": 23.65,
-      "shares": 2188,
-      "pl": 1750.4,
-      "pl_pct": 3.5,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1608",
-      "buy_date": "2009-10-16",
-      "buy_price": 9.8,
-      "sell_date": "2009-10-19",
-      "sell_price": 9.79,
-      "shares": 5102,
-      "pl": -51.02,
-      "pl_pct": -0.1,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 103.5,
+      "shares": 480,
+      "pl": -240.0,
+      "pl_pct": -0.48,
+      "sell_reason": "月RSI4=53<77"
     },
     {
       "ticker": "2421",
@@ -1736,73 +999,62 @@
       "shares": 2386,
       "pl": 1312.3,
       "pl_pct": 2.63,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1471",
-      "buy_date": "2009-10-16",
-      "buy_price": 31.4,
-      "sell_date": "2009-10-19",
-      "sell_price": 31.0,
-      "shares": 1592,
-      "pl": -636.8,
-      "pl_pct": -1.27,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2459",
-      "buy_date": "2009-10-19",
-      "buy_price": 21.55,
-      "sell_date": "2009-10-20",
-      "sell_price": 21.35,
-      "shares": 2320,
-      "pl": -464.0,
-      "pl_pct": -0.93,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "5434",
-      "buy_date": "2009-10-19",
-      "buy_price": 35.3,
-      "sell_date": "2009-10-20",
-      "sell_price": 36.5,
-      "shares": 1416,
-      "pl": 1699.2,
-      "pl_pct": 3.4,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2911",
-      "buy_date": "2009-10-19",
-      "buy_price": 32.05,
-      "sell_date": "2009-10-20",
-      "sell_price": 31.2,
-      "shares": 1560,
-      "pl": -1326.0,
-      "pl_pct": -2.65,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=45<77"
     },
     {
       "ticker": "2481",
-      "buy_date": "2009-10-19",
-      "buy_price": 23.65,
-      "sell_date": "2009-10-20",
+      "buy_date": "2009-10-16",
+      "buy_price": 22.85,
+      "sell_date": "2009-10-19",
       "sell_price": 23.65,
-      "shares": 2114,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "shares": 2188,
+      "pl": 1750.4,
+      "pl_pct": 3.5,
+      "sell_reason": "月RSI4=64<77"
     },
     {
-      "ticker": "1524",
+      "ticker": "2403",
+      "buy_date": "2009-10-16",
+      "buy_price": 29.2,
+      "sell_date": "2009-10-19",
+      "sell_price": 30.7,
+      "shares": 1712,
+      "pl": 2568.0,
+      "pl_pct": 5.14,
+      "sell_reason": "月RSI4=62<77"
+    },
+    {
+      "ticker": "3028",
       "buy_date": "2009-10-19",
-      "buy_price": 10.75,
+      "buy_price": 20.3,
       "sell_date": "2009-10-20",
-      "sell_price": 10.65,
-      "shares": 4651,
-      "pl": -465.1,
-      "pl_pct": -0.93,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 21.2,
+      "shares": 2463,
+      "pl": 2216.7,
+      "pl_pct": 4.43,
+      "sell_reason": "月RSI4=71<77"
+    },
+    {
+      "ticker": "2403",
+      "buy_date": "2009-10-19",
+      "buy_price": 30.7,
+      "sell_date": "2009-10-20",
+      "sell_price": 30.7,
+      "shares": 1628,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=62<77"
+    },
+    {
+      "ticker": "9934",
+      "buy_date": "2009-10-19",
+      "buy_price": 27.3,
+      "sell_date": "2009-10-20",
+      "sell_price": 29.2,
+      "shares": 1831,
+      "pl": 3478.9,
+      "pl_pct": 6.96,
+      "sell_reason": "月RSI4=62<77"
     },
     {
       "ticker": "6141",
@@ -1813,18 +1065,7 @@
       "shares": 2252,
       "pl": -225.2,
       "pl_pct": -0.45,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3311",
-      "buy_date": "2009-10-20",
-      "buy_price": 104.5,
-      "sell_date": "2009-10-21",
-      "sell_price": 109.0,
-      "shares": 478,
-      "pl": 2151.0,
-      "pl_pct": 4.31,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=72<77"
     },
     {
       "ticker": "1907",
@@ -1835,7 +1076,7 @@
       "shares": 3984,
       "pl": -996.0,
       "pl_pct": -1.99,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=62<77"
     },
     {
       "ticker": "3028",
@@ -1846,7 +1087,7 @@
       "shares": 2358,
       "pl": 3419.1,
       "pl_pct": 6.84,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=71<77"
     },
     {
       "ticker": "9945",
@@ -1857,359 +1098,139 @@
       "shares": 1314,
       "pl": 1051.2,
       "pl_pct": 2.1,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=74<77"
     },
     {
-      "ticker": "2017",
-      "buy_date": "2009-10-21",
-      "buy_price": 8.93,
-      "sell_date": "2009-10-22",
-      "sell_price": 8.5,
-      "shares": 5599,
-      "pl": -2407.57,
-      "pl_pct": -4.82,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "1416",
+      "buy_date": "2009-10-20",
+      "buy_price": 8.73,
+      "sell_date": "2009-10-21",
+      "sell_price": 8.52,
+      "shares": 5727,
+      "pl": -1202.66,
+      "pl_pct": -2.41,
+      "sell_reason": "月RSI4=67<77"
     },
     {
-      "ticker": "2391",
-      "buy_date": "2009-10-21",
-      "buy_price": 23.95,
-      "sell_date": "2009-10-22",
-      "sell_price": 24.35,
-      "shares": 2087,
-      "pl": 834.8,
-      "pl_pct": 1.67,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "6269",
+      "buy_date": "2009-10-14",
+      "buy_price": 41.85,
+      "sell_date": "2009-10-28",
+      "sell_price": 37.85,
+      "shares": 1194,
+      "pl": -4776.0,
+      "pl_pct": -9.56,
+      "sell_reason": "止損-9.6%"
     },
     {
-      "ticker": "6191",
-      "buy_date": "2009-10-21",
-      "buy_price": 20.75,
-      "sell_date": "2009-10-22",
-      "sell_price": 19.65,
-      "shares": 2409,
-      "pl": -2649.9,
-      "pl_pct": -5.3,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "1521",
+      "buy_date": "2009-10-15",
+      "buy_price": 32.75,
+      "sell_date": "2009-10-28",
+      "sell_price": 30.1,
+      "shares": 1526,
+      "pl": -4043.9,
+      "pl_pct": -8.09,
+      "sell_reason": "止損-8.1%"
+    },
+    {
+      "ticker": "2476",
+      "buy_date": "2009-10-15",
+      "buy_price": 25.0,
+      "sell_date": "2009-10-29",
+      "sell_price": 22.65,
+      "shares": 2000,
+      "pl": -4700.0,
+      "pl_pct": -9.4,
+      "sell_reason": "止損-9.4%"
+    },
+    {
+      "ticker": "2459",
+      "buy_date": "2009-10-19",
+      "buy_price": 21.55,
+      "sell_date": "2009-10-29",
+      "sell_price": 19.95,
+      "shares": 2320,
+      "pl": -3712.0,
+      "pl_pct": -7.42,
+      "sell_reason": "止損-7.4%"
+    },
+    {
+      "ticker": "1471",
+      "buy_date": "2009-10-14",
+      "buy_price": 29.5,
+      "sell_date": "2009-10-30",
+      "sell_price": 26.8,
+      "shares": 1694,
+      "pl": -4573.8,
+      "pl_pct": -9.15,
+      "sell_reason": "大盤CRASH出清"
+    },
+    {
+      "ticker": "1234",
+      "buy_date": "2009-10-14",
+      "buy_price": 18.05,
+      "sell_date": "2009-10-30",
+      "sell_price": 17.2,
+      "shares": 2770,
+      "pl": -2354.5,
+      "pl_pct": -4.71,
+      "sell_reason": "大盤CRASH出清"
+    },
+    {
+      "ticker": "3058",
+      "buy_date": "2009-10-15",
+      "buy_price": 23.15,
+      "sell_date": "2009-10-30",
+      "sell_price": 22.65,
+      "shares": 2159,
+      "pl": -1079.5,
+      "pl_pct": -2.16,
+      "sell_reason": "大盤CRASH出清"
     },
     {
       "ticker": "2351",
-      "buy_date": "2009-10-21",
-      "buy_price": 35.9,
-      "sell_date": "2009-10-22",
-      "sell_price": 35.25,
-      "shares": 1392,
-      "pl": -904.8,
-      "pl_pct": -1.81,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2404",
-      "buy_date": "2009-10-21",
-      "buy_price": 19.05,
-      "sell_date": "2009-10-22",
-      "sell_price": 18.2,
-      "shares": 2624,
-      "pl": -2230.4,
-      "pl_pct": -4.46,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2391",
-      "buy_date": "2009-10-22",
-      "buy_price": 24.35,
-      "sell_date": "2009-10-23",
-      "sell_price": 24.2,
-      "shares": 2053,
-      "pl": -307.95,
-      "pl_pct": -0.62,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3494",
-      "buy_date": "2009-10-22",
-      "buy_price": 21.7,
-      "sell_date": "2009-10-23",
-      "sell_price": 23.05,
-      "shares": 2304,
-      "pl": 3110.4,
-      "pl_pct": 6.22,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3057",
-      "buy_date": "2009-10-22",
-      "buy_price": 24.7,
-      "sell_date": "2009-10-23",
-      "sell_price": 24.55,
-      "shares": 2024,
-      "pl": -303.6,
-      "pl_pct": -0.61,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3029",
-      "buy_date": "2009-10-22",
-      "buy_price": 13.5,
-      "sell_date": "2009-10-23",
-      "sell_price": 14.25,
-      "shares": 3703,
-      "pl": 2777.25,
-      "pl_pct": 5.56,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "4532",
-      "buy_date": "2009-10-22",
-      "buy_price": 10.55,
-      "sell_date": "2009-10-23",
-      "sell_price": 11.25,
-      "shares": 4739,
-      "pl": 3317.3,
-      "pl_pct": 6.64,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3494",
-      "buy_date": "2009-10-23",
-      "buy_price": 23.05,
-      "sell_date": "2009-10-26",
-      "sell_price": 22.2,
-      "shares": 2169,
-      "pl": -1843.65,
-      "pl_pct": -3.69,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3029",
-      "buy_date": "2009-10-23",
-      "buy_price": 14.25,
-      "sell_date": "2009-10-26",
-      "sell_price": 13.6,
-      "shares": 3508,
-      "pl": -2280.2,
-      "pl_pct": -4.56,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6141",
-      "buy_date": "2009-10-23",
-      "buy_price": 22.4,
-      "sell_date": "2009-10-26",
-      "sell_price": 22.1,
-      "shares": 2232,
-      "pl": -669.6,
-      "pl_pct": -1.34,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2468",
-      "buy_date": "2009-10-23",
-      "buy_price": 13.65,
-      "sell_date": "2009-10-26",
-      "sell_price": 13.65,
-      "shares": 3663,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "buy_date": "2009-10-16",
+      "buy_price": 29.7,
+      "sell_date": "2009-10-30",
+      "sell_price": 38.7,
+      "shares": 1683,
+      "pl": 15147.0,
+      "pl_pct": 30.3,
+      "sell_reason": "大盤CRASH出清"
     },
     {
       "ticker": "1608",
-      "buy_date": "2009-10-23",
-      "buy_price": 10.3,
-      "sell_date": "2009-10-26",
-      "sell_price": 10.4,
-      "shares": 4854,
-      "pl": 485.4,
-      "pl_pct": 0.97,
-      "sell_reason": "月RSI4=50<77"
+      "buy_date": "2009-10-16",
+      "buy_price": 9.8,
+      "sell_date": "2009-10-30",
+      "sell_price": 10.5,
+      "shares": 5102,
+      "pl": 3571.4,
+      "pl_pct": 7.14,
+      "sell_reason": "大盤CRASH出清"
     },
     {
-      "ticker": "1730",
-      "buy_date": "2009-10-26",
-      "buy_price": 19.2,
-      "sell_date": "2009-10-27",
-      "sell_price": 18.25,
-      "shares": 2604,
-      "pl": -2473.8,
-      "pl_pct": -4.95,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "3311",
+      "buy_date": "2009-10-19",
+      "buy_price": 97.9,
+      "sell_date": "2009-10-30",
+      "sell_price": 103.0,
+      "shares": 510,
+      "pl": 2601.0,
+      "pl_pct": 5.21,
+      "sell_reason": "大盤CRASH出清"
     },
     {
-      "ticker": "1325",
-      "buy_date": "2009-10-26",
-      "buy_price": 30.45,
-      "sell_date": "2009-10-27",
-      "sell_price": 30.3,
-      "shares": 1642,
-      "pl": -246.3,
-      "pl_pct": -0.49,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1225",
-      "buy_date": "2009-10-26",
-      "buy_price": 13.4,
-      "sell_date": "2009-10-27",
-      "sell_price": 12.9,
-      "shares": 3731,
-      "pl": -1865.5,
-      "pl_pct": -3.73,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1210",
-      "buy_date": "2009-10-26",
-      "buy_price": 36.4,
-      "sell_date": "2009-10-27",
-      "sell_price": 35.9,
-      "shares": 1373,
-      "pl": -686.5,
-      "pl_pct": -1.37,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9938",
-      "buy_date": "2009-10-26",
-      "buy_price": 18.6,
-      "sell_date": "2009-10-27",
-      "sell_price": 19.9,
-      "shares": 2688,
-      "pl": 3494.4,
-      "pl_pct": 6.99,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2911",
-      "buy_date": "2009-10-27",
-      "buy_price": 33.15,
-      "sell_date": "2009-10-28",
-      "sell_price": 32.55,
-      "shares": 1508,
-      "pl": -904.8,
-      "pl_pct": -1.81,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9938",
-      "buy_date": "2009-10-27",
-      "buy_price": 19.9,
-      "sell_date": "2009-10-28",
-      "sell_price": 20.15,
-      "shares": 2512,
-      "pl": 628.0,
-      "pl_pct": 1.26,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3494",
-      "buy_date": "2009-10-27",
-      "buy_price": 23.75,
-      "sell_date": "2009-10-28",
-      "sell_price": 24.5,
-      "shares": 2105,
-      "pl": 1578.75,
-      "pl_pct": 3.16,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2395",
-      "buy_date": "2009-10-27",
-      "buy_price": 62.2,
-      "sell_date": "2009-10-28",
-      "sell_price": 61.1,
-      "shares": 803,
-      "pl": -883.3,
-      "pl_pct": -1.77,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2316",
-      "buy_date": "2009-10-27",
-      "buy_price": 10.75,
-      "sell_date": "2009-10-28",
-      "sell_price": 10.85,
-      "shares": 4651,
-      "pl": 465.1,
-      "pl_pct": 0.93,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9910",
-      "buy_date": "2009-10-28",
-      "buy_price": 26.7,
-      "sell_date": "2009-10-29",
-      "sell_price": 26.4,
-      "shares": 1872,
-      "pl": -561.6,
-      "pl_pct": -1.12,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9938",
-      "buy_date": "2009-10-28",
-      "buy_price": 20.15,
-      "sell_date": "2009-10-29",
-      "sell_price": 21.55,
-      "shares": 2481,
-      "pl": 3473.4,
-      "pl_pct": 6.95,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2431",
-      "buy_date": "2009-10-28",
-      "buy_price": 16.05,
-      "sell_date": "2009-10-29",
-      "sell_price": 15.95,
-      "shares": 3115,
-      "pl": -311.5,
-      "pl_pct": -0.62,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3494",
-      "buy_date": "2009-10-28",
-      "buy_price": 24.5,
-      "sell_date": "2009-10-29",
-      "sell_price": 24.1,
-      "shares": 2040,
-      "pl": -816.0,
-      "pl_pct": -1.63,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2351",
-      "buy_date": "2009-10-28",
-      "buy_price": 36.45,
-      "sell_date": "2009-10-29",
-      "sell_price": 38.7,
-      "shares": 1371,
-      "pl": 3084.75,
-      "pl_pct": 6.17,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9924",
-      "buy_date": "2009-11-06",
-      "buy_price": 19.25,
-      "sell_date": "2009-11-09",
-      "sell_price": 19.9,
-      "shares": 2597,
-      "pl": 1688.05,
-      "pl_pct": 3.38,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "5203",
-      "buy_date": "2009-11-06",
-      "buy_price": 136.0,
-      "sell_date": "2009-11-09",
-      "sell_price": 135.5,
-      "shares": 367,
-      "pl": -183.5,
-      "pl_pct": -0.37,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "2227",
+      "buy_date": "2009-11-11",
+      "buy_price": 74.2,
+      "sell_date": "2009-11-12",
+      "sell_price": 71.9,
+      "shares": 673,
+      "pl": -1547.9,
+      "pl_pct": -3.1,
+      "sell_reason": "月RSI4=54<77"
     },
     {
       "ticker": "9944",
@@ -2220,7 +1241,7 @@
       "shares": 2150,
       "pl": 3440.0,
       "pl_pct": 6.88,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=76<77"
     },
     {
       "ticker": "6112",
@@ -2231,7 +1252,7 @@
       "shares": 2840,
       "pl": 1704.0,
       "pl_pct": 3.41,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=65<77"
     },
     {
       "ticker": "5203",
@@ -2242,29 +1263,18 @@
       "shares": 364,
       "pl": -728.0,
       "pl_pct": -1.46,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=44<77"
     },
     {
-      "ticker": "3010",
+      "ticker": "9907",
       "buy_date": "2009-11-12",
-      "buy_price": 40.5,
+      "buy_price": 12.15,
       "sell_date": "2009-11-13",
-      "sell_price": 40.3,
-      "shares": 1234,
-      "pl": -246.8,
-      "pl_pct": -0.49,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6112",
-      "buy_date": "2009-11-12",
-      "buy_price": 18.2,
-      "sell_date": "2009-11-13",
-      "sell_price": 18.15,
-      "shares": 2747,
-      "pl": -137.35,
-      "pl_pct": -0.27,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 12.3,
+      "shares": 4115,
+      "pl": 617.25,
+      "pl_pct": 1.23,
+      "sell_reason": "月RSI4=47<77"
     },
     {
       "ticker": "2415",
@@ -2275,7 +1285,29 @@
       "shares": 4201,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=55<77"
+    },
+    {
+      "ticker": "3010",
+      "buy_date": "2009-11-12",
+      "buy_price": 40.5,
+      "sell_date": "2009-11-13",
+      "sell_price": 40.3,
+      "shares": 1234,
+      "pl": -246.8,
+      "pl_pct": -0.49,
+      "sell_reason": "月RSI4=70<77"
+    },
+    {
+      "ticker": "6112",
+      "buy_date": "2009-11-12",
+      "buy_price": 18.2,
+      "sell_date": "2009-11-13",
+      "sell_price": 18.15,
+      "shares": 2747,
+      "pl": -137.35,
+      "pl_pct": -0.27,
+      "sell_reason": "月RSI4=65<77"
     },
     {
       "ticker": "9151",
@@ -2289,17 +1321,6 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "3059",
-      "buy_date": "2009-11-12",
-      "buy_price": 58.6,
-      "sell_date": "2009-11-13",
-      "sell_price": 59.3,
-      "shares": 853,
-      "pl": 597.1,
-      "pl_pct": 1.19,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
       "ticker": "9919",
       "buy_date": "2009-11-13",
       "buy_price": 23.9,
@@ -2308,7 +1329,40 @@
       "shares": 2092,
       "pl": 1778.2,
       "pl_pct": 3.56,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=63<77"
+    },
+    {
+      "ticker": "2706",
+      "buy_date": "2009-11-13",
+      "buy_price": 25.0,
+      "sell_date": "2009-11-16",
+      "sell_price": 24.75,
+      "shares": 2000,
+      "pl": -500.0,
+      "pl_pct": -1.0,
+      "sell_reason": "月RSI4=51<77"
+    },
+    {
+      "ticker": "2498",
+      "buy_date": "2009-11-13",
+      "buy_price": 364.0,
+      "sell_date": "2009-11-16",
+      "sell_price": 371.0,
+      "shares": 137,
+      "pl": 959.0,
+      "pl_pct": 1.92,
+      "sell_reason": "月RSI4=30<77"
+    },
+    {
+      "ticker": "6116",
+      "buy_date": "2009-11-16",
+      "buy_price": 7.0,
+      "sell_date": "2009-11-17",
+      "sell_price": 6.78,
+      "shares": 7142,
+      "pl": -1571.24,
+      "pl_pct": -3.14,
+      "sell_reason": "月RSI4=40<77"
     },
     {
       "ticker": "6226",
@@ -2322,6 +1376,17 @@
       "sell_reason": "月RSI4=50<77"
     },
     {
+      "ticker": "3519",
+      "buy_date": "2009-11-16",
+      "buy_price": 82.2,
+      "sell_date": "2009-11-17",
+      "sell_price": 81.1,
+      "shares": 608,
+      "pl": -668.8,
+      "pl_pct": -1.34,
+      "sell_reason": "月RSI4=25<77"
+    },
+    {
       "ticker": "2227",
       "buy_date": "2009-11-16",
       "buy_price": 75.5,
@@ -2330,40 +1395,29 @@
       "shares": 662,
       "pl": 331.0,
       "pl_pct": 0.66,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=54<77"
     },
     {
-      "ticker": "6112",
+      "ticker": "2024",
       "buy_date": "2009-11-16",
-      "buy_price": 18.5,
+      "buy_price": 5.13,
       "sell_date": "2009-11-17",
-      "sell_price": 18.1,
-      "shares": 2702,
-      "pl": -1080.8,
-      "pl_pct": -2.16,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 5.09,
+      "shares": 9746,
+      "pl": -389.84,
+      "pl_pct": -0.78,
+      "sell_reason": "月RSI4=33<77"
     },
     {
-      "ticker": "2450",
-      "buy_date": "2009-11-16",
-      "buy_price": 46.2,
-      "sell_date": "2009-11-17",
-      "sell_price": 45.65,
-      "shares": 1082,
-      "pl": -595.1,
-      "pl_pct": -1.19,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2838",
-      "buy_date": "2009-11-16",
-      "buy_price": 6.14,
-      "sell_date": "2009-11-17",
-      "sell_price": 6.04,
-      "shares": 8143,
-      "pl": -814.3,
-      "pl_pct": -1.63,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "3034",
+      "buy_date": "2009-11-17",
+      "buy_price": 80.9,
+      "sell_date": "2009-11-18",
+      "sell_price": 83.5,
+      "shares": 618,
+      "pl": 1606.8,
+      "pl_pct": 3.21,
+      "sell_reason": "月RSI4=53<77"
     },
     {
       "ticker": "2227",
@@ -2374,18 +1428,51 @@
       "shares": 657,
       "pl": 262.8,
       "pl_pct": 0.53,
+      "sell_reason": "月RSI4=54<77"
+    },
+    {
+      "ticker": "8081",
+      "buy_date": "2009-11-18",
+      "buy_price": 152.0,
+      "sell_date": "2009-11-19",
+      "sell_price": 155.0,
+      "shares": 328,
+      "pl": 984.0,
+      "pl_pct": 1.97,
       "sell_reason": "月RSI4=50<77"
     },
     {
-      "ticker": "6505",
+      "ticker": "3383",
       "buy_date": "2009-11-18",
-      "buy_price": 85.2,
+      "buy_price": 38.75,
       "sell_date": "2009-11-19",
-      "sell_price": 84.6,
-      "shares": 586,
-      "pl": -351.6,
-      "pl_pct": -0.7,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 38.0,
+      "shares": 1290,
+      "pl": -967.5,
+      "pl_pct": -1.94,
+      "sell_reason": "月RSI4=35<77"
+    },
+    {
+      "ticker": "3006",
+      "buy_date": "2009-11-18",
+      "buy_price": 51.0,
+      "sell_date": "2009-11-19",
+      "sell_price": 51.8,
+      "shares": 980,
+      "pl": 784.0,
+      "pl_pct": 1.57,
+      "sell_reason": "月RSI4=53<77"
+    },
+    {
+      "ticker": "2024",
+      "buy_date": "2009-11-18",
+      "buy_price": 5.23,
+      "sell_date": "2009-11-19",
+      "sell_price": 5.16,
+      "shares": 9560,
+      "pl": -669.2,
+      "pl_pct": -1.34,
+      "sell_reason": "月RSI4=33<77"
     },
     {
       "ticker": "1323",
@@ -2396,7 +1483,7 @@
       "shares": 3048,
       "pl": 914.4,
       "pl_pct": 1.83,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=66<77"
     },
     {
       "ticker": "8016",
@@ -2407,7 +1494,7 @@
       "shares": 814,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=51<77"
     },
     {
       "ticker": "8081",
@@ -2429,7 +1516,7 @@
       "shares": 2994,
       "pl": -149.7,
       "pl_pct": -0.3,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=66<77"
     },
     {
       "ticker": "6112",
@@ -2440,95 +1527,18 @@
       "shares": 2590,
       "pl": 647.5,
       "pl_pct": 1.3,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=65<77"
     },
     {
-      "ticker": "2450",
-      "buy_date": "2009-11-20",
-      "buy_price": 47.0,
-      "sell_date": "2009-11-23",
-      "sell_price": 46.25,
-      "shares": 1063,
-      "pl": -797.25,
-      "pl_pct": -1.6,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "6225",
-      "buy_date": "2009-11-23",
-      "buy_price": 25.45,
-      "sell_date": "2009-11-24",
-      "sell_price": 27.2,
-      "shares": 1964,
-      "pl": 3437.0,
-      "pl_pct": 6.88,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2444",
-      "buy_date": "2009-11-23",
-      "buy_price": 12.5,
-      "sell_date": "2009-11-24",
-      "sell_price": 12.95,
-      "shares": 4000,
-      "pl": 1800.0,
-      "pl_pct": 3.6,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1323",
-      "buy_date": "2009-11-23",
-      "buy_price": 16.75,
-      "sell_date": "2009-11-24",
-      "sell_price": 16.55,
-      "shares": 2985,
-      "pl": -597.0,
-      "pl_pct": -1.19,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3559",
-      "buy_date": "2009-11-23",
-      "buy_price": 18.6,
-      "sell_date": "2009-11-24",
-      "sell_price": 19.3,
-      "shares": 2688,
-      "pl": 1881.6,
-      "pl_pct": 3.76,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "8016",
-      "buy_date": "2009-11-23",
-      "buy_price": 62.5,
-      "sell_date": "2009-11-24",
-      "sell_price": 62.3,
-      "shares": 800,
-      "pl": -160.0,
-      "pl_pct": -0.32,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1560",
-      "buy_date": "2009-11-24",
-      "buy_price": 36.6,
-      "sell_date": "2009-11-25",
-      "sell_price": 36.45,
-      "shares": 1366,
-      "pl": -204.9,
-      "pl_pct": -0.41,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3559",
-      "buy_date": "2009-11-24",
-      "buy_price": 19.3,
-      "sell_date": "2009-11-25",
-      "sell_price": 18.8,
-      "shares": 2590,
-      "pl": -1295.0,
-      "pl_pct": -2.59,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "3006",
+      "buy_date": "2009-11-19",
+      "buy_price": 51.8,
+      "sell_date": "2009-11-20",
+      "sell_price": 54.0,
+      "shares": 965,
+      "pl": 2123.0,
+      "pl_pct": 4.25,
+      "sell_reason": "月RSI4=53<77"
     },
     {
       "ticker": "1708",
@@ -2539,194 +1549,18 @@
       "shares": 1531,
       "pl": 2219.95,
       "pl_pct": 4.44,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=43<77"
     },
     {
-      "ticker": "2474",
-      "buy_date": "2009-11-26",
-      "buy_price": 87.0,
-      "sell_date": "2009-11-27",
-      "sell_price": 86.5,
-      "shares": 574,
-      "pl": -287.0,
-      "pl_pct": -0.57,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2393",
-      "buy_date": "2009-11-26",
-      "buy_price": 102.0,
-      "sell_date": "2009-11-27",
-      "sell_price": 100.0,
-      "shares": 490,
-      "pl": -980.0,
-      "pl_pct": -1.96,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1723",
-      "buy_date": "2009-12-07",
-      "buy_price": 88.0,
-      "sell_date": "2009-12-08",
-      "sell_price": 86.1,
-      "shares": 568,
-      "pl": -1079.2,
-      "pl_pct": -2.16,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2462",
-      "buy_date": "2009-12-07",
-      "buy_price": 53.3,
-      "sell_date": "2009-12-08",
-      "sell_price": 51.6,
-      "shares": 938,
-      "pl": -1594.6,
-      "pl_pct": -3.19,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3002",
-      "buy_date": "2009-12-07",
-      "buy_price": 24.8,
-      "sell_date": "2009-12-08",
-      "sell_price": 25.2,
-      "shares": 2016,
-      "pl": 806.4,
-      "pl_pct": 1.61,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "5525",
-      "buy_date": "2009-12-07",
-      "buy_price": 19.1,
-      "sell_date": "2009-12-08",
-      "sell_price": 18.6,
-      "shares": 2617,
-      "pl": -1308.5,
-      "pl_pct": -2.62,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2472",
-      "buy_date": "2009-12-07",
-      "buy_price": 11.55,
-      "sell_date": "2009-12-08",
-      "sell_price": 11.55,
-      "shares": 4329,
+      "ticker": "2337",
+      "buy_date": "2009-12-24",
+      "buy_price": 17.1,
+      "sell_date": "2009-12-25",
+      "sell_price": 17.1,
+      "shares": 2923,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3038",
-      "buy_date": "2009-12-09",
-      "buy_price": 13.25,
-      "sell_date": "2009-12-10",
-      "sell_price": 13.25,
-      "shares": 3773,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3033",
-      "buy_date": "2009-12-09",
-      "buy_price": 19.0,
-      "sell_date": "2009-12-10",
-      "sell_price": 18.9,
-      "shares": 2631,
-      "pl": -263.1,
-      "pl_pct": -0.53,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2456",
-      "buy_date": "2009-12-09",
-      "buy_price": 17.35,
-      "sell_date": "2009-12-10",
-      "sell_price": 17.0,
-      "shares": 2881,
-      "pl": -1008.35,
-      "pl_pct": -2.02,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3040",
-      "buy_date": "2009-12-09",
-      "buy_price": 14.0,
-      "sell_date": "2009-12-10",
-      "sell_price": 13.4,
-      "shares": 3571,
-      "pl": -2142.6,
-      "pl_pct": -4.29,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2448",
-      "buy_date": "2009-12-09",
-      "buy_price": 113.0,
-      "sell_date": "2009-12-10",
-      "sell_price": 108.5,
-      "shares": 442,
-      "pl": -1989.0,
-      "pl_pct": -3.98,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1437",
-      "buy_date": "2009-12-23",
-      "buy_price": 22.85,
-      "sell_date": "2009-12-24",
-      "sell_price": 22.65,
-      "shares": 2188,
-      "pl": -437.6,
-      "pl_pct": -0.88,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2451",
-      "buy_date": "2009-12-23",
-      "buy_price": 116.5,
-      "sell_date": "2009-12-24",
-      "sell_price": 120.5,
-      "shares": 429,
-      "pl": 1716.0,
-      "pl_pct": 3.43,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2906",
-      "buy_date": "2009-12-23",
-      "buy_price": 9.45,
-      "sell_date": "2009-12-24",
-      "sell_price": 9.73,
-      "shares": 5291,
-      "pl": 1481.48,
-      "pl_pct": 2.96,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "9929",
-      "buy_date": "2009-12-23",
-      "buy_price": 4.17,
-      "sell_date": "2009-12-24",
-      "sell_price": 4.16,
-      "shares": 11990,
-      "pl": -119.9,
-      "pl_pct": -0.24,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "1108",
-      "buy_date": "2009-12-23",
-      "buy_price": 8.88,
-      "sell_date": "2009-12-24",
-      "sell_price": 8.71,
-      "shares": 5630,
-      "pl": -957.1,
-      "pl_pct": -1.91,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "2312",
@@ -2737,18 +1571,18 @@
       "shares": 5268,
       "pl": -52.68,
       "pl_pct": -0.11,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=68<77"
     },
     {
-      "ticker": "3038",
+      "ticker": "2855",
       "buy_date": "2009-12-24",
-      "buy_price": 13.65,
+      "buy_price": 20.0,
       "sell_date": "2009-12-25",
-      "sell_price": 13.65,
-      "shares": 3663,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 20.8,
+      "shares": 2500,
+      "pl": 2000.0,
+      "pl_pct": 4.0,
+      "sell_reason": "月RSI4=59<77"
     },
     {
       "ticker": "5469",
@@ -2759,29 +1593,7 @@
       "shares": 1587,
       "pl": -476.1,
       "pl_pct": -0.95,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "3002",
-      "buy_date": "2009-12-24",
-      "buy_price": 27.1,
-      "sell_date": "2009-12-25",
-      "sell_price": 26.7,
-      "shares": 1845,
-      "pl": -738.0,
-      "pl_pct": -1.48,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "2442",
-      "buy_date": "2009-12-24",
-      "buy_price": 21.45,
-      "sell_date": "2009-12-25",
-      "sell_price": 21.85,
-      "shares": 2331,
-      "pl": 932.4,
-      "pl_pct": 1.86,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=74<77"
     },
     {
       "ticker": "2855",
@@ -2792,51 +1604,40 @@
       "shares": 2403,
       "pl": 2883.6,
       "pl_pct": 5.77,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=59<77"
     },
     {
-      "ticker": "1476",
+      "ticker": "2365",
       "buy_date": "2009-12-25",
-      "buy_price": 20.5,
+      "buy_price": 33.2,
       "sell_date": "2009-12-28",
-      "sell_price": 20.6,
-      "shares": 2439,
-      "pl": 243.9,
-      "pl_pct": 0.49,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 33.45,
+      "shares": 1506,
+      "pl": 376.5,
+      "pl_pct": 0.75,
+      "sell_reason": "月RSI4=63<77"
     },
     {
-      "ticker": "05665",
+      "ticker": "2349",
       "buy_date": "2009-12-25",
-      "buy_price": 0.96,
+      "buy_price": 8.66,
       "sell_date": "2009-12-28",
-      "sell_price": 1.03,
-      "shares": 52083,
-      "pl": 3645.81,
-      "pl_pct": 7.29,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 8.82,
+      "shares": 5773,
+      "pl": 923.68,
+      "pl_pct": 1.85,
+      "sell_reason": "月RSI4=51<77"
     },
     {
-      "ticker": "05821",
+      "ticker": "2399",
       "buy_date": "2009-12-28",
-      "buy_price": 0.73,
+      "buy_price": 25.1,
       "sell_date": "2009-12-29",
-      "sell_price": 1.09,
-      "shares": 68493,
-      "pl": 24657.48,
-      "pl_pct": 49.32,
-      "sell_reason": "月RSI4=50<77"
-    },
-    {
-      "ticker": "05665",
-      "buy_date": "2009-12-28",
-      "buy_price": 1.03,
-      "sell_date": "2009-12-29",
-      "sell_price": 0.94,
-      "shares": 48543,
-      "pl": -4368.87,
-      "pl_pct": -8.74,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 25.0,
+      "shares": 1992,
+      "pl": -199.2,
+      "pl_pct": -0.4,
+      "sell_reason": "月RSI4=65<77"
     },
     {
       "ticker": "2530",
@@ -2847,7 +1648,7 @@
       "shares": 4587,
       "pl": 0.0,
       "pl_pct": 0.0,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=74<77"
     },
     {
       "ticker": "2365",
@@ -2858,7 +1659,18 @@
       "shares": 1494,
       "pl": -224.1,
       "pl_pct": -0.45,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=63<77"
+    },
+    {
+      "ticker": "6133",
+      "buy_date": "2009-12-28",
+      "buy_price": 13.6,
+      "sell_date": "2009-12-29",
+      "sell_price": 13.6,
+      "shares": 3676,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "月RSI4=61<77"
     },
     {
       "ticker": "2856",
@@ -2869,7 +1681,7 @@
       "shares": 3676,
       "pl": -1286.6,
       "pl_pct": -2.57,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=61<77"
     },
     {
       "ticker": "1410",
@@ -2880,7 +1692,7 @@
       "shares": 2857,
       "pl": 3428.4,
       "pl_pct": 6.86,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=75<77"
     },
     {
       "ticker": "3051",
@@ -2891,29 +1703,29 @@
       "shares": 26178,
       "pl": 3403.14,
       "pl_pct": 6.81,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=54<77"
     },
     {
-      "ticker": "9937",
-      "buy_date": "2009-12-30",
-      "buy_price": 40.55,
-      "sell_date": "2009-12-31",
-      "sell_price": 38.9,
-      "shares": 1233,
-      "pl": -2034.45,
-      "pl_pct": -4.07,
-      "sell_reason": "月RSI4=50<77"
+      "ticker": "2836",
+      "buy_date": "2009-12-29",
+      "buy_price": 10.3,
+      "sell_date": "2009-12-30",
+      "sell_price": 10.35,
+      "shares": 4854,
+      "pl": 242.7,
+      "pl_pct": 0.49,
+      "sell_reason": "月RSI4=56<77"
     },
     {
-      "ticker": "9929",
+      "ticker": "2399",
       "buy_date": "2009-12-30",
-      "buy_price": 4.28,
+      "buy_price": 25.15,
       "sell_date": "2009-12-31",
-      "sell_price": 4.46,
-      "shares": 11682,
-      "pl": 2102.76,
-      "pl_pct": 4.21,
-      "sell_reason": "月RSI4=50<77"
+      "sell_price": 25.3,
+      "shares": 1988,
+      "pl": 298.2,
+      "pl_pct": 0.6,
+      "sell_reason": "月RSI4=77<77"
     },
     {
       "ticker": "2365",
@@ -2924,7 +1736,73 @@
       "shares": 1488,
       "pl": -148.8,
       "pl_pct": -0.3,
-      "sell_reason": "月RSI4=50<77"
+      "sell_reason": "月RSI4=73<77"
+    },
+    {
+      "ticker": "3038",
+      "buy_date": "2009-12-24",
+      "buy_price": 13.65,
+      "sell_date": "2009-12-31 (年終)",
+      "sell_price": 14.0,
+      "shares": 3663,
+      "pl": 1282.05,
+      "pl_pct": 2.56,
+      "sell_reason": "年終結算"
+    },
+    {
+      "ticker": "1476",
+      "buy_date": "2009-12-25",
+      "buy_price": 20.5,
+      "sell_date": "2009-12-31 (年終)",
+      "sell_price": 20.9,
+      "shares": 2439,
+      "pl": 975.6,
+      "pl_pct": 1.95,
+      "sell_reason": "年終結算"
+    },
+    {
+      "ticker": "9937",
+      "buy_date": "2009-12-30",
+      "buy_price": 40.55,
+      "sell_date": "2009-12-31 (年終)",
+      "sell_price": 38.9,
+      "shares": 1233,
+      "pl": -2034.45,
+      "pl_pct": -4.07,
+      "sell_reason": "年終結算"
+    },
+    {
+      "ticker": "9929",
+      "buy_date": "2009-12-30",
+      "buy_price": 4.28,
+      "sell_date": "2009-12-31 (年終)",
+      "sell_price": 4.46,
+      "shares": 11682,
+      "pl": 2102.76,
+      "pl_pct": 4.21,
+      "sell_reason": "年終結算"
+    },
+    {
+      "ticker": "2837",
+      "buy_date": "2009-12-31",
+      "buy_price": 3.85,
+      "sell_date": "2009-12-31 (年終)",
+      "sell_price": 3.85,
+      "shares": 12987,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "年終結算"
+    },
+    {
+      "ticker": "2617",
+      "buy_date": "2009-12-31",
+      "buy_price": 46.6,
+      "sell_date": "2009-12-31 (年終)",
+      "sell_price": 46.6,
+      "shares": 1072,
+      "pl": 0.0,
+      "pl_pct": 0.0,
+      "sell_reason": "年終結算"
     },
     {
       "ticker": "1451",
@@ -2947,17 +1825,6 @@
       "pl": 0.0,
       "pl_pct": 0.0,
       "sell_reason": "年終結算"
-    },
-    {
-      "ticker": "1476",
-      "buy_date": "2009-12-31",
-      "buy_price": 20.9,
-      "sell_date": "2009-12-31 (年終)",
-      "sell_price": 20.9,
-      "shares": 2392,
-      "pl": 0.0,
-      "pl_pct": 0.0,
-      "sell_reason": "年終結算"
     }
   ],
   "equity_curve": [
@@ -2965,16 +1832,6 @@
       "date": "2009-01-05",
       "equity": 1000000.0,
       "type": "daily"
-    },
-    {
-      "date": "2009-01-08",
-      "equity": 1000000.0,
-      "type": "crash"
-    },
-    {
-      "date": "2009-01-09",
-      "equity": 1000000.0,
-      "type": "crash"
     },
     {
       "date": "2009-01-12",
@@ -3092,6 +1949,11 @@
       "type": "daily"
     },
     {
+      "date": "2009-06-17",
+      "equity": 1000000.0,
+      "type": "crash"
+    },
+    {
       "date": "2009-06-22",
       "equity": 1000000.0,
       "type": "daily"
@@ -3108,132 +1970,137 @@
     },
     {
       "date": "2009-07-13",
-      "equity": 1001987.3,
+      "equity": 998791.1,
       "type": "daily"
     },
     {
       "date": "2009-07-20",
-      "equity": 1013700.65,
+      "equity": 1018984.28,
       "type": "daily"
     },
     {
       "date": "2009-07-27",
-      "equity": 999271.39,
+      "equity": 1008066.72,
       "type": "daily"
     },
     {
       "date": "2009-08-03",
-      "equity": 1007218.86,
+      "equity": 1006144.67,
       "type": "daily"
     },
     {
       "date": "2009-08-11",
-      "equity": 1005620.8,
+      "equity": 1003441.87,
       "type": "daily"
     },
     {
       "date": "2009-08-18",
-      "equity": 999851.2,
+      "equity": 996263.3,
       "type": "daily"
     },
     {
       "date": "2009-08-25",
-      "equity": 999851.2,
+      "equity": 1005576.66,
       "type": "daily"
     },
     {
       "date": "2009-09-01",
-      "equity": 999851.2,
+      "equity": 994112.85,
       "type": "daily"
     },
     {
       "date": "2009-09-08",
-      "equity": 999851.2,
+      "equity": 994112.85,
       "type": "daily"
     },
     {
       "date": "2009-09-15",
-      "equity": 999851.2,
+      "equity": 994112.85,
       "type": "daily"
     },
     {
       "date": "2009-09-22",
-      "equity": 999851.2,
+      "equity": 994112.85,
       "type": "daily"
     },
     {
       "date": "2009-09-29",
-      "equity": 999851.2,
+      "equity": 994112.85,
       "type": "daily"
     },
     {
       "date": "2009-10-06",
-      "equity": 1001134.29,
+      "equity": 992751.39,
       "type": "daily"
     },
     {
       "date": "2009-10-13",
-      "equity": 1013730.84,
+      "equity": 983391.84,
       "type": "daily"
     },
     {
       "date": "2009-10-20",
-      "equity": 1016435.87,
+      "equity": 1011994.15,
       "type": "daily"
     },
     {
       "date": "2009-10-27",
-      "equity": 1016985.73,
+      "equity": 1004160.63,
       "type": "daily"
     },
     {
+      "date": "2009-10-30",
+      "equity": 990995.63,
+      "type": "crash"
+    },
+    {
       "date": "2009-11-03",
-      "equity": 1022738.53,
+      "equity": 990995.63,
       "type": "daily"
     },
     {
       "date": "2009-11-10",
-      "equity": 1024243.08,
+      "equity": 990995.63,
       "type": "daily"
     },
     {
       "date": "2009-11-17",
-      "equity": 1029414.03,
+      "equity": 994958.15,
       "type": "daily"
     },
     {
       "date": "2009-11-24",
-      "equity": 1036140.77,
+      "equity": 1000333.25,
       "type": "daily"
     },
     {
       "date": "2009-12-01",
-      "equity": 1035593.82,
+      "equity": 1002553.2,
       "type": "daily"
     },
     {
       "date": "2009-12-08",
-      "equity": 1032417.92,
+      "equity": 1002553.2,
       "type": "daily"
     },
     {
       "date": "2009-12-15",
-      "equity": 1027014.87,
+      "equity": 1002553.2,
       "type": "daily"
     },
     {
       "date": "2009-12-22",
-      "equity": 1027014.87,
+      "equity": 1002553.2,
       "type": "daily"
     },
     {
       "date": "2009-12-29",
-      "equity": 1053914.58,
+      "equity": 1007170.14,
       "type": "daily"
     },
     {
       "date": "2009-12-31",
-      "equity": 1060665.64,
+      "equity": 1016047.9,
       "type": "final"
     }
   ],

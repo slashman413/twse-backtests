@@ -1,20 +1,14 @@
 """
-Backtest v8 — research-driven quality filters.
+Backtest v12 — exclude 6-digit warrant/權證 ticker codes.
 
-Changes vs v7 (based on Deep Research recommendations):
-1. Volatility gate: if 0050 20-day realized vol > 25% (annualised), suppress new entries
-   (targets 2016 Jan-Feb panic, 2011 EU-debt crisis — high-vol regimes kill breakouts)
-2. RVOL ≥ 1.2: breakout day volume must be ≥ 1.2x its own 20-day average
-   (dynamic filter — catches genuine breakout energy without static lot threshold)
-3. ATR Ratio ≥ 1.3: breakout bar range must be ≥ 1.3x recent ATR baseline
-   (filters low-energy fake breakouts)
-4. RVOL bonus scoring: +1 if ≥1.5x, +2 if ≥2.5x (on top of existing score)
+v12 changes vs v11:
+- Filter out tickers with >4 digits (warrants/權證 have 6-digit codes)
+  Applied to both df_curr and df_prev after zfill(4).
 
-v10 (cross-year warmup): load previous year's data to properly warm up ADX(300)/MACD(210)
-   before trading day 1 of each year, eliminating the 120-day blind period.
-
-Unchanged from v7:
-- 300-lot static floor, BULL = 0050 MACD≥3 AND ADX>20
+v11 retained:
+- Standard MACD(12/26/9) + ADX(14) periods
+- Cross-year warmup: prev year parquet loaded to warm indicators from Jan 1
+- RVOL ≥ 1.2, ATR Ratio ≥ 1.0 (v9b), volatility gate 25%
 - Hard stop-loss: -10% BULL, -7% ALERT/BEAR, MIN_SCORE ≥ 1
 """
 import os, sys, time, json, gc, math
@@ -78,8 +72,8 @@ def _compute_indicators(grp: pd.DataFrame):
     ls = pd.Series(low,   index=range(n))
 
     # Daily indicators
-    d4      = np.nan_to_num(macd_4arrows(cs, 200, 209, 210)["arrows_count"].values, nan=0).astype(np.float32)
-    adx_arr = np.nan_to_num(dmi(hs, ls, cs, 300)["adx"].values, nan=0).astype(np.float32)
+    d4      = np.nan_to_num(macd_4arrows(cs, 12, 26, 9)["arrows_count"].values, nan=0).astype(np.float32)
+    adx_arr = np.nan_to_num(dmi(hs, ls, cs, 14)["adx"].values, nan=0).astype(np.float32)
     wr_arr  = np.nan_to_num(wr(hs, ls, cs, 50).values, nan=0).astype(np.float32)
     rsi60   = np.nan_to_num(rsi(cs, 60).values, nan=50).astype(np.float32)
 
@@ -209,6 +203,7 @@ def process_year(year: int):
     df_curr = pd.read_parquet(f_curr)
     df_curr["Date"]   = pd.to_datetime(df_curr["Date"])
     df_curr["Ticker"] = df_curr["Ticker"].astype(str).str.zfill(4)
+    df_curr = df_curr[df_curr["Ticker"].str.len() <= 4]  # exclude warrants (6-digit codes)
 
     # Track current-year trading dates (simulation scope)
     curr_year_dates = set(df_curr["Date"].unique())
@@ -219,6 +214,7 @@ def process_year(year: int):
         df_prev = pd.read_parquet(f_prev)
         df_prev["Date"]   = pd.to_datetime(df_prev["Date"])
         df_prev["Ticker"] = df_prev["Ticker"].astype(str).str.zfill(4)
+        df_prev = df_prev[df_prev["Ticker"].str.len() <= 4]  # exclude warrants
         df = pd.concat([df_prev, df_curr], ignore_index=True)
     else:
         df = df_curr  # first available year — no prior data
