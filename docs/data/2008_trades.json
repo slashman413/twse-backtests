@@ -3,43 +3,43 @@
     {
       "ticker": "1220",
       "buy_date": "2008-04-22",
-      "buy_price": 12.4,
+      "buy_price": 7.5,
       "sell_date": "2008-04-23",
-      "sell_price": 12.2,
-      "shares": 4032,
-      "pl": -806.4,
+      "sell_price": 7.38,
+      "shares": 6664,
+      "pl": -806.43,
       "pl_pct": -1.61,
       "sell_reason": "月RSI4=57<77"
     },
     {
       "ticker": "1806",
       "buy_date": "2008-05-13",
-      "buy_price": 17.43,
+      "buy_price": 13.97,
       "sell_date": "2008-05-14",
-      "sell_price": 17.92,
-      "shares": 2868,
-      "pl": 1404.2,
+      "sell_price": 14.36,
+      "shares": 3579,
+      "pl": 1404.41,
       "pl_pct": 2.81,
-      "sell_reason": "月RSI4=54<77"
+      "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "6505",
       "buy_date": "2008-05-13",
-      "buy_price": 94.8,
+      "buy_price": 55.44,
       "sell_date": "2008-05-14",
-      "sell_price": 93.4,
-      "shares": 527,
-      "pl": -737.8,
+      "sell_price": 54.62,
+      "shares": 901,
+      "pl": -737.71,
       "pl_pct": -1.48,
       "sell_reason": "月RSI4=54<77"
     },
     {
       "ticker": "1729",
       "buy_date": "2008-05-13",
-      "buy_price": 60.6,
+      "buy_price": 59.13,
       "sell_date": "2008-05-14",
-      "sell_price": 60.6,
-      "shares": 825,
+      "sell_price": 59.13,
+      "shares": 845,
       "pl": 0.0,
       "pl_pct": 0.0,
       "sell_reason": "月RSI4=38<77"
@@ -47,11 +47,11 @@
     {
       "ticker": "2029",
       "buy_date": "2008-05-14",
-      "buy_price": 31.35,
+      "buy_price": 14.85,
       "sell_date": "2008-05-15",
-      "sell_price": 31.75,
-      "shares": 1594,
-      "pl": 637.6,
+      "sell_price": 15.04,
+      "shares": 3366,
+      "pl": 637.87,
       "pl_pct": 1.28,
       "sell_reason": "月RSI4=41<77"
     },
@@ -69,132 +69,143 @@
     {
       "ticker": "1325",
       "buy_date": "2008-05-15",
-      "buy_price": 14.71,
+      "buy_price": 8.2,
       "sell_date": "2008-05-16",
-      "sell_price": 14.94,
-      "shares": 3399,
-      "pl": 806.27,
+      "sell_price": 8.33,
+      "shares": 6099,
+      "pl": 806.34,
       "pl_pct": 1.61,
-      "sell_reason": "月RSI4=58<77"
+      "sell_reason": "月RSI4=68<77"
     },
     {
       "ticker": "9935",
       "buy_date": "2008-05-15",
-      "buy_price": 25.3,
+      "buy_price": 21.47,
       "sell_date": "2008-05-16",
-      "sell_price": 25.25,
-      "shares": 1976,
-      "pl": -98.8,
+      "sell_price": 21.43,
+      "shares": 2328,
+      "pl": -98.79,
       "pl_pct": -0.2,
       "sell_reason": "月RSI4=69<77"
     },
     {
       "ticker": "2029",
       "buy_date": "2008-05-15",
-      "buy_price": 31.75,
+      "buy_price": 15.04,
       "sell_date": "2008-05-16",
-      "sell_price": 31.3,
-      "shares": 1574,
-      "pl": -708.3,
+      "sell_price": 14.83,
+      "shares": 3324,
+      "pl": -708.65,
       "pl_pct": -1.42,
       "sell_reason": "月RSI4=41<77"
     },
     {
       "ticker": "1526",
       "buy_date": "2008-05-15",
-      "buy_price": 7.95,
+      "buy_price": 5.54,
       "sell_date": "2008-05-16",
-      "sell_price": 8.5,
-      "shares": 6289,
-      "pl": 3458.95,
+      "sell_price": 5.93,
+      "shares": 9021,
+      "pl": 3458.99,
       "pl_pct": 6.92,
       "sell_reason": "月RSI4=50<77"
     },
     {
       "ticker": "0057",
       "buy_date": "2008-05-15",
-      "buy_price": 33.86,
+      "buy_price": 32.7,
       "sell_date": "2008-05-16",
-      "sell_price": 34.12,
-      "shares": 1476,
-      "pl": 383.76,
+      "sell_price": 32.95,
+      "shares": 1528,
+      "pl": 383.71,
       "pl_pct": 0.77,
       "sell_reason": "月RSI4=50<77"
     },
     {
       "ticker": "2465",
       "buy_date": "2008-05-16",
-      "buy_price": 13.92,
+      "buy_price": 11.56,
       "sell_date": "2008-05-19",
-      "sell_price": 13.57,
-      "shares": 3592,
-      "pl": -1249.68,
+      "sell_price": 11.27,
+      "shares": 4326,
+      "pl": -1249.97,
       "pl_pct": -2.5,
       "sell_reason": "月RSI4=47<77"
     },
     {
       "ticker": "9928",
       "buy_date": "2008-05-16",
-      "buy_price": 18.4,
+      "buy_price": 15.73,
       "sell_date": "2008-05-19",
-      "sell_price": 19.05,
-      "shares": 2717,
-      "pl": 1766.05,
+      "sell_price": 16.29,
+      "shares": 3177,
+      "pl": 1765.81,
       "pl_pct": 3.53,
       "sell_reason": "月RSI4=41<77"
     },
     {
       "ticker": "2605",
       "buy_date": "2008-05-16",
-      "buy_price": 66.7,
+      "buy_price": 35.75,
       "sell_date": "2008-05-19",
-      "sell_price": 68.6,
-      "shares": 749,
-      "pl": 1423.1,
+      "sell_price": 36.77,
+      "shares": 1398,
+      "pl": 1423.66,
       "pl_pct": 2.85,
       "sell_reason": "月RSI4=56<77"
     },
     {
       "ticker": "2374",
       "buy_date": "2008-05-16",
-      "buy_price": 45.5,
+      "buy_price": 20.1,
       "sell_date": "2008-05-19",
-      "sell_price": 45.2,
-      "shares": 1098,
-      "pl": -329.4,
+      "sell_price": 19.97,
+      "shares": 2486,
+      "pl": -329.54,
       "pl_pct": -0.66,
       "sell_reason": "月RSI4=39<77"
     },
     {
       "ticker": "9928",
       "buy_date": "2008-05-19",
-      "buy_price": 19.05,
+      "buy_price": 16.29,
       "sell_date": "2008-05-20",
-      "sell_price": 17.75,
-      "shares": 2624,
-      "pl": -3411.2,
+      "sell_price": 15.18,
+      "shares": 3069,
+      "pl": -3411.55,
       "pl_pct": -6.82,
       "sell_reason": "月RSI4=41<77"
     },
     {
       "ticker": "6505",
       "buy_date": "2008-05-19",
-      "buy_price": 97.5,
+      "buy_price": 57.02,
       "sell_date": "2008-05-20",
-      "sell_price": 95.2,
-      "shares": 512,
-      "pl": -1177.6,
+      "sell_price": 55.68,
+      "shares": 876,
+      "pl": -1178.32,
       "pl_pct": -2.36,
       "sell_reason": "月RSI4=54<77"
     },
     {
+      "ticker": "3533",
+      "buy_date": "2008-05-19",
+      "buy_price": 27.8,
+      "sell_date": "2008-05-20",
+      "sell_price": 27.14,
+      "shares": 1798,
+      "pl": -1177.21,
+      "pl_pct": -2.36,
+      "sell_reason": "月RSI4=50<77"
+    },
+    {
       "ticker": "8021",
       "buy_date": "2008-05-19",
-      "buy_price": 51.44,
+      "buy_price": 27.06,
       "sell_date": "2008-05-20",
-      "sell_price": 50.15,
-      "shares": 971,
-      "pl": -1255.09,
+      "sell_price": 26.38,
+      "shares": 1847,
+      "pl": -1255.87,
       "pl_pct": -2.51,
       "sell_reason": "月RSI4=50<77"
     }
@@ -287,307 +298,307 @@
     },
     {
       "date": "2008-04-28",
-      "equity": 999193.6,
+      "equity": 999193.57,
       "type": "daily"
     },
     {
       "date": "2008-05-06",
-      "equity": 999193.6,
+      "equity": 999193.57,
       "type": "daily"
     },
     {
       "date": "2008-05-13",
-      "equity": 999193.6,
+      "equity": 999193.57,
       "type": "daily"
     },
     {
       "date": "2008-05-20",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-05-27",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-06-03",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-06-10",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-06-11",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-06-12",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-06-17",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-06-20",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-06-23",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-06-24",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-06-30",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-07-01",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-07-04",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-07-08",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-07-15",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-07-16",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-07-22",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-07-30",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-08-06",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-08-13",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-08-20",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-08-27",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-09-01",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-02",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-03",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-04",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-05",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-10",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-09-11",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-15",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-16",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-17",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-09-18",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-09-24",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-09-30",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-01",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-02",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-06",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-07",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-08",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-09",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-13",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-17",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-22",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-23",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-24",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-27",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-10-31",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-11-07",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-11-14",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-11-20",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "crash"
     },
     {
       "date": "2008-11-21",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-11-28",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-12-05",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-12-12",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-12-19",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-12-26",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "daily"
     },
     {
       "date": "2008-12-31",
-      "equity": 995447.06,
+      "equity": 994268.1,
       "type": "final"
     }
   ],
