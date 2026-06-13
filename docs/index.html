@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>台股回測儀表板 · TWSE Backtest</title>
-<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+<script src="https://unpkg.com/lightweight-charts@3.8.0/dist/lightweight-charts.standalone.production.js"></script>
 <style>
   :root {
     --bg: #0f172a; --card: #1e293b; --border: #334155;
@@ -647,13 +647,14 @@ function closeChartModal() {
   chartInstances = [];
 }
 
-const CHART_OPTS = (height) => ({
-  layout: { background: { color: "#1e293b" }, textColor: "#94a3b8" },
+const CHART_OPTS = (height, width) => ({
+  width: width || 800,
+  height,
+  layout: { backgroundColor: "#1e293b", textColor: "#94a3b8" },
   grid: { vertLines: { color: "#263148" }, horzLines: { color: "#263148" } },
   crosshair: { mode: 1 },
   timeScale: { borderColor: "#334155", timeVisible: true },
   rightPriceScale: { borderColor: "#334155" },
-  height,
 });
 
 async function openChartModal(ticker, name, sigInfo) {
@@ -680,12 +681,16 @@ async function openChartModal(ticker, name, sigInfo) {
     return;
   }
 
+  // Ensure modal is painted before measuring element widths
+  await new Promise(r => requestAnimationFrame(r));
+
   const signalDate = data.scan_date;
 
   // ── Candlestick ──────────────────────────────────────────────
   const candleEl = document.getElementById("chart-candle");
   candleEl.innerHTML = "";
-  const candleChart = LightweightCharts.createChart(candleEl, CHART_OPTS(320));
+  const chartW = candleEl.clientWidth || 800;
+  const candleChart = LightweightCharts.createChart(candleEl, CHART_OPTS(320, chartW));
   chartInstances.push(candleChart);
 
   const candleSeries = candleChart.addCandlestickSeries({
@@ -722,7 +727,7 @@ async function openChartModal(ticker, name, sigInfo) {
   // ── MACD ─────────────────────────────────────────────────────
   const macdEl = document.getElementById("chart-macd");
   macdEl.innerHTML = "";
-  const macdChart = LightweightCharts.createChart(macdEl, { ...CHART_OPTS(120), timeScale:{ visible:false } });
+  const macdChart = LightweightCharts.createChart(macdEl, { ...CHART_OPTS(120, chartW), timeScale:{ visible:false } });
   chartInstances.push(macdChart);
 
   const histSeries = macdChart.addHistogramSeries({ priceScaleId:"right" });
@@ -738,7 +743,7 @@ async function openChartModal(ticker, name, sigInfo) {
   // ── ADX ──────────────────────────────────────────────────────
   const adxEl = document.getElementById("chart-adx");
   adxEl.innerHTML = "";
-  const adxChart = LightweightCharts.createChart(adxEl, { ...CHART_OPTS(100), timeScale:{ visible:false } });
+  const adxChart = LightweightCharts.createChart(adxEl, { ...CHART_OPTS(100, chartW), timeScale:{ visible:false } });
   chartInstances.push(adxChart);
 
   const adxSeries   = adxChart.addLineSeries({ color:"#a855f7", lineWidth:2, title:"ADX" });
@@ -754,7 +759,7 @@ async function openChartModal(ticker, name, sigInfo) {
   // ── W%R ──────────────────────────────────────────────────────
   const wrEl = document.getElementById("chart-wr");
   wrEl.innerHTML = "";
-  const wrChart = LightweightCharts.createChart(wrEl, { ...CHART_OPTS(90), timeScale:{ visible:true } });
+  const wrChart = LightweightCharts.createChart(wrEl, { ...CHART_OPTS(90, chartW), timeScale:{ visible:true } });
   chartInstances.push(wrChart);
 
   const wrSeries = wrChart.addLineSeries({ color:"#06b6d4", lineWidth:1, title:"W%R" });
