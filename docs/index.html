@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>台股回測儀表板 · TWSE Backtest</title>
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
 <style>
   :root {
     --bg: #0f172a; --card: #1e293b; --border: #334155;
@@ -76,11 +77,40 @@
     color: var(--text); padding: 6px 12px; font-size: 0.85rem; margin-bottom: 12px; width: 100%; max-width: 300px; }
   #trade-search::placeholder { color: var(--muted); }
   @media (max-width: 600px) { .grid { grid-template-columns: 1fr 1fr; } }
+  /* Chart modal */
+  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:1000; align-items:center; justify-content:center; }
+  .modal-overlay.open { display:flex; }
+  .modal-box { background:var(--card); border:1px solid var(--border); border-radius:16px; width:min(98vw,1100px); max-height:92vh; overflow-y:auto; padding:20px; position:relative; }
+  .modal-close { position:absolute; top:12px; right:16px; background:none; border:none; color:var(--muted); font-size:1.4rem; cursor:pointer; line-height:1; }
+  .modal-close:hover { color:var(--text); }
+  .modal-title { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+  .modal-subtitle { font-size:.8rem; color:var(--muted); margin-bottom:16px; }
+  .chart-panel { margin-bottom:10px; border-radius:8px; overflow:hidden; }
+  .chart-panel-label { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
+  .sig-row-clickable { cursor:pointer; }
+  .sig-row-clickable:hover td { background:#1e3a5f !important; }
 </style>
 </head>
 <body>
 <h1>📈 台股量化回測儀表板</h1>
 <p class="subtitle">大飆股 DNA 策略 · 2004–2026 年度回測 · 各年獨立起始資金 100 萬</p>
+
+<!-- Chart modal -->
+<div class="modal-overlay" id="chart-modal" onclick="if(event.target===this)closeChartModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeChartModal()">✕</button>
+    <div class="modal-title" id="modal-title">—</div>
+    <div class="modal-subtitle" id="modal-subtitle">—</div>
+    <div class="chart-panel-label">K線 + 20日突破線</div>
+    <div class="chart-panel" id="chart-candle" style="height:320px"></div>
+    <div class="chart-panel-label" style="margin-top:10px">MACD (12/26/9)</div>
+    <div class="chart-panel" id="chart-macd" style="height:120px"></div>
+    <div class="chart-panel-label" style="margin-top:10px">ADX(14) + ±DI</div>
+    <div class="chart-panel" id="chart-adx" style="height:100px"></div>
+    <div class="chart-panel-label" style="margin-top:10px">威廉 W%R(50)</div>
+    <div class="chart-panel" id="chart-wr" style="height:90px"></div>
+  </div>
+</div>
 
 <div class="page-tabs">
   <button class="ptab active" onclick="switchPage('backtest')">📊 回測總覽</button>
@@ -541,8 +571,8 @@ function renderSignals(data) {
     const trs = rows.map(s => {
       const name = shortN(s.name);
       const rsi4Cls = s.m_rsi4 < 50 ? "pos" : s.m_rsi4 > 75 ? "neg" : "neu";
-      return `<tr>
-        <td><div class="trade-ticker">${s.ticker}</div><div class="trade-name">${name}</div></td>
+      return `<tr class="sig-row-clickable" onclick='openChartModal("${s.ticker}",${JSON.stringify(s.name)},${JSON.stringify(s)})'>
+        <td><div class="trade-ticker">${s.ticker} <span style="font-size:.7rem;color:var(--blue)">📈</span></div><div class="trade-name">${name}</div></td>
         <td>${s.price}</td>
         <td><span class="pos">+${s.breakout_pct.toFixed(2)}%</span></td>
         <td style="text-align:center">${"🔥".repeat(s.d4 >= 4 ? 2 : 1)} ${s.d4}</td>
@@ -605,6 +635,145 @@ function renderSignals(data) {
     });
   }
   attachSigSort();
+}
+
+// ── Chart modal ──────────────────────────────────────────────────────────────
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeChartModal(); });
+let chartInstances = [];
+
+function closeChartModal() {
+  document.getElementById("chart-modal").classList.remove("open");
+  chartInstances.forEach(c => c.remove());
+  chartInstances = [];
+}
+
+const CHART_OPTS = (height) => ({
+  layout: { background: { color: "#1e293b" }, textColor: "#94a3b8" },
+  grid: { vertLines: { color: "#263148" }, horzLines: { color: "#263148" } },
+  crosshair: { mode: 1 },
+  timeScale: { borderColor: "#334155", timeVisible: true },
+  rightPriceScale: { borderColor: "#334155" },
+  height,
+});
+
+async function openChartModal(ticker, name, sigInfo) {
+  document.getElementById("modal-title").textContent = `${ticker}  ${shortName(name)}`;
+  document.getElementById("modal-subtitle").textContent =
+    `進場日：${sigInfo.scan_date || "—"}  ·  突破 +${sigInfo.breakout_pct?.toFixed(2)}%  ·  RVOL ${sigInfo.rvol?.toFixed(2)}x  ·  月RSI4 ${sigInfo.m_rsi4?.toFixed(1)}`;
+  document.getElementById("chart-modal").classList.add("open");
+
+  // Clear old charts
+  chartInstances.forEach(c => c.remove());
+  chartInstances = [];
+  ["chart-candle","chart-macd","chart-adx","chart-wr"].forEach(id => {
+    document.getElementById(id).innerHTML = '<div style="color:#64748b;padding:20px;text-align:center">載入中…</div>';
+  });
+
+  let data;
+  try {
+    const r = await fetch(`data/charts/${ticker}.json`);
+    if (!r.ok) throw new Error(r.status);
+    data = await r.json();
+  } catch(e) {
+    document.getElementById("chart-candle").innerHTML =
+      `<div style="color:#ef4444;padding:20px">⚠️ 無法載入圖表資料 (${e})</div>`;
+    return;
+  }
+
+  const signalDate = data.scan_date;
+
+  // ── Candlestick ──────────────────────────────────────────────
+  const candleEl = document.getElementById("chart-candle");
+  candleEl.innerHTML = "";
+  const candleChart = LightweightCharts.createChart(candleEl, CHART_OPTS(320));
+  chartInstances.push(candleChart);
+
+  const candleSeries = candleChart.addCandlestickSeries({
+    upColor:"#22c55e", downColor:"#ef4444",
+    borderUpColor:"#22c55e", borderDownColor:"#ef4444",
+    wickUpColor:"#22c55e", wickDownColor:"#ef4444",
+  });
+  candleSeries.setData(data.ohlcv.map(d => ({
+    time: d.time, open: d.open, high: d.high, low: d.low, close: d.close,
+  })));
+
+  // 20-day high line
+  const h20Series = candleChart.addLineSeries({ color:"#f59e0b", lineWidth:1, lineStyle:2, title:"20H" });
+  h20Series.setData(data.high20.filter(d => d.value != null).map(d => ({ time: d.time, value: d.value })));
+
+  // Signal marker
+  if (data.signal_marks?.length) {
+    candleSeries.setMarkers(data.signal_marks.map(m => ({
+      time: m.time, position: "belowBar", color: "#3b82f6",
+      shape: "arrowUp", text: `進場 RVOL ${m.rvol?.toFixed(1)}x`,
+    })));
+  }
+
+  // Volume on candle chart (small overlay at bottom)
+  const volSeries = candleChart.addHistogramSeries({
+    color:"#334155", priceFormat:{ type:"volume" },
+    priceScaleId:"vol", scaleMargins:{ top:0.85, bottom:0 },
+  });
+  volSeries.setData(data.ohlcv.map(d => ({
+    time: d.time, value: d.volume,
+    color: d.close >= d.open ? "rgba(34,197,94,.4)" : "rgba(239,68,68,.4)",
+  })));
+
+  // ── MACD ─────────────────────────────────────────────────────
+  const macdEl = document.getElementById("chart-macd");
+  macdEl.innerHTML = "";
+  const macdChart = LightweightCharts.createChart(macdEl, { ...CHART_OPTS(120), timeScale:{ visible:false } });
+  chartInstances.push(macdChart);
+
+  const histSeries = macdChart.addHistogramSeries({ priceScaleId:"right" });
+  histSeries.setData(data.macd.filter(d => d.hist != null).map(d => ({
+    time: d.time, value: d.hist,
+    color: d.hist >= 0 ? "rgba(34,197,94,.7)" : "rgba(239,68,68,.7)",
+  })));
+  const difSeries  = macdChart.addLineSeries({ color:"#3b82f6", lineWidth:1, title:"DIF" });
+  difSeries.setData(data.macd.filter(d => d.macd != null).map(d => ({ time:d.time, value:d.macd })));
+  const sigSeries  = macdChart.addLineSeries({ color:"#f59e0b", lineWidth:1, title:"DEA" });
+  sigSeries.setData(data.macd.filter(d => d.signal != null).map(d => ({ time:d.time, value:d.signal })));
+
+  // ── ADX ──────────────────────────────────────────────────────
+  const adxEl = document.getElementById("chart-adx");
+  adxEl.innerHTML = "";
+  const adxChart = LightweightCharts.createChart(adxEl, { ...CHART_OPTS(100), timeScale:{ visible:false } });
+  chartInstances.push(adxChart);
+
+  const adxSeries   = adxChart.addLineSeries({ color:"#a855f7", lineWidth:2, title:"ADX" });
+  adxSeries.setData(data.adx.filter(d => d.adx != null).map(d => ({ time:d.time, value:d.adx })));
+  const pdiSeries   = adxChart.addLineSeries({ color:"#22c55e", lineWidth:1, title:"+DI", lineStyle:1 });
+  pdiSeries.setData(data.adx.filter(d => d.plus_di != null).map(d => ({ time:d.time, value:d.plus_di })));
+  const mdiSeries   = adxChart.addLineSeries({ color:"#ef4444", lineWidth:1, title:"-DI", lineStyle:1 });
+  mdiSeries.setData(data.adx.filter(d => d.minus_di != null).map(d => ({ time:d.time, value:d.minus_di })));
+  // ADX=20 reference line
+  const adx20 = adxChart.addLineSeries({ color:"#334155", lineWidth:1, lineStyle:2 });
+  adx20.setData(data.adx.filter(d => d.adx != null).map(d => ({ time:d.time, value:20 })));
+
+  // ── W%R ──────────────────────────────────────────────────────
+  const wrEl = document.getElementById("chart-wr");
+  wrEl.innerHTML = "";
+  const wrChart = LightweightCharts.createChart(wrEl, { ...CHART_OPTS(90), timeScale:{ visible:true } });
+  chartInstances.push(wrChart);
+
+  const wrSeries = wrChart.addLineSeries({ color:"#06b6d4", lineWidth:1, title:"W%R" });
+  wrSeries.setData(data.wr.filter(d => d.wr != null).map(d => ({ time:d.time, value:d.wr })));
+  const wr20 = wrChart.addLineSeries({ color:"#334155", lineWidth:1, lineStyle:2 });
+  wr20.setData(data.wr.filter(d => d.wr != null).map(d => ({ time:d.time, value:-20 })));
+
+  // Sync time scales
+  [macdChart, adxChart, wrChart].forEach(c => {
+    c.timeScale().subscribeVisibleLogicalRangeChange(range => {
+      if (range) candleChart.timeScale().setVisibleLogicalRange(range);
+    });
+  });
+  candleChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+    if (range) [macdChart, adxChart, wrChart].forEach(c => c.timeScale().setVisibleLogicalRange(range));
+  });
+
+  // Scroll to signal date
+  candleChart.timeScale().scrollToRealTime();
 }
 
 load();

@@ -247,6 +247,11 @@ def main():
         json.dump(out, f, ensure_ascii=False, indent=2)
     print(f"✅ Saved to {out_path}")
 
+    # Auto-generate chart data for signal stocks
+    import subprocess
+    chart_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generate_chart_data.py")
+    subprocess.run([sys.executable, chart_script])
+
 
 if __name__ == "__main__":
     main()
