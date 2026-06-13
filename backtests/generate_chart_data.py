@@ -29,8 +29,10 @@ def generate_chart(ticker: str, df_all: pd.DataFrame, scan_date: pd.Timestamp) -
     if grp.empty:
         return {}
 
-    # Limit to CHART_DAYS before scan_date
-    grp = grp[grp["Date"] <= scan_date].tail(CHART_DAYS).reset_index(drop=True)
+    # Limit to CHART_DAYS before scan_date; drop duplicate dates (keep last)
+    grp = grp[grp["Date"] <= scan_date]
+    grp = grp.drop_duplicates(subset=["Date"], keep="last")
+    grp = grp.tail(CHART_DAYS).reset_index(drop=True)
     if len(grp) < 30:
         return {}
 
