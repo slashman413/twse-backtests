@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fast adjuster v5 — same core as v4 but writes per-year from numpy arrays (avoids OOM)."""
+"""Fast adjuster v6 — v5 + dedup raw data + keep _temp for scan_signals."""
 import os, time
 import numpy as np
 import pandas as pd
@@ -23,9 +23,12 @@ for year in year_dirs:
 daily = pd.concat(dfs, ignore_index=True)
 daily["Date"] = pd.to_datetime(daily["Date"]).dt.normalize()
 daily.sort_values(["Ticker","Date"], inplace=True)
+# Deduplicate: crawler re-runs can append identical rows for the same Date+Ticker
+before = len(daily)
+daily.drop_duplicates(subset=["Ticker","Date"], keep="first", inplace=True)
 daily.reset_index(drop=True, inplace=True)
 n = len(daily)
-print(f"   {n:,} rows, {daily['Ticker'].nunique()} tickers ({time.time()-t0:.0f}s)", flush=True)
+print(f"   {n:,} rows ({before-n:,} dupes removed), {daily['Ticker'].nunique()} tickers ({time.time()-t0:.0f}s)", flush=True)
 
 # ── Step 2: Build exdiv dict ──
 print("📥 Loading exdiv events...", flush=True)
@@ -131,9 +134,6 @@ del parts
 print(f"💾 Saving {len(final):,} rows...", flush=True)
 final.to_parquet(OUTPUT, compression="snappy", index=False)
 
-for f in temp_files:
-    os.remove(os.path.join(TEMP_DIR, f))
-os.rmdir(TEMP_DIR)
-
 elapsed = time.time() - t0
 print(f"✅ Done! {elapsed:.0f}s → {OUTPUT} ({os.path.getsize(OUTPUT)/1024/1024:.0f}MB)", flush=True)
+print(f"   _temp kept at {TEMP_DIR} for scan_signals.py", flush=True)

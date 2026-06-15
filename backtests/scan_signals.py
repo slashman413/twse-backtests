@@ -18,6 +18,8 @@ from datetime import date
 _HERE = os.path.dirname(os.path.abspath(__file__))
 ADJ_TEMP_DIR = os.environ.get("ADJ_TEMP_DIR",
                os.path.join("D:/TWSE-Data/Adjusted", "_temp"))
+ADJ_ALL_FILE = os.environ.get("ADJ_FILE",
+               os.path.join("D:/TWSE-Data/Adjusted", "adjusted_all.parquet"))
 OUT_DIR      = os.environ.get("BACKTEST_OUT_DIR",
                os.path.join(_HERE, "..", "docs", "data"))
 CORE_DIR     = os.path.join(_HERE, "..", "core")
@@ -102,34 +104,60 @@ def _compute_indicators(grp: pd.DataFrame):
     }
 
 
-def main():
+def _load_adj_data() -> tuple[pd.DataFrame, pd.Timestamp]:
+    """Load last 2 years of adjusted data.
+
+    Primary source: _temp/{year}.parquet (fast, written by adjuster).
+    Fallback: adjusted_all.parquet filtered to last 2 years.
+    Returns (df, scan_date).
+    """
+    COLS = ["Date", "Ticker", "Adj_Close", "Adj_High", "Adj_Low", "Adj_Volume"]
+
     curr_year = date.today().year
     f_curr = os.path.join(ADJ_TEMP_DIR, f"{curr_year}.parquet")
-    if not os.path.exists(f_curr):
-        curr_year -= 1
-        f_curr = os.path.join(ADJ_TEMP_DIR, f"{curr_year}.parquet")
-
-    print(f"Loading {curr_year} data…")
-    df_curr = pd.read_parquet(f_curr)
-    df_curr["Date"]   = pd.to_datetime(df_curr["Date"])
-    df_curr["Ticker"] = df_curr["Ticker"].astype(str).str.zfill(4)
-    df_curr = df_curr[df_curr["Ticker"].str.len() <= 4]
-
     f_prev = os.path.join(ADJ_TEMP_DIR, f"{curr_year-1}.parquet")
-    if os.path.exists(f_prev):
-        df_prev = pd.read_parquet(f_prev)
-        df_prev["Date"]   = pd.to_datetime(df_prev["Date"])
-        df_prev["Ticker"] = df_prev["Ticker"].astype(str).str.zfill(4)
-        df_prev = df_prev[df_prev["Ticker"].str.len() <= 4]
-        df = pd.concat([df_prev, df_curr], ignore_index=True)
-    else:
-        df = df_curr
+    use_temp = os.path.exists(f_curr) or os.path.exists(f_prev)
 
+    if use_temp:
+        # Fast path: read per-year slices from _temp
+        if not os.path.exists(f_curr):
+            curr_year -= 1
+            f_curr = os.path.join(ADJ_TEMP_DIR, f"{curr_year}.parquet")
+            f_prev = os.path.join(ADJ_TEMP_DIR, f"{curr_year-1}.parquet")
+        print(f"Loading {curr_year} data from _temp…")
+        df_curr = pd.read_parquet(f_curr, columns=COLS)
+        df_curr["Date"]   = pd.to_datetime(df_curr["Date"])
+        df_curr["Ticker"] = df_curr["Ticker"].astype(str).str.zfill(4)
+        df_curr = df_curr[df_curr["Ticker"].str.len() <= 4]
+        scan_date = df_curr["Date"].max()
+        if os.path.exists(f_prev):
+            df_prev = pd.read_parquet(f_prev, columns=COLS)
+            df_prev["Date"]   = pd.to_datetime(df_prev["Date"])
+            df_prev["Ticker"] = df_prev["Ticker"].astype(str).str.zfill(4)
+            df_prev = df_prev[df_prev["Ticker"].str.len() <= 4]
+            df = pd.concat([df_prev, df_curr], ignore_index=True)
+        else:
+            df = df_curr
+    else:
+        # Fallback: read adjusted_all.parquet (2-year window)
+        print(f"_temp not found — falling back to {ADJ_ALL_FILE}…")
+        cutoff = pd.Timestamp.today() - pd.DateOffset(years=2)
+        df = pd.read_parquet(ADJ_ALL_FILE, columns=COLS)
+        df["Date"]   = pd.to_datetime(df["Date"])
+        df["Ticker"] = df["Ticker"].astype(str).str.zfill(4)
+        df = df[(df["Date"] >= cutoff) & (df["Ticker"].str.len() <= 4)]
+        scan_date = df["Date"].max()
+
+    # Deduplicate (raw data may have duplicate rows from crawler re-runs)
+    df.drop_duplicates(subset=["Ticker", "Date"], keep="last", inplace=True)
     for col in ["Adj_Close", "Adj_High", "Adj_Low"]:
         df = df[df[col].notna()]
     df = df.sort_values(["Ticker", "Date"]).reset_index(drop=True)
+    return df, scan_date
 
-    scan_date = df_curr["Date"].max()
+
+def main():
+    df, scan_date = _load_adj_data()
     print(f"Scan date: {scan_date.date()}")
 
     # Market proxy
@@ -177,7 +205,7 @@ def main():
             stock_names = json.load(f)
 
     # Compute indicators and scan
-    print(f"Computing indicators for {df_curr['Ticker'].nunique()} tickers…")
+    print(f"Computing indicators for {df['Ticker'].nunique()} tickers…")
     entry_signals = []
 
     for ticker, grp in df.groupby("Ticker", sort=False):
