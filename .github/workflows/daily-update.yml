@@ -1,0 +1,32 @@
+name: Daily Signals Update
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"   # Mon-Fri 8:00 UTC = 4:00 PM Taiwan
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update signals
+        run: python ci_update_signals.py
+
+      - name: Commit changes
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add docs/data/signals.json docs/data/charts/
+          git diff --staged --quiet || git commit -m "chore: daily signals update $(date -u +\'%Y-%m-%d\')"
+          git push
