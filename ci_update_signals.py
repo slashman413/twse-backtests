@@ -95,7 +95,7 @@ def main():
         ticker = chart_path.stem
         if ticker in prices:
             update_chart(chart_path, ticker, prices[ticker])
-            print(f"  Chart updated: {ticker} -> {prices[ticker]["close"]}")
+            print(f"  Chart updated: {ticker} -> {prices[ticker]['close']}")
 
     # Update signals.json
     signals_data = json.loads(SIGNALS_FILE.read_text(encoding="utf-8"))
