@@ -2,7 +2,7 @@
 
 > **大飆股 DNA 策略**的量化實作與歷史回測，涵蓋 2004–2026 年，支援全市場逐日掃描與 GitHub Pages 儀表板。
 
-🌐 **儀表板**：[slashman413.github.io/twse-backtests](https://slashman413.github.io/twse-backtests/)
+🌐 **儀表板**：[slashmantools.us/twse-backtests](https://slashmantools.us/twse-backtests/)
 
 ---
 
