@@ -139,12 +139,16 @@ def run_backtest(
             continue
 
         date_str = str(chunk["Date"].iloc[-1].date())
+        chunk_date = pd.Timestamp(date_str)
+
+        # 週線/月線同步裁切到當前掃描日 (避免使用未來資料造成前視偏差)
+        weekly_chunk = weekly[weekly["Date"] <= chunk_date]
+        monthly_chunk = monthly[monthly["Date"] <= chunk_date]
 
         # ── 大盤進場閘門 ──
         market_entry_zone = False
         market_entry_reason = ""
         if has_market_data and len(taiex_df) > 42:
-            chunk_date = pd.Timestamp(date_str)
             tx_sub = taiex_df[taiex_df.index <= chunk_date].copy()
             if len(tx_sub) >= 42:
                 tx_close = tx_sub["Close"]
@@ -214,7 +218,7 @@ def run_backtest(
         # 買進訊號 (僅在大盤進場區時評估)
         if market_entry_zone:
             bbs = BigStockBuySignalV2()
-            buy = bbs.evaluate(ticker, daily=chunk, weekly=weekly, monthly=monthly)
+            buy = bbs.evaluate(ticker, daily=chunk, weekly=weekly_chunk, monthly=monthly_chunk)
             if buy.signal in (TradeSignal.STRONG_BUY, TradeSignal.BUY):
                 # 資金配置：依進場條件決定倉位大小
                 reason_lower = market_entry_reason.lower()
@@ -237,7 +241,7 @@ def run_backtest(
 
         # 賣出訊號
         bss = BigStockSellSignalV2()
-        sell = bss.evaluate(ticker, daily=chunk, weekly=weekly, monthly=monthly)
+        sell = bss.evaluate(ticker, daily=chunk, weekly=weekly_chunk, monthly=monthly_chunk)
         if sell.signal in (TradeSignal.STRONG_SELL, TradeSignal.SELL):
             sell_signals.append({
                 "date": date_str,
