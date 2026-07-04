@@ -91,6 +91,110 @@
   .chart-panel-label { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
   .sig-row-clickable { cursor:pointer; }
   .sig-row-clickable:hover td { background:#1e3a5f !important; }
+
+  /* ── Premium CTA banner ─────────────────────────────────────── */
+  .premium-cta {
+    background: linear-gradient(135deg, #1e1b4b 0%, #172554 50%, #1e293b 100%);
+    border: 1px solid #4f46e5;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .premium-cta-text { flex: 1; min-width: 220px; }
+  .premium-cta-tag {
+    display: inline-block;
+    background: #4f46e5;
+    color: #c7d2fe;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 8px;
+  }
+  .premium-cta-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e0e7ff;
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .premium-cta-desc {
+    font-size: 0.83rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+  .premium-cta-desc strong { color: #a5b4fc; }
+  .premium-cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .premium-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity .15s;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.35);
+  }
+  .premium-btn:hover { opacity: 0.88; }
+  .premium-pricing {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: right;
+  }
+  .premium-pricing span { color: #818cf8; font-weight: 600; }
+  /* Gate overlay on signals tab */
+  .gate-overlay {
+    background: linear-gradient(170deg, #1e1b4b 0%, #0f172a 100%);
+    border: 1px solid #4f46e5;
+    border-radius: 14px;
+    padding: 48px 24px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 520px;
+  }
+  .gate-lock { font-size: 2.8rem; margin-bottom: 16px; }
+  .gate-title { font-size: 1.25rem; font-weight: 700; color: #e0e7ff; margin-bottom: 10px; }
+  .gate-desc { font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 24px; }
+  .gate-desc strong { color: #a5b4fc; }
+  .gate-features { list-style: none; text-align: left; display: inline-block; margin-bottom: 28px; }
+  .gate-features li { font-size: 0.85rem; color: #c7d2fe; padding: 4px 0; }
+  .gate-features li::before { content: "✓  "; color: #22c55e; font-weight: 700; }
+  .gate-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 13px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(99,102,241,0.4);
+    transition: opacity .15s;
+  }
+  .gate-btn:hover { opacity: 0.88; }
+  .gate-pricing { margin-top: 14px; font-size: 0.75rem; color: #64748b; }
+  .gate-pricing span { color: #818cf8; font-weight: 600; }
+  @media (max-width: 600px) {
+    .premium-cta { flex-direction: column; align-items: stretch; }
+    .premium-cta-actions { align-items: stretch; }
+    .premium-btn { text-align: center; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY95FHB8JG"></script>
@@ -104,6 +208,31 @@
 <body>
 <h1>📈 台股量化回測儀表板</h1>
 <p class="subtitle">大飆股 DNA 策略 · 2004–2026 年度回測 · 各年獨立起始資金 100 萬</p>
+
+<!-- ── Premium CTA banner ──────────────────────────────────────────────── -->
+<div class="premium-cta">
+  <div class="premium-cta-text">
+    <div class="premium-cta-tag">Premium</div>
+    <div class="premium-cta-title">想知道今天策略掃到哪幾檔？</div>
+    <div class="premium-cta-desc">
+      歷史回測與方法論<strong>完全免費</strong>。升級 Premium 可取得
+      <strong>每日進場訊號</strong>（哪幾檔達到策略條件、建議進場價與停損位）
+      ，以及每週實績追蹤報告，直接取自同一套量化系統。
+    </div>
+  </div>
+  <div class="premium-cta-actions">
+    <a class="premium-btn"
+       href="https://ko-fi.com/s/b99720d13d"
+       target="_blank" rel="noopener"
+       onclick="try{gtag('event','premium_cta_click',{location:'top_banner'})}catch(e){}">
+      立即訂閱 Premium
+    </a>
+    <div class="premium-pricing">
+      月訂 <span>$49</span> · 季訂 <span>$99</span> · 年訂 <span>$299</span>
+    </div>
+  </div>
+</div>
+<!-- ────────────────────────────────────────────────────────────────────── -->
 
 <!-- Chart modal -->
 <div class="modal-overlay" id="chart-modal" onclick="if(event.target===this)closeChartModal()">
@@ -124,14 +253,42 @@
 
 <div class="page-tabs">
   <button class="ptab active" onclick="switchPage('backtest')">📊 回測總覽</button>
-  <button class="ptab" onclick="switchPage('signals')" id="signals-tab-btn">🔔 今日訊號</button>
+  <button class="ptab" onclick="switchPage('signals')" id="signals-tab-btn">🔔 今日訊號 <span style="font-size:.68rem;background:#4f46e5;color:#c7d2fe;padding:1px 6px;border-radius:99px;margin-left:4px;font-weight:700;vertical-align:middle">Premium</span></button>
 </div>
 
 <div id="page-backtest" class="page-panel active">
   <div id="app"><div class="loading">⏳ 載入回測資料中...</div></div>
 </div>
 <div id="page-signals" class="page-panel">
-  <div id="signals-app"><div class="loading">⏳ 載入訊號資料中...</div></div>
+  <!-- Gate wall — replaces the live signals content for non-subscribers -->
+  <div style="padding: 32px 0; display:flex; justify-content:center;">
+    <div class="gate-overlay">
+      <div class="gate-lock">🔒</div>
+      <div class="gate-title">今日進場訊號 — Premium 專屬</div>
+      <div class="gate-desc">
+        這套系統每天收盤後自動掃描全台股，
+        篩出符合<strong>大飆股 DNA 九步條件</strong>的標的，
+        並附上建議進場區間與停損位。<br>
+        歷史回測與策略說明對所有人免費開放；
+        <strong>即時每日訊號</strong>屬於付費功能。
+      </div>
+      <ul class="gate-features">
+        <li>每日收盤後自動掃描，最快隔日早上收信</li>
+        <li>策略評分、突破幅度、量能倍率一覽表</li>
+        <li>每週實績追蹤：上週訊號勝率公開透明</li>
+        <li>2004–2026 完整回測儀表板持續免費</li>
+      </ul>
+      <a class="gate-btn"
+         href="https://ko-fi.com/s/b99720d13d"
+         target="_blank" rel="noopener"
+         onclick="try{gtag('event','premium_cta_click',{location:'signals_gate'})}catch(e){}">
+        解鎖每日訊號 — 立即訂閱
+      </a>
+      <div class="gate-pricing">
+        月訂 <span>$49</span> · 季訂 <span>$99</span> · 年訂 <span>$299</span>（美元）
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -510,7 +667,6 @@ function drawChart(rows) {
 }
 
 // ── Page tab switching ───────────────────────────────────────────────────────
-let signalsLoaded = false;
 window.switchPage = function(page) {
   document.querySelectorAll(".ptab").forEach(b => b.classList.remove("active"));
   document.querySelectorAll(".page-panel").forEach(p => p.classList.remove("active"));
@@ -519,133 +675,8 @@ window.switchPage = function(page) {
     : document.getElementById("signals-tab-btn");
   btn.classList.add("active");
   document.getElementById("page-" + page).classList.add("active");
-  if (page === "signals" && !signalsLoaded) {
-    signalsLoaded = true;
-    loadSignals();
-  }
+  // Signals tab now shows the gate overlay — no async load needed.
 };
-
-// ── Signals view ─────────────────────────────────────────────────────────────
-async function loadSignals() {
-  try {
-    const r = await fetch("data/signals.json");
-    if (!r.ok) throw new Error("signals.json " + r.status);
-    const data = await r.json();
-    renderSignals(data);
-  } catch(e) {
-    document.getElementById("signals-app").innerHTML =
-      `<div class="loading">⚠️ 無法載入訊號資料<br><small>${e}</small><br><small>請先執行 <code>python backtests/scan_signals.py</code></small></div>`;
-  }
-}
-
-function renderSignals(data) {
-  const signals = data.entry_signals || [];
-  const regime  = data.market_regime || "UNKNOWN";
-  const volGate = data.market_vol_gate;
-  const scanDate = data.scan_date;
-
-  const regimeCls = {BULL:"regime-bull", ALERT:"regime-alert", BEAR:"regime-bear", CRASH:"regime-crash"}[regime] || "";
-  const regimeIcon = {BULL:"🟢", ALERT:"🟡", BEAR:"🔵", CRASH:"🔴"}[regime] || "⚪";
-
-  const shortN = full => (full||"").replace(/股份有限公司$/, "").replace(/有限公司$/, "").replace(/股份$/, "").trim();
-
-  let sigSortKey = "score", sigSortAsc = false;
-
-  function sortedSignals() {
-    return [...signals].sort((a, b) => {
-      let av = a[sigSortKey], bv = b[sigSortKey];
-      if (av == null) av = 0; if (bv == null) bv = 0;
-      return sigSortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
-    });
-  }
-
-  function signalTableHTML() {
-    const cols = [
-      { key:"ticker",       label:"代號/名稱" },
-      { key:"price",        label:"收盤價" },
-      { key:"breakout_pct", label:"突破幅%" },
-      { key:"d4",           label:"MACD箭頭" },
-      { key:"adx",          label:"ADX" },
-      { key:"wr",           label:"W%R(50)" },
-      { key:"rvol",         label:"RVOL" },
-      { key:"atr_ratio",    label:"ATR倍率" },
-      { key:"m_rsi4",       label:"月RSI4" },
-      { key:"avg_vol_lots", label:"均量(張)" },
-      { key:"score",        label:"加分" },
-    ];
-    const ths = cols.map(c =>
-      `<th data-sig="${c.key}">${c.label}${sigSortKey===c.key?(sigSortAsc?" ▲":" ▼"):""}</th>`
-    ).join("");
-    const rows = sortedSignals();
-    if (!rows.length) return `<p style="color:var(--muted);padding:20px">目前無進場訊號</p>`;
-    const trs = rows.map(s => {
-      const name = shortN(s.name);
-      const rsi4Cls = s.m_rsi4 < 50 ? "pos" : s.m_rsi4 > 75 ? "neg" : "neu";
-      return `<tr class="sig-row-clickable" onclick='openChartModal("${s.ticker}",${JSON.stringify(s.name)},${JSON.stringify(s)})'>
-        <td><div class="trade-ticker">${s.ticker} <span style="font-size:.7rem;color:var(--blue)">📈</span></div><div class="trade-name">${name}</div></td>
-        <td>${s.price}</td>
-        <td><span class="pos">+${s.breakout_pct.toFixed(2)}%</span></td>
-        <td style="text-align:center">${"🔥".repeat(s.d4 >= 4 ? 2 : 1)} ${s.d4}</td>
-        <td>${s.adx.toFixed(1)}</td>
-        <td>${s.wr.toFixed(1)}</td>
-        <td><span class="${s.rvol >= 2 ? "pos" : "neu"}">${s.rvol.toFixed(2)}x</span></td>
-        <td>${s.atr_ratio.toFixed(2)}</td>
-        <td><span class="badge ${rsi4Cls}">${s.m_rsi4.toFixed(1)}</span></td>
-        <td>${s.avg_vol_lots.toLocaleString()}</td>
-        <td style="text-align:center">${"+".repeat(s.score) || "—"}</td>
-      </tr>`;
-    }).join("");
-    return `<table id="sig-tbl"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
-  }
-
-  document.getElementById("signals-app").innerHTML = `
-    <div class="grid" style="margin-bottom:20px">
-      <div class="kpi">
-        <div class="kpi-label">掃描日期</div>
-        <div class="kpi-value neu" style="font-size:1.2rem">${scanDate}</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">市場狀態 (0050)</div>
-        <div class="kpi-value" style="font-size:1.4rem">
-          <span class="badge ${regimeCls}">${regimeIcon} ${regime}</span>
-        </div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">波動門檻</div>
-        <div class="kpi-value" style="font-size:1.2rem">
-          <span class="badge ${volGate ? 'neg' : 'pos'}">${volGate ? "⚠️ 高波動 — 抑制進場" : "✅ 正常"}</span>
-        </div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">進場訊號數</div>
-        <div class="kpi-value ${signals.length > 0 ? 'pos' : 'neu'}">${signals.length}</div>
-      </div>
-    </div>
-    ${volGate ? `<div class="card" style="border-color:var(--yellow);margin-bottom:16px">
-      <p style="color:var(--yellow);font-size:.9rem">⚠️ 目前 0050 波動率超過 25%，策略訊號僅供參考，實際回測不會進場。</p>
-    </div>` : ""}
-    <div class="card">
-      <h2>📡 進場訊號 <small style="font-size:.75rem;color:var(--muted);font-weight:400">（大飆股 DNA 策略條件：MACD四箭頭 + ADX>20 + W%R<-20 + 突破20日高點 + RVOL≥1.2）</small></h2>
-      <div id="sig-tbl-wrap" class="tbl-scroll">${signalTableHTML()}</div>
-      <p class="note">資料來源：${scanDate} 收盤數據 · 僅供研究參考，非投資建議</p>
-    </div>
-  `;
-
-  function attachSigSort() {
-    const tbl = document.getElementById("sig-tbl");
-    if (!tbl) return;
-    tbl.querySelectorAll("th").forEach(th => {
-      th.addEventListener("click", () => {
-        const k = th.dataset.sig;
-        if (sigSortKey === k) sigSortAsc = !sigSortAsc;
-        else { sigSortKey = k; sigSortAsc = false; }
-        document.getElementById("sig-tbl-wrap").innerHTML = signalTableHTML();
-        attachSigSort();
-      });
-    });
-  }
-  attachSigSort();
-}
 
 // ── Chart modal ──────────────────────────────────────────────────────────────
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeChartModal(); });
