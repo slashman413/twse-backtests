@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<title>大飆股 DNA 是什麼？台股九步量化選股策略完整解析 | 教學</title>
+<meta name="description" content="用白話解析「大飆股 DNA」台股九步量化策略：市場機制判斷、進場訊號、量能篩選、評分與出場風控。教育用途，非投資建議。附每日訊號掃描連結。">
+<meta name="keywords" content="大飆股 DNA, 台股 量化 選股, 九步策略, 台股 波段 策略, MACD ADX 選股, 量化交易 台股">
+<link rel="canonical" href="https://slashmantools.us/twse-backtests/strategy.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:url" content="https://slashmantools.us/twse-backtests/strategy.html" />
+<meta property="og:title" content="大飆股 DNA — 台股九步量化選股策略完整解析" />
+<meta property="og:description" content="市場機制、進場訊號、量能、評分、出場風控——一次看懂這套台股波段量化策略怎麼運作。教育用途，非投資建議。" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY95FHB8JG"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+  gtag('js',new Date());gtag('config','G-MY95FHB8JG');
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Article",
+  "headline":"大飆股 DNA — 台股九步量化選股策略完整解析",
+  "inLanguage":"zh-Hant",
+  "author":{"@type":"Person","name":"slashman413"},
+  "publisher":{"@type":"Organization","name":"AI工具人"},
+  "description":"台股九步量化策略的白話解析：市場機制、進場、量能、評分、出場。教育用途，非投資建議。",
+  "mainEntityOfPage":"https://slashmantools.us/twse-backtests/strategy.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"大飆股 DNA 是什麼？","acceptedAnswer":{"@type":"Answer","text":"一套規則明確的台股波段量化策略：先判斷市場多空機制，再用技術指標與量能篩選進場、用評分排序、並以固定規則出場與停損。它是機械化的選股方法，不是明牌。"}},
+    {"@type":"Question","name":"這是投資建議嗎？","acceptedAnswer":{"@type":"Answer","text":"不是。本頁為教育與研究用途，說明策略邏輯，不構成任何投資建議或買賣推薦。投資有風險，請自行判斷。"}},
+    {"@type":"Question","name":"可以自己驗證嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。策略規則完全公開，你可以用自己的資料回測。完整研究文件見策略手冊。"}}
+  ]
+}
+</script>
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:#0a0a0f;color:#e8e8f0;line-height:1.75;padding:24px 16px 64px}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-size:1.9rem;line-height:1.3;background:linear-gradient(135deg,#22c55e,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+  .lead{color:#b8b8c8;font-size:1.05rem;margin-bottom:8px}
+  .disc{font-size:12px;color:#7c7c9a;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;margin:14px 0}
+  h2{font-size:1.3rem;margin:30px 0 10px;color:#e8e8f0}
+  h3{font-size:1.05rem;margin:18px 0 6px;color:#c7c7f0}
+  p{color:#c2c2d4;margin-bottom:12px}
+  ol,ul{margin:0 0 12px 22px;color:#c2c2d4}
+  li{margin-bottom:6px}
+  .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:3px solid #22c55e;border-radius:10px;padding:14px 16px;margin:12px 0}
+  .step b{color:#a5b4fc}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top}
+  th{color:#8888b0;font-size:12px}
+  .cta{background:linear-gradient(135deg,#0f2318,#0a0a0f);border:1px solid rgba(34,197,94,.3);border-radius:16px;padding:24px;margin:28px 0;text-align:center}
+  .cta h2{margin-top:0}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;margin:6px}
+  .btn.primary{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff}
+  .btn.ghost{background:rgba(255,255,255,.06);color:#c7c7f0;border:1px solid rgba(255,255,255,.14)}
+  .faq details{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 14px;margin:8px 0}
+  .faq summary{cursor:pointer;font-weight:600}
+  .faq p{margin:8px 0 0}
+  footer{margin-top:36px;text-align:center;font-size:12px;color:#55557a}
+  footer a{color:#8888c0;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>大飆股 DNA：台股九步量化選股策略完整解析</h1>
+  <p class="lead">很多人問「大飆股 DNA 到底怎麼選股？」——這篇用白話把整套規則拆給你看：從判斷大盤多空、找進場點、篩量能、評分，到出場與停損。全部是<strong>機械化、可自己驗證</strong>的規則，不是明牌。</p>
+  <div class="disc">⚠️ 本頁為<strong>教育與研究用途</strong>，說明策略邏輯，<strong>不構成任何投資建議或買賣推薦</strong>。台股投資有風險，可能損失本金，請自行判斷並承擔風險。</div>
+
+  <h2>核心觀念：先看盤勢，再選個股</h2>
+  <p>這套策略最重要的一點：<strong>不是先看個股，而是先看大盤機制</strong>。多頭時才積極進場、空頭時收手，能避開大部分「選對股票、卻死在大盤下跌」的情況。整體流程可拆成九個步驟。</p>
+
+  <div class="step"><b>Step 1｜市場機制判斷</b><br>用 0050（台灣 50）的 MACD 與 ADX 判斷目前是多頭（BULL）還是空頭（BEAR）：MACD 呈現多頭排列（≥3 個向上訊號）且 ADX &gt; 20，視為多頭，才開放進場。</div>
+  <div class="step"><b>Step 2｜類股輪動</b><br>多頭確立後，看哪些類股相對強勢，把注意力放在資金正在流入的族群。</div>
+  <div class="step"><b>Step 3｜進場訊號</b><br>個股需同時滿足：MACD 多頭、ADX &gt; 20、威廉指標 WR &lt; -20（脫離超賣）、且<strong>突破近 20 日高點</strong>——確認趨勢啟動而非假突破。</div>
+  <div class="step"><b>Step 4｜量能篩選</b><br>20 日均量需達一定門檻（約 300–500 張/日以上），避免流動性太差、進出困難的冷門股。</div>
+  <div class="step"><b>Step 5｜評分排序</b><br>用多個指標加分（如 RSI60 &gt; 57、週/月 VR 動能、月 PDI 與 RSI 條件），分數達門檻才納入候選，並依分數排序。</div>
+  <div class="step"><b>Step 6｜切入時機</b><br>在符合條件的個股中，挑回檔或突破的相對好進場點，而非追高。</div>
+  <div class="step"><b>Step 7｜出場規則</b><br>當動能轉弱（如月 RSI4 跌破門檻）即獲利/停利出場，不憑感覺凹單。</div>
+  <div class="step"><b>Step 8｜停損風控</b><br>設硬停損（多頭約 -10%、空頭環境更嚴格約 -7%），單筆虧損有上限，保護整體資金。</div>
+  <div class="step"><b>Step 9｜危機模式</b><br>當大盤機制翻空，全面收手、降低曝險，等下一個多頭循環再進場。</div>
+
+  <h2>為什麼用「規則」而不是「感覺」？</h2>
+  <p>波段策略的獲利，往往不是靠高勝率，而是靠<strong>賺賠比</strong>——賺的時候讓利潤跑、賠的時候快速停損。機械化規則的價值在於：移除情緒、可重複、可回測、可檢討。你可以拿同一套規則檢視每一筆進出，而不是事後才後悔。</p>
+
+  <h2>自己怎麼開始？</h2>
+  <ol>
+    <li>先確認大盤機制（多/空），空頭就少做。</li>
+    <li>在多頭中，篩出符合進場條件、量能足夠的個股。</li>
+    <li>進場前就先設好停損與出場規則，並嚴格執行。</li>
+    <li>記錄每一筆交易，定期檢討規則有沒有被遵守。</li>
+  </ol>
+  <p>完整的指標定義與研究過程（含各版本演進與問題診斷），整理在策略手冊裡；每個交易日的實際掃描結果，則會在下方的每日訊號頁呈現。</p>
+
+  <div class="cta">
+    <h2>想每天直接收到「今天符合條件的台股」？</h2>
+    <p>免費看完整歷史回測與策略邏輯；付費會員每個交易日收到當日通過九步篩選的名單與進出場價位。</p>
+    <a class="btn primary" id="cta-premium" href="https://slashmantools.us/hermes-twse-premium/?utm_source=strategy-guide&utm_medium=content&utm_campaign=twse" target="_blank" rel="noopener">🔓 看 Premium 方案（$49/月起）</a>
+    <a class="btn ghost" href="https://slashmantools.us/twse-backtests/?utm_source=strategy-guide&utm_medium=content&utm_campaign=twse">📊 先看免費回測儀表板</a>
+  </div>
+
+  <h2 style="font-size:1.1rem">常見問題</h2>
+  <div class="faq">
+    <details><summary>大飆股 DNA 是什麼？</summary><p>一套規則明確的台股波段量化策略：先判斷市場多空機制，再用技術指標與量能篩選進場、用評分排序、並以固定規則出場與停損。它是機械化的選股方法，不是明牌。</p></details>
+    <details><summary>這是投資建議嗎？</summary><p>不是。本頁為教育與研究用途，說明策略邏輯，不構成任何投資建議或買賣推薦。投資有風險，請自行判斷。</p></details>
+    <details><summary>我可以自己驗證嗎？</summary><p>可以。策略規則完全公開，你可以用自己的資料回測。想看完整研究文件，可參考策略手冊。</p></details>
+  </div>
+
+  <footer>
+    <a href="https://slashmantools.us/twse-backtests/">← 回台股量化回測</a> · <a href="https://slashmantools.us/">AI工具人</a><br>
+    教育與研究用途 · 非投資建議
+  </footer>
+</div>
+<script>
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('#cta-premium'); if(!a||typeof gtag!=='function')return;
+    gtag('event','select_promotion',{promotion_name:'twse_premium',source:'strategy_guide'});
+  });
+</script>
+</body>
+</html>
