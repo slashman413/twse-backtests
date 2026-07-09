@@ -218,6 +218,7 @@
 <h1>📈 台股量化回測儀表板</h1>
 <p class="subtitle">大飆股 DNA 策略 · 2004–2026 年度回測 · 各年獨立起始資金 100 萬</p>
 <p class="subtitle" style="margin-top:-6px"><a href="strategy.html" style="color:#818cf8;text-decoration:none" onclick="try{gtag('event','strategy_guide_click',{location:'dashboard'})}catch(e){}">📖 這套策略是怎麼運作的？九步邏輯完整解析 →</a></p>
+<p class="subtitle" style="margin-top:-6px">🔍 回測方法與全部交易紀錄公開透明——2004–2026 每一筆進出場明細都可在下方逐年查驗。</p>
 
 <!-- ── Premium CTA banner ──────────────────────────────────────────────── -->
 <div class="premium-cta">
@@ -412,6 +413,13 @@ function renderSummary() {
     return `<table id="sum-tbl"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
   }
 
+  const resultsCTA = loc => `
+    <div class="card" style="text-align:center">
+      <div style="font-size:1rem;font-weight:700;margin-bottom:12px">想每天收到這套策略的最新訊號？</div>
+      <a class="premium-btn" href="https://slashmantools.us/hermes-twse-premium/" target="_blank" rel="noopener"
+         onclick="try{gtag('event','premium_cta_click',{location:'${loc}'})}catch(e){}">了解 TWSE Premium 訂閱</a>
+    </div>`;
+
   document.getElementById("app").innerHTML = `
     <div class="grid">${kpis.map(k=>`<div class="kpi"><div class="kpi-label">${k.label}</div><div class="kpi-value ${k.cls}">${k.value}</div></div>`).join("")}</div>
     <div class="card">
@@ -423,10 +431,12 @@ function renderSummary() {
       <div id="sum-table-wrap">${summaryTableHTML()}</div>
       <p class="note">⚠️ 各年獨立起始資金 100 萬，不複利累積。點擊欄標題排序；點擊列查看該年明細。</p>
     </div>
+    ${resultsCTA("after_summary")}
     <div class="card" id="trade-card">
       <h2 id="trade-title">年度買賣明細</h2>
       <div id="trade-wrap"><div class="loading" style="padding:20px">← 點選上方年份列</div></div>
     </div>
+    ${resultsCTA("after_trades")}
   `;
 
   function attachSort() {
