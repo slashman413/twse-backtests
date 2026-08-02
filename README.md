@@ -1,4 +1,7 @@
 # 台股量化回測系統 — TWSE Backtest
+> ## 🛍️ **ETF 儀表板 — 完整版**
+> 此 repo 為開源核心。完整版 **[ETF 儀表板 ($199) on Gumroad](https://slashmaster6.gumroad.com/l/etf-dashboard)** — 自動財報分析、評分系統、歷史回測與每日更新。
+
 
 > **大飆股 DNA 策略**的量化實作與歷史回測，涵蓋 2004–2026 年，支援全市場逐日掃描與 GitHub Pages 儀表板。
 
