@@ -23,7 +23,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests "slashman-finance-utils @ git+https://github.com/slashman413/slashman-finance-utils@v0.1.0"
 
       - name: Update signals
         run: python ci_update_signals.py

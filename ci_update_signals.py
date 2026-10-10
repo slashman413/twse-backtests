@@ -5,57 +5,19 @@ CI daily update ? twse-backtests
 - Updates docs/data/charts/*.json (180-day OHLCV window)
 - Updates docs/data/signals.json scan_date and entry prices
 """
-import json, ssl, sys, math
+import json, sys, math
 from datetime import date, datetime
 from pathlib import Path
-import urllib.request
+
+from slashman_finance import stock_day_all
 
 CHARTS_DIR  = Path("docs/data/charts")
 SIGNALS_FILE = Path("docs/data/signals.json")
 TODAY = date.today().isoformat()
 
-CTX = ssl.create_default_context()
-CTX.check_hostname = False
-CTX.verify_mode    = ssl.CERT_NONE
-
-def fetch_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, context=CTX, timeout=30) as r:
-        return json.loads(r.read())
-
 def fetch_prices():
-    try:
-        rows = fetch_json("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL")
-        if not rows: raise ValueError("empty")
-        p = {}
-        for row in rows:
-            try:
-                p[row["Code"]] = {
-                    "close": float(row["ClosingPrice"].replace(",","")),
-                    "open":  float(row["OpeningPrice"].replace(",","")),
-                    "high":  float(row["HighestPrice"].replace(",","")),
-                    "low":   float(row["LowestPrice"].replace(",","")),
-                    "volume":float(row["TradeVolume"].replace(",","")),
-                }
-            except: pass
-        return p
-    except Exception as e:
-        print(f"  OpenAPI failed: {e}, trying RWD...")
-    try:
-        d = date.today().strftime("%Y%m%d")
-        rwd = fetch_json(f"https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY_ALL?response=json&date={d}")
-        return {
-            str(r[0]).strip(): {
-                "close": float(str(r[7]).replace(",","")),
-                "open":  float(str(r[4]).replace(",","")),
-                "high":  float(str(r[5]).replace(",","")),
-                "low":   float(str(r[6]).replace(",","")),
-                "volume":float(str(r[2]).replace(",","")),
-            }
-            for r in rwd.get("data", []) if len(r) >= 8
-        }
-    except Exception as e2:
-        print(f"  RWD also failed: {e2}"); return {}
+    """{code: {close, open, high, low, volume}} — OpenAPI first, RWD fallback (shared lib)."""
+    return stock_day_all()[1]
 
 def update_chart(path, ticker, p):
     try:
