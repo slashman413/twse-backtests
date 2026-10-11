@@ -1,18 +1,11 @@
 """Fetch listed + OTC stock names from TWSE/TPEX OpenAPI and save to docs/data/stock_names.json."""
-import json, os, ssl, urllib.request, sys
+import json, os, sys
+
+from slashman_finance import fetch_json
 
 OUT_DIR = os.environ.get("BACKTEST_OUT_DIR",
           os.path.join(os.path.dirname(__file__), "..", "docs", "data"))
 os.makedirs(OUT_DIR, exist_ok=True)
-
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-
-def fetch_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, context=ctx, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8"))
 
 names = {}
 
