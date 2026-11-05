@@ -44,8 +44,10 @@ def update_chart(path, ticker, p, session):
         data = {"ticker": ticker, "scan_date": session, "ohlcv": [], "high20": [], "macd": [], "adx": [], "wr": [], "signal_marks": []}
 
     ohlcv = data.get("ohlcv", [])
-    if ohlcv and ohlcv[-1].get("time") >= session:
-        return  # this session is already in the chart
+    if ohlcv and ohlcv[-1].get("time") > session:
+        return  # older data than the chart already has
+    if ohlcv and ohlcv[-1].get("time") == session:
+        ohlcv.pop()  # re-read: volumes are provisional until about 14:35 Taipei
 
     ohlcv.append({"time": session, "open": p["open"], "high": p["high"],
                   "low": p["low"], "close": p["close"], "volume": int(p["volume"])})
