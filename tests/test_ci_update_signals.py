@@ -27,13 +27,21 @@ def test_bar_is_labelled_with_the_session_date(tmp_path):
     assert data["scan_date"] == "2026-11-04"
 
 
-def test_same_or_older_session_adds_no_bar(tmp_path):
+def test_older_session_adds_no_bar(tmp_path):
     chart = tmp_path / "1506.json"
     write_chart(chart, ["2026-11-03", "2026-11-04"])
     before = chart.read_text()
-    ci.update_chart(chart, "1506", QUOTE, "2026-11-04")
     ci.update_chart(chart, "1506", QUOTE, "2026-11-03")
     assert chart.read_text() == before
+
+
+def test_same_session_replaces_the_bar(tmp_path):
+    chart = tmp_path / "1506.json"
+    write_chart(chart, ["2026-11-03", "2026-11-04"])
+    ci.update_chart(chart, "1506", {**QUOTE, "volume": 1234.0}, "2026-11-04")
+    bars = json.loads(chart.read_text())["ohlcv"]
+    assert [b["time"] for b in bars] == ["2026-11-03", "2026-11-04"]
+    assert bars[-1]["volume"] == 1234
 
 
 def test_high20_starts_at_the_twentieth_bar():
